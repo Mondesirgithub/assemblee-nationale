@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'comptes.apps.ComptesConfig',
     'forums.apps.ForumsConfig',
     'web.apps.WebConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'assemblee_nationale.urls'
@@ -71,6 +73,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'assemblee_nationale.wsgi.application'
+
+
+CORS_ORIGIN_WHITELIST = [
+    'https://www.youtube.com',
+]
 
 
 # Database
@@ -113,6 +120,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+CSRF_COOKIE_SECURE = False
 
 
 # Static files (CSS, JavaScript, Images)

@@ -9,11 +9,15 @@ def index(request):
     actualiteImage1 = ActualiteImage.objects.order_by("-created_at").first()
     actualiteImage2 = ActualiteImage.objects.order_by("-created_at").all()[1]
     
+    image1 , image2 = actualiteImage1.imageassociee_set.all()[0], actualiteImage2.imageassociee_set.all()[0]
+    
     context = {
         'categories': categories,
         'actualiteVideo': actualiteVideo,
         'actualiteImage1': actualiteImage1,
         'actualiteImage2': actualiteImage2,
+        'image1':image1,
+        'image2':image2,
     }
     
     return render(request, 'web/index.html', context)
