@@ -1,0 +1,53 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Details Actualité{% endblock title %}
+
+{% block content %}
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">{{actualiteImage.titre}}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="newsClassic.html">News</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Metro Road Design Plan 2025</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article class="newsSingleWrap pt-7 pb-2 pt-md-9 pb-md-4 pt-lg-14 pb-lg-8 pt-xl-22 pb-xl-13">
+        <div class="container">
+            <div class="row">
+                <div class="mb-6">
+                    <div class="pr-xl-14">
+                        <div class="imgHolder mb-4 mb-md-8 position-relative">
+                            
+                            <div class="nrcImageSlider">
+                                {% for imageAssociee in imageAssociees %}
+                                    <div class="imgWrap" style="background-color: red;width: 300px;height: 300px;">
+                                        <img src="{{imageAssociee.source.url}}" class="img-fluid w-100" alt="image description" style="height: 100%;width: 100%;" />
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        
+                        </div>
+                        <header class="nrcHead">
+                            <strong class="d-block fwMedium title mb-1">
+                                <i class="icnTheme fwMedium icomoon-clock"><span class="sr-only">icon</span></i>
+                                <time datetime="2011-01-12">{{actualiteImage.created_at}}</time>
+                            </strong>
+                            <h2 class="h2vii fwSemiBold mb-5">Metro Road Design Plan 2025</h2>
+                        </header>
+                        <p><span class="dropCap">M</span>{{actualiteImage.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
+{% endblock content %}

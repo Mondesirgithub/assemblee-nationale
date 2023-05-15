@@ -34,6 +34,14 @@ class ActualiteVideo(Actualite):
     def __str__(self) -> str:
         return f"{super().titre}"
     
+
+    def save(self, *args, **kwargs):
+        # Modifier la valeur du champ lien ici avant d'appeler la méthode save() parente
+        self.lien = self.lien.split("=")[-1]  # Exemple de modification, met le lien en majuscules
+
+        # Appeler la méthode save() parente pour effectuer la sauvegarde
+        super().save(*args, **kwargs)
+    
     
 class ActualiteImage(Actualite):
     description = models.TextField(verbose_name="Description de l'actualite", blank=False, null=False)

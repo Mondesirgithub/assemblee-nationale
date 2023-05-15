@@ -113,11 +113,11 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
-                        <iframe width="405" height="250" src="{{actualiteVideo.lien}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe width="405" height="250" src="https://www.youtube.com/embed/{{actualiteVideo.lien}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
                         <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
                             <h3 class="fwMedium mb-0">{{actualiteVideo.titre}}</h3>
-                            <a href="servicesSingle.html" class="btnLink fontAlter">Learn More <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
+                            <a href="{% url 'web:actualite-details' actualiteVideo.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
                         </div>
                     </article>
                 </div>
@@ -126,7 +126,7 @@
                         <span class="imgHolder d-block w-100 bgCover" style="background-image: url('{{image1.source.url}}');"></span>
                         <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
                             <h3 class="fwMedium mb-0">{{actualiteImage1.titre}}</h3>
-                            <a href="servicesSingle.html" class="btnLink fontAlter">Learn More <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
+                            <a href="{% url 'web:actualite-image-details' actualiteImage1.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
                         </div>
                     </article>
                 </div>
@@ -135,7 +135,7 @@
                         <span class="imgHolder d-block w-100 bgCover" style="background-image: url('{{image2.source.url}}');"></span>
                         <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
                             <h3 class="fwMedium mb-0">{{actualiteImage2.titre}}</h3>
-                            <a href="servicesSingle.html" class="btnLink fontAlter">Learn More <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
+                            <a href="{% url 'web:actualite-image-details' actualiteImage2.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
                         </div>
                     </article>
                 </div>

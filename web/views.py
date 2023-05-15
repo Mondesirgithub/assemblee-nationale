@@ -17,7 +17,7 @@ def index(request):
         'actualiteImage1': actualiteImage1,
         'actualiteImage2': actualiteImage2,
         'image1':image1,
-        'image2':image2,
+        'image2':image2
     }
     
     return render(request, 'web/index.html', context)
@@ -25,31 +25,62 @@ def index(request):
 
 
 def article_details(request, id):
-    context = {}
     try:
         article = Article.objects.get(pk=id)
         categorie = Categorie.objects.get(pk=article.categorie.pk)
         articles = categorie.article_set.all()
-        context = {
-            'article': article,
-            'articles': articles
-        }
     except:
         messages.error(request, "L'article n'existe pas")
 
+    context = {
+        'article': article,
+        'articles': articles
+    }
     return render(request, 'web/article_details.html', context)
 
 
 def articles(request, pk):
-    context = {}
     try:
         categorie = Categorie.objects.get(pk=pk)
         articles = categorie.article_set.all()
-        context = {
-            'articles': articles,
-            'categorie': categorie
-        }
     except:
         messages.error(request, "La categorie n'existe pas")
 
+    context = {
+        'articles': articles,
+        'categorie': categorie
+    }
+
     return render(request, 'web/articles.html', context)
+
+
+def actualite_details(request, id):
+    try:
+        actualiteVideo = ActualiteVideo.objects.get(pk=id)
+        videos = ActualiteVideo.objects.all()
+    except:
+        messages.error(request, "La video n'existe pas")
+    
+    context = {
+        'actualiteVideo':actualiteVideo,
+        'videos':videos
+    }
+    
+    return render(request, 'web/actualite_details.html', context)
+
+
+
+
+def actualite_image_details(request, id):
+    try:
+        actualiteImage = ActualiteImage.objects.get(pk=id)
+        imageAssociees = actualiteImage.imageassociee_set.all()
+    except:
+        messages.error(request, "La video n'existe pas")
+    
+    context = {
+        'actualiteImage':actualiteImage,
+        'imageAssociees':imageAssociees
+    }
+    
+    return render(request, 'web/actualite_image_details.html', context)
