@@ -1,0 +1,105 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Details Article{% endblock title %}
+
+{% block content %}
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">{{article.titre}} - {{article.categorie.nom}}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="home.html">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="departments.html">Departments</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Art and Culture</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article class="dsSingleContent pt-7 pb-2 pt-md-10 pb-md-1 pt-lg-16 pb-lg-10 pt-xl-21 pb-xl-16">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8 col-xl-9 order-lg-2 mb-6">
+                    <div class="pl-xl-14">
+                        <header class="fzMedium mb-9">
+                            <h2 class="fwSemiBold h2vii">{{article.titre}}</h2>
+                            <p>{{article.description}}</p>
+                        </header>
+                        <div class="overflow-hidden mb-3 mb-lg-7">
+                            <!-- <div class="dscInnerSliderWrap float-sm-right mb-7 mb-sm-0 mt-sm-2 ml-auto mr-auto mr-sm-0 ml-sm-6">
+                                <div class="dcsInnSlider">
+                                    <div>
+                                        <div class="dcsisImageHolder">
+                                            <img src="http://placehold.it/435x355" class="img-fluid w-100" alt="image description">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="dcsisImageHolder">
+                                            <img src="http://placehold.it/435x355" class="img-fluid w-100" alt="image description">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <p>{{article.description}}</p>
+                        </div>
+                        <div class="accordion ctAccordion" id="ctdepartsAccordion">
+                            <div class="ctaccRow mb-4">
+                                <div class="ctaccOpener">
+                                    <a class="fontAlter fwMedium" href="#ctr1" data-toggle="collapse" aria-expanded="false" aria-controls="ctr1">Eco-Friendly equipments and materials</a>
+                                </div>
+                                <div class="collapse ctaccSlide" id="ctr1" data-parent="#ctdepartsAccordion">
+                                    <div class="overflow-hidden px-5 pb-1">
+                                        <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.In fact, wind is becoming cheap enough in many places in the U.S. and around the world to compete effectively with fossil fuels.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ctaccRow mb-4">
+                                <div class="ctaccOpener">
+                                    <a class="fontAlter fwMedium" href="#ctr2" data-toggle="collapse" aria-expanded="true" aria-controls="ctr2">Eco-Friendly equipments and materials</a>
+                                </div>
+                                <div class="collapse show ctaccSlide" id="ctr2" data-parent="#ctdepartsAccordion">
+                                    <div class="overflow-hidden px-5 pb-1">
+                                        <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.In fact, wind is becoming cheap enough in many places in the U.S. and around the world to compete effectively with fossil fuels.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ctaccRow mb-4">
+                                <div class="ctaccOpener">
+                                    <a class="fontAlter fwMedium" href="#ctr3" data-toggle="collapse" aria-expanded="false" aria-controls="ctr3">Award winning design management</a>
+                                </div>
+                                <div class="collapse ctaccSlide" id="ctr3" data-parent="#ctdepartsAccordion">
+                                    <div class="overflow-hidden px-5 pb-1">
+                                        <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.In fact, wind is becoming cheap enough in many places in the U.S. and around the world to compete effectively with fossil fuels.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 col-xl-3 order-lg-1 mb-6">
+                    <aside class="dscSidebar pt-1 mr-xl-n5">
+                        <nav class="widget mb-6 mb-lg-10 widgetDepartsNav widgetBgLight py-5 px-6">
+                            <h3 class="fwSemiBold mb-4">
+                                <a href="javascript:void(0);" class="btnDcsBack align-middle mr-1"><i class="fas fa-chevron-left"><span class="sr-only">icon</span></i></a>
+                                Les autres articles
+                            </h3>
+                            <ul class="list-unstyled pl-0 mx-n2 mb-0 mb-3">
+                                {% for article in articles %}
+                                    <li>
+                                        <a href="javascript:void(0);">{{article.titre}}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                        
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
+{% endblock content %}

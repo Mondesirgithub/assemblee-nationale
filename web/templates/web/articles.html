@@ -3,6 +3,72 @@
 {% block title %}Articles{% endblock title %}
 
 {% block content %}
-
-
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">Les artciles de la {{categorie.nom}}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="home.html">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="eventsList.html">Event</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Events List</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="ItemfullBlock pt-7 pb-7 pt-md-10 pb-md-9 pt-lg-14 pb-lg-13 pt-xl-22 pb-xl-19">
+        <div class="container">
+            <div class="pt-7 pb-6 pt-lg-11 pb-lg-9 pt-xl-14 pb-xl-12">
+                
+                {% for article in articles %}
+                <article class="ueEveColumn__list position-relative px-4 py-3 px-lg-8 py-lg-6">
+                    <div class="d-lg-flex align-items-md-center">
+                        <!-- <time datetime="2011-01-12" class="uecTime text-lDark fontAlter text-uppercase flex-shrink-0 mr-4 mr-lg-6 d-block mb-2 mb-lg-0">
+                            <span class="textLarge">01</span> October
+                            <span class="d-block textDay fwMedium pt-1">WEDNESDAY</span>
+                        </time> -->
+                        <div class="d-md-flex align-items-md-center flex-grow-1">
+                            <div class="imgHolder rounded-circle overflow-hidden flex-shrink-0 mr-4 mr-lg-10 mb-1 mb-md-0">
+                                <img src="http://placehold.it/160x160" class="img-fluid rounded-circle" alt="image description">
+                            </div>
+                            <div class="descrWrap flex-grow-1">
+                                <!-- <strong class="tagTitle d-block text-secondary fwSemiBold mb-2">Entertainement</strong> -->
+                                <h3 class="fwMedium">
+                                    <a href="{% url 'web:article-details' article.pk %}">{{article.titre}}</a>
+                                </h3>
+                                <div class="list-unstyled ueScheduleList mb-0">
+                                    <p>{{article.description}}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'web:article-details' article.pk %}" class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 flex-shrink-0 ml-md-4" data-hover="More Details">
+                                <span class="d-block btnText">Plus de Détails</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center pt-2">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="javascript:void(0);">Prev</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="javascript:void(0);">1 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:void(0);">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:void(0);">Next <i class="fas fa-chevron-right icn"><span class="sr-only">icon</span></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+</main>
 {% endblock content %}
