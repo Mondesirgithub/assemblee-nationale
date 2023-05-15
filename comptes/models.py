@@ -4,3 +4,6 @@ from django.contrib.auth.models import AbstractUser
 
 class Depute(AbstractUser):
     identifiant = models.CharField(max_length=255)
+    
+    class Meta:
+        db_table = 'Depute'

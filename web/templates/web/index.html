@@ -67,58 +67,25 @@
             </article>
         </div>
     </div>
-    <aside class="featuresAsideBlock position-relative text-white">
+    <aside class="featuresAsideBlock position-relative text-white" style="background-color: transparent;">
         <div class="container">
             <div class="flatpWrap position-relative mt-n8 mt-md-n18">
-                <ul class="list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap">
-                    <li>
-                        <a href="servicesSingle.html" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                            <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                <i class="icomoon-ico1"><span class="sr-only">icon</span></i>
-                            </span>
-                            <h2 class="mb-0">Your <br>Goverment</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="servicesSingle.html" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                            <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                <i class="icomoon-ico2"><span class="sr-only">icon</span></i>
-                            </span>
-                            <h2 class="mb-0">Jobs and <br>Unemployment</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="servicesSingle.html" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                            <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                <i class="icomoon-ico3"><span class="sr-only">icon</span></i>
-                            </span>
-                            <h2 class="mb-0">Business and <br>Industry</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="servicesSingle.html" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                            <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                <i class="icomoon-ico4"><span class="sr-only">icon</span></i>
-                            </span>
-                            <h2 class="mb-0">Roads and <br>Transport</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="servicesSingle.html" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                            <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                <i class="icomoon-ico5"><span class="sr-only">icon</span></i>
-                            </span>
-                            <h2 class="mb-0">Culture and <br>Recreation</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="servicesSingle.html" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                            <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                <i class="icomoon-ico6"><span class="sr-only">icon</span></i>
-                            </span>
-                            <h2 class="mb-0">Justice, Safty and <br>the law</h2>
-                        </a>
-                    </li>
+                <ul class="list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
+                    {% for categorie in categories %}
+                        <li style="border: 2px solid black;margin-top: 30px;margin: 20px;">
+                            <a href="#" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
+                                <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
+                                    <!-- <i class="icomoon-ico1"><span class="sr-only">icon</span></i> -->
+                                    <img src={{categorie.icone.url}} />
+                                </span>
+                                <h2 class="mb-0">
+                                    {{categorie.nom}}
+                                </h2>
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                    
                 </ul>
             </div>
         </div>

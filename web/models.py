@@ -17,6 +17,6 @@ class Article(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self) -> str:
-        return f"{self.titre}"
+        return f"{self.titre} - {self.categorie.nom}"
     
     
