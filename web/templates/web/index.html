@@ -72,8 +72,8 @@
             <div class="flatpWrap position-relative mt-n8 mt-md-n18">
                 <ul class="list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
                     {% for categorie in categories %}
-                        <li style="border: 2px solid black;margin-top: 30px;margin: 20px;">
-                            <a href="{% url 'comptes:articles' categorie.pk %}" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
+                        <li style="border: 1px solid black;margin-top: 30px;margin: 20px;">
+                            <a href="{% url 'web:articles' categorie.pk %}" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
                                 <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
                                     <!-- <i class="icomoon-ico1"><span class="sr-only">icon</span></i> -->
                                     <img src={{categorie.icone.url}} />
@@ -84,8 +84,6 @@
                             </a>
                         </li>
                     {% endfor %}
-
-                    
                 </ul>
             </div>
         </div>
@@ -115,7 +113,10 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
-                        <span class="imgHolder d-block w-100 bgCover" style="background-image: url(http://placehold.it/405x250);"></span>
+                        <!-- <span class="imgHolder d-block w-100 bgCover" style="background-image: url(http://placehold.it/405x250);">
+                        </span> -->
+                        <iframe width="405" height="250" src="https://www.youtube.com/embed/Rf4u6owteZM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
                         <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
                             <h3 class="fwMedium mb-0">Service Departments</h3>
                             <a href="servicesSingle.html" class="btnLink fontAlter">Learn More <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>

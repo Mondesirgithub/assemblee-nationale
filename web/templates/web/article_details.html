@@ -88,10 +88,12 @@
                                 Les autres articles
                             </h3>
                             <ul class="list-unstyled pl-0 mx-n2 mb-0 mb-3">
-                                {% for article in articles %}
+                                {% for post in articles %}
+                                    {% if post.pk != article.pk %}
                                     <li>
-                                        <a href="javascript:void(0);">{{article.titre}}</a>
+                                        <a href="{% url 'web:article-details' post.pk %}">{{post.titre}}</a>
                                     </li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </nav>

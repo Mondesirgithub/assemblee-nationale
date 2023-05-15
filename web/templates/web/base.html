@@ -55,7 +55,7 @@
 					<div class="container">
 						<nav class="navbar navbar-expand-md navbar-light p-0" style="height: 60px;">
 							<div class="logo flex-shrink-0 mr-3 mr-xl-8 mr-xlwd-16">
-								<a href="home.html">
+								<a href="{% url 'web:index' %}">
 									<img src="{% static 'web/images/logo.png' %}" class="img-fluid" alt="egovt">
 								</a>
 							</div>
@@ -63,7 +63,7 @@
 								<div class="collapse navbar-collapse pageMainNavCollapse mt-2 mt-md-0" id="pageMainNavCollapse">
 									<ul class="navbar-nav mainNavigation">
 										<li class="nav-item dropdown ddohOpener">
-											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accueil</a>
+											<a class="nav-link dropdown-toggle dropIcn" href="{% url 'web:index' %}" role="button">Accueil</a>
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
 													<li><a class="dropdown-item" href="home.html">Actualités</a></li>

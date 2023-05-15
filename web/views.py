@@ -13,11 +13,11 @@ def index(request):
 
 
 
-def article_details(request, catId):
+def article_details(request, id):
     context = {}
     try:
-        article = Article.objects.get(pk=catId)
-        categorie = Categorie.objects.get(pk=article.pk)
+        article = Article.objects.get(pk=id)
+        categorie = Categorie.objects.get(pk=article.categorie.pk)
         articles = categorie.article_set.all()
         context = {
             'article': article,
@@ -30,10 +30,10 @@ def article_details(request, catId):
 
 
 def articles(request, pk):
-    context = {'article':None}
+    context = {}
     try:
         categorie = Categorie.objects.get(pk=pk)
-        articles = categorie.articles_set.all()
+        articles = categorie.article_set.all()
         context = {
             'articles': articles,
             'categorie': categorie

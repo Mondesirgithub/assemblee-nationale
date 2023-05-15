@@ -19,4 +19,24 @@ class Article(models.Model):
     def __str__(self) -> str:
         return f"{self.titre} - {self.categorie.nom}"
     
+
+class Actualite(models.Model):
+    titre = models.CharField(max_length=255, blank=False, verbose_name="Titre de l'actualite")
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
+    def __str__(self) -> str:
+        return f"{self.titre}"
+    
+class ActualiteVideo(Actualite):
+    lien = models.CharField(max_length=255, blank=False, verbose_name="Lien de la video", null=False)
+    
+    def __str__(self) -> str:
+        return f"{super().titre}"
+    
+    
+class ActualiteImage(Actualite):
+    description = models.TextField(verbose_name="Description de l'actualite", blank=False, null=False)
+    
+    def __str__(self) -> str:
+        return f"{super().titre}"
