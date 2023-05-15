@@ -40,3 +40,11 @@ class ActualiteImage(Actualite):
     
     def __str__(self) -> str:
         return f"{super().titre}"
+    
+class ImageAssociee(models.Model):
+    source = models.ImageField(upload_to="actualites/images/", null=True, blank=True)
+    actualiteImage = models.ForeignKey(ActualiteImage, on_delete=models.CASCADE)
+    
+    def __str__(self) -> str:
+        return f"image de {self.actualiteImage.titre}"
+    

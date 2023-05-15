@@ -1,12 +1,19 @@
 from django.shortcuts import render
-from .models import Categorie, Article
+from .models import Categorie, Article, ActualiteImage, ActualiteVideo
 from django.contrib import messages
 # Create your views here.
 
 def index(request):
     categories = Categorie.objects.all()
+    actualiteVideo = ActualiteVideo.objects.order_by("-created_at").first()
+    actualiteImage1 = ActualiteImage.objects.order_by("-created_at").first()
+    actualiteImage2 = ActualiteImage.objects.order_by("-created_at").all()[1]
+    
     context = {
-        'categories': categories
+        'categories': categories,
+        'actualiteVideo': actualiteVideo,
+        'actualiteImage1': actualiteImage1,
+        'actualiteImage2': actualiteImage2,
     }
     
     return render(request, 'web/index.html', context)
