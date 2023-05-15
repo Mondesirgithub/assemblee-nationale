@@ -1,0 +1,573 @@
+@include media-breakpoint-up(md){
+	h1, .h1{
+		font-size: (40/16) + rem;
+	}
+
+	h2, .h2{
+		font-size: (32/16) + rem;
+	}
+
+	.h1Large{
+		font-size: 45px;
+	}
+
+	.ssArrowVii{
+		@include size(50px);
+	}
+
+	.phStickyWrap{
+		min-height: 95px;
+
+		.home & {
+			min-height: 116px;
+		}
+	}
+
+	.pageMainNavCollapse{
+		position: static;
+		background:transparent;
+		transform: none;
+		flex-grow: initial;
+		flex-basis: initial;
+		max-height: unset;
+		overflow-y: unset;
+	}
+
+	.mainNavigation{
+
+		&.navbar-nav{
+
+			.nav-item{
+
+				&.active{
+
+					.nav-link{
+						background-color: transparent;
+					}
+				}
+			}
+
+			.nav-link{
+
+				&:hover,
+				&:focus,
+				&:active{
+					background-color: transparent;
+				}
+			}
+		}
+
+		.nav-item{
+
+			+ .nav-item{
+				margin-left: 10px;
+			}
+		}
+
+		.nav-link{
+			padding: 0;
+		}
+
+		.ddohOpener{
+			@include pseudo(after, 100%, 0, auto, 0);
+
+			&:hover{
+
+				&:after{
+					pointer-events: auto;
+				}
+			}
+
+			&:after{
+				height: 24px;
+				pointer-events: none;
+			}
+		}
+
+		.navbar-expand-md &{
+
+			&.navbar-nav{
+
+				.nav-link{
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	.desktopDropOnHover {
+		display: block !important;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.ddohOpener{
+
+		&:hover{
+
+			> .desktopDropOnHover{
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	.dropdown-submenu{
+
+		&.show{
+
+			.dropdown-menu{
+
+				.dropdown-item{
+					padding-left: 15px;
+
+					&.show{
+
+						.dropdown-menu{
+
+							.dropdown-item{
+								padding-left: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.hdDropdownList{
+
+		a{
+			padding: 5px 8px;
+		}
+	}
+
+	.hdMainDropdown{
+		margin-top: 22px;
+		background-color: $dropdown-bg;
+		box-shadow: $dropdown-box-shadow;
+		border: 1px solid rgba($dropdown-border-color, 0.15);
+		min-width: 8rem;
+
+		.dropdown-item{
+			padding: 9px 10px;
+		}
+	}
+
+	.hdSearchCollapse{
+
+		.btnClose{
+			margin-top: -150px;
+			font-size: 30px;
+			@include size(55px);
+		}
+	}
+
+	.featuresAsideBlock{
+
+		&:before{
+			top: 90px;
+		}
+	}
+
+	.cfbFeatList{
+
+		> li{
+			width: 25%;
+		}
+
+		.textCount{
+			font-size: 40px;
+		}
+
+		.icnWrap{
+			height: 55px;
+			font-size: 50px;
+		}
+	}
+
+	.echSlider{
+		max-width: 433px;
+	}
+
+	.echColumn{
+		height: 300px;
+	}
+
+	.spanLinkGo{
+		font-size: 14px;
+		@include size(40px);
+	}
+
+	.meetCouncilBlock{
+
+		&:before{
+			height: 521px;
+		}
+	}
+
+	.pageMainHead{
+		min-height: 230px;
+	}
+
+	.breadcrumb{
+		font-size: 1.125rem;
+	}
+
+	.breadcrumb-item{
+
+		+ .breadcrumb-item{
+
+			&:before{
+				margin-top: 0.4rem;
+			}
+		}
+	}
+
+	.dscInnerSliderWrap{
+		max-width: 286px;
+	}
+
+	.drItemRow{
+
+		.btnDownload{
+			right: 28px;
+		}
+	}
+
+	.timelineList{
+
+		> li{
+
+			&:before{
+				@include size(46px);
+			}
+
+			&:after{
+				border-width: 8px;
+				@include size(32px);
+			}
+		}
+
+		.imgHolder,
+		.tlDescriptionWrap{
+			width: calc(50% - 70px);
+		}
+	}
+
+	.infigQuote{
+		font-size: 22px;
+		line-height: (26/22);
+		bottom: 55px;
+		max-width: 277px;
+	}
+
+	.imgLeft{
+		float: left;
+		max-width: 227px;
+	}
+
+	.dcsTabset{
+
+		&,
+		&.nav-tabs{
+
+			.nav-link{
+				font-size: 20px;
+				padding: 16px 30px;
+			}
+		}
+	}
+
+	.ifbFilterHead{
+
+		&.ifbFilterHeadAlter{
+
+			.formCol{
+				width: calc(50% - 96px);
+			}
+		}
+
+		.formCol{
+			width: 33.333%;
+		}
+	}
+
+	.pagination{
+
+		.page-link{
+			padding: 0.6875rem 0.9375rem;
+		}
+	}
+
+	.ueEveColumn__list{
+		max-width: none;
+	}
+
+	.scgTabList{
+
+		&,
+		&.nav-tabs{
+
+			.nav-item{
+
+				+ .nav-item{
+					margin-left: 37px;
+				}
+			}
+
+			.nav-link{
+				font-size: 24px;
+			}
+		}
+	}
+
+	.scgGalleryList{
+
+		li{
+			width: 33.333%;
+		}
+
+		img{
+			min-height: 130px;
+		}
+	}
+
+	.postNavigatorNav{
+
+		.btnPrev,
+		.btnNext{
+			font-size: 15px;
+			background-size: 52px 52px;
+			@include size(52px);
+
+			&:hover{
+				background-position: 0 52px;
+			}
+		}
+	}
+
+	.widgetVote{
+		min-height: 368px;
+	}
+
+	.fpListWidget{
+
+		ul{
+
+			.imgWrap{
+				margin: 0 0.5em 4px 0;
+				width: 70px;
+			}
+
+			h4{
+				font-size: 17px;
+			}
+		}
+	}
+
+	.dsSortDropdown{
+		margin-right: 0;
+	}
+
+	.proItemCol{
+		max-width: none;
+	}
+
+	.alertCollapseWrap{
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	.checkoutCountTable{
+
+		.col01{
+			width: 65%;
+		}
+	}
+
+	.testimonialsBlock{
+
+		.watermarkHeadingHead{
+
+			&[data-watermark]{
+
+				&:before{
+					font-size: 130px;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+
+	.ourPromiseBlock{
+
+		.videoWrap{
+			height: 400px;
+		}
+	}
+
+	.opbTabset{
+
+		.nav-link{
+			padding: 1px 0.97em;
+			font-size: 19px;
+		}
+	}
+
+	.causesListWrap{
+
+		.ourCauseColumn{
+
+			.imgHolder{
+				height: 300px;
+			}
+		}
+	}
+
+	.headervii{
+
+		.logo{
+			height: 70px;
+			max-width: 140px;
+		}
+
+		.mainNavigation{
+
+			.ddohOpener{
+
+				&:after{
+					height: 27px !important;
+				}
+
+				> .hdMainDropdown{
+					margin-top: 28px;
+				}
+			}
+
+			li{
+
+				&.nav-item{
+
+					&:last-child{
+
+						.hdMainDropdown{
+							left: -17px !important;
+							margin-left: -2px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mapHolder{
+
+		.contactCard{
+			max-width: 403px;
+		}
+	}
+
+	.clientFeedback{
+		max-width: none;
+	}
+
+	.appAdvartiseBlock{
+
+		.headingHead{
+			font-size: 20px;
+		}
+	}
+
+	.npbColumnWidget{
+
+		.h3{
+			font-size: 26px;
+		}
+	}
+
+	.widgetWrap{
+		margin-right: 0;
+	}
+
+	.page_404,
+	.page-comingup{
+
+		.header-404{
+			font-size: 150px;
+			line-height: 150px;
+		}
+	}
+
+	.causeSingle{
+
+		.scgTabList{
+
+			.nav-link{
+				font-size: 20px;
+			}
+		}
+	}
+
+	.proTagList{
+
+		li{
+			font-size: 17px;
+		}
+	}
+
+	.centerLayout{
+		max-width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+
+		.h3{
+			width: 180px;
+		}
+	}
+
+	.getDirColumn{
+		max-width: none;
+	}
+
+	.display-3{
+		font-size: (40/16) + rem;
+	}
+
+	.newsSingleWrap{
+
+		.nwzPostDetailList{
+
+			li + li{
+				margin-top: 50px;
+			}
+		}
+	}
+
+	.ftcaNav{
+
+		> li{
+			margin-left: 14px;
+			margin-right: 14px;
+		}
+	}
+
+	.newsSingleWrap{
+
+		.newsTagWrap{
+			padding: 18px 30px 10px 36px;
+		}
+	}
+
+	.portSingPagiWrap {
+
+		.postNavigatorNav{
+
+			.btnPrev,
+			.btnNext{
+				@include size(52px);
+			}
+		}
+	}
+}

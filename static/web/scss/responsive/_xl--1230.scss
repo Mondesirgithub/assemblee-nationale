@@ -1,0 +1,413 @@
+@include media-breakpoint-up(xl){
+	h1, .h1{
+		font-size: (50/16) + rem;
+	}
+
+	h2, .h2{
+		font-size: (40/16) + rem;
+	}
+
+	.h1Large{
+		font-size: 60px;
+	}
+
+	.h2Small{
+		font-size: 36px;
+	}
+
+	.h2Medium{
+		font-size: 32px;
+	}
+
+	.h3Large{
+		font-size: 28px;
+	}
+
+	.phStickyWrap{
+		min-height: 151px;
+
+		.home & {
+			min-height: 126px;
+		}
+	}
+
+	.hdScheduleList,
+	.hdAlterLinksList{
+		font-size: 15px;
+	}
+
+	.hdScheduleList{
+
+		li + li{
+			margin-left: $spacer * 4;
+		}
+
+		.icn{
+			font-size: 18px;
+		}
+	}
+
+	.hdLangDropdown{
+
+		.dropdown-toggle{
+			font-size: 17px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	.mainNavigation{
+
+		.nav-item{
+
+			+ .nav-item{
+				margin-left: 20px;
+			}
+		}
+
+		.nav-link{
+			font-size: 17px;
+		}
+
+		.ddohOpener{
+
+			&:after{
+				height: 43px;
+			}
+		}
+	}
+
+	.hdSearchOpener{
+		font-size: 21px;
+	}
+
+	.hdMainDropdown{
+		margin-top: 42px;
+		min-width: 185px;
+		font-size: 17px;
+	}
+
+	.btnHd{
+		font-size: 18px;
+		padding: 9px 20px;
+	}
+
+	.fflColumn{
+
+		.icnWrap{
+			font-size: 61px;
+			@include size(102px);
+		}
+
+		h2, .h2{
+			font-size: 20px;
+		}
+	}
+
+	.esColumn{
+
+		h3, .h3{
+			font-size: 24px;
+		}
+	}
+
+	.imgTwoImageHolder{
+		margin-left: -13px;
+
+		.img1{
+			max-width: 633px;
+		}
+
+		.img2{
+			max-width: 377px;
+		}
+	}
+
+	.cdDocsList{
+
+		&.cdDocsListvii{
+
+			.cdTitle{
+				font-size: 22px;
+				line-height: (26/22);
+			}
+		}
+	}
+
+	.uecColBg{
+
+		&:before{
+			margin-left: 190px;
+		}
+	}
+
+	.meetCouncilBlock{
+
+		&:before{
+			height: 525px;
+		}
+	}
+
+	.dscInnerSliderWrap{
+		max-width: 436px;
+	}
+
+	.dcsColumn{
+		font-size: 17px;
+
+		.icnWrap{
+			height: 60px;
+			font-size: 52px;
+		}
+
+		h3, .h3{
+			font-size: ($h3-font-size/16) + rem;
+		}
+	}
+
+	.vibrantAsideBlock{
+
+		&,
+		.parallaxWindow{
+			min-height: 490px;
+		}
+
+		.vabMaxWrap{
+			max-width: 600px;
+		}
+	}
+
+	.timelineList{
+
+		> li{
+
+			+ li{
+				margin-top: 90px;
+			}
+		}
+	}
+
+	.tlDescriptionWrap{
+
+		h3, .h3{
+			font-size: 24px;
+		}
+	}
+
+	.tmcbDescriptionBox{
+
+		.imgHolder{
+			width: 423px;
+			padding-top: 0;
+		}
+	}
+
+	.imgLeft{
+		max-width: 427px;
+	}
+
+	.gsabHolder{
+		min-height: 400px;
+	}
+
+	.ifbFilterHead{
+
+		&.ifbFilterHeadAlter{
+
+			.formCol{
+				width: calc(50% - 96px);
+			}
+		}
+
+		.formCol{
+			width: calc(33.333% - 86px);
+		}
+
+		.btn{
+			width: 226px;
+		}
+	}
+
+	.scgGalleryList{
+
+		img{
+			min-height: 160px;
+		}
+	}
+
+	.fpListWidget{
+
+		ul{
+
+			.imgWrap{
+				margin: 0 1em 4px 0;
+				width: 80px;
+			}
+
+			h4{
+				font-size: 20px;
+			}
+		}
+	}
+
+	.clientQuote{
+
+		q{
+			font-size: 26px;
+		}
+	}
+
+	.causesListWrap{
+
+		.ourCauseColumn{
+
+			.ocuDescripWrap{
+
+				p{
+					padding-right: 25px;
+				}
+			}
+		}
+	}
+
+	.headervii{
+
+		.logo{
+			height: 80px;
+			max-width: 180px;
+		}
+
+		.mainNavigation{
+
+			.ddohOpener{
+
+				&:after{
+					height: 31px !important;
+				}
+
+				> .hdMainDropdown{
+					margin-top: 32px;
+				}
+			}
+
+			li{
+
+				&.nav-item{
+
+					&:nth-last-child(1),
+					&:nth-last-child(2),
+					&:nth-last-child(3),
+					&:nth-last-child(4),
+					&:nth-last-child(5){
+
+						.hdDropdownList{
+
+							.dropdown-submenu{
+
+								.dropdown-menu{
+
+									&.hdMainDropdown{
+										left: -100% !important;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.clientQuoteii{
+
+		&:after{
+			font-size: 38px;
+			line-height: 38px;
+			bottom: 13px;
+		}
+	}
+
+	.appAdvartiseBlock{
+
+		.headingHead{
+			font-size: 24px;
+		}
+	}
+
+	.govAgencyServicesBlock{
+
+		.uecColBg{
+
+			&:before{
+				margin-right: 190px;
+			}
+		}
+	}
+
+	.govServiceCol{
+		max-height: 185px;
+		height: 100%;
+	}
+
+	.mayorAnnoucmentBlock{
+
+		.imgWrap{
+			left: -120px;
+			width: auto;
+		}
+	}
+
+	.centerLayout{
+		max-width: 75%;
+
+		.h3{
+			width: 295px;
+		}
+	}
+
+	.arddColumnSlider{
+
+		.slick-arrow{
+			left: -240px;
+
+			&.slickPrev{
+				left: -300px;
+			}
+		}
+	}
+
+	.display-3{
+		font-size: (80/16) + rem;
+	}
+
+	.countdownList{
+
+		> li{
+
+			.h1{
+				font-size: 60px;
+			}
+		}
+	}
+
+	.opbTabset{
+
+		.nav-link{
+			padding: 0 1.275rem;
+			font-size: 20px;
+		}
+	}
+
+	.postNavigatorNav{
+
+		.btnPrev,
+		.btnNext{
+			background-size: 70px 70px;
+			@include size(70px);
+
+			&:hover{
+				background-position: 0 70px;
+			}
+		}
+	}
+}

@@ -1,0 +1,144 @@
+@include media-breakpoint-up(xlwd){
+	.h1Large{
+		font-size: 70px;
+	}
+
+	.phStickyWrap{
+
+		.home & {
+			min-height: 136px;
+		}
+	}
+
+	.hdScheduleList{
+
+		li + li{
+			margin-left: $spacer * 9;
+		}
+	}
+
+	.mainNavigation{
+
+		li.nav-item{
+
+			&:nth-last-child(1){
+
+				.hdDropdownList{
+
+					.dropdown-submenu{
+
+						.dropdown-menu.hdMainDropdown{
+							left: 100% !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.uecColBg{
+
+		&:before{
+			margin-left: 210px;
+		}
+	}
+
+	.meetCouncilBlock{
+
+		&:before{
+			height: 550px;
+		}
+	}
+
+	.scgGalleryList{
+
+		img{
+			min-height: 170px;
+		}
+	}
+
+	.pnnPaginList{
+
+		li{
+			width: calc(50% - 70px);
+		}
+	}
+
+	.causesListWrap{
+
+		.ourCauseColumn{
+
+			.ocuDescripWrap{
+
+				p{
+					padding-right: 50px;
+				}
+			}
+		}
+	}
+
+	.headervii{
+
+		.logo{
+			max-width: 234px;
+			height: 90px;
+		}
+
+		.mainNavigation{
+
+			.ddohOpener{
+
+				&:after{
+					height: 36px !important;
+				}
+
+				> .hdMainDropdown{
+					margin-top: 37px;
+				}
+			}
+		}
+	}
+
+	.callLink{
+
+		.icn{
+			font-size: 26px;
+		}
+	}
+
+	.govAgencyServicesBlock{
+
+		.uecColBg{
+
+			&:before{
+				margin-right: 210px;
+			}
+		}
+	}
+
+	.mayorAnnoucmentBlock{
+
+		.imgWrap{
+			left: -58px;
+		}
+	}
+
+	.arddColumnSlider{
+
+		.slick-arrow{
+			left: -264px;
+
+			&.slickPrev{
+				left: -324px;
+			}
+		}
+	}
+
+	.dscSidebar{
+
+		.h2vii{
+			font-size: 40px;
+			line-height: (46/40);
+		}
+	}
+}

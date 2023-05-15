@@ -1,0 +1,22 @@
+@include media-breakpoint-up(lgwd){
+	.spanLinkGo{
+		font-size: 18px;
+		@include size(50px);
+	}
+
+	.cartTotals{
+
+		.col01,
+		.col02{
+			width: 50%;
+		}
+	}
+
+	.opbTabset{
+
+		.nav-link{
+			padding: 0 0.625rem;
+			font-size: 17px;
+		}
+	}
+}

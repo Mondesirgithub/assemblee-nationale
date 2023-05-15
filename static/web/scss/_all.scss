@@ -1,0 +1,6166 @@
+body{
+	-ms-overlfow-style: scrollbar;
+	min-width: 320px;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6{
+
+	a{
+		color: inherit;
+	}
+}
+
+.lh44{
+	line-height: (44/40);
+}
+
+.h1Large{
+	font-size: 38px;
+	line-height: (75/70);
+}
+
+.h2Small{
+	font-size: 28px;
+	line-height: (44/36);
+}
+
+.h2vii{
+	font-size: 28px;
+	line-height: (44/36);
+}
+
+.h3vvii{
+	font-size: 28px;
+	line-height: (44/36);
+}
+
+.h2Medium{
+	line-height: (36/32);
+}
+
+.h3Small{
+	font-size: 22px;
+	line-height: (26/22);
+}
+
+.h3Medium{
+	font-size: 22px;
+}
+
+.h3Large{
+	font-size: 22px;
+	line-height: (32/28);
+}
+
+.fSubTxt{
+	font-size: 20px;
+	line-height: (28/20);
+	color: $gray-800; 
+}
+
+.txtDark {
+	color: $gray-800;
+}
+
+.ssArrowVi{
+	transition: $transition-default;
+	background-color: rgba($black, 0.3);
+	color: $white;
+	z-index: 2;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 23px;
+	@include size(51px);
+
+	&:hover{
+		background-color: $black;
+		color: $white;
+	}
+
+	&.slickPrev{
+		left: 26px;
+	}
+
+	&.slickNext{
+		right: 26px;
+	}
+}
+
+.ssArrowVii{
+	color: $gray-600;
+	font-size: 12px;
+	background-color: $white;
+	z-index: 2;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: $transition-default;
+	@include size(35px);
+
+	&:hover{
+		color: $white;
+	}
+
+	&.slickPrev{
+		left: 15px;
+	}
+
+	&.slickNext{
+		right: 15px;
+	}
+}
+
+.input-group-append{
+
+	> .btn{
+		padding-top: 7px;
+		padding-bottom: 7px;
+	}
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator {
+	-webkit-appearance: none;
+	margin: 0;
+	display: none;
+}
+
+input[type=number] {
+	-moz-appearance:textfield;
+}
+
+.fontAlter{
+	font-family: $fontAlter;
+}
+
+/*------------------------------------------------------------------
+29. Page Wrapper / #pageWrapper
+-------------------------------------------------------------------*/
+#pageWrapper{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.phStickyWrap{
+	min-height: 49px;
+
+	.home & {
+		min-height: 60px;
+	}
+}
+
+/* ---------------------------------------------------------
+30. hdFixerWrap /.stickyWrap-sSticky
+--------------------------------------------------------*/
+.stickyWrap-sSticky {
+	&.fixed-position {
+		.hdFixerWrap {
+			z-index: 999;
+			box-shadow: 0 5px 10px rgba($gray-600, 0.1);
+		}
+	}
+}
+
+.hdFixerWrap {
+	transition: all 0.35s ease;	
+}
+/* ---------------------------------------------------------
+31. hdScheduleList /.hdScheduleList
+--------------------------------------------------------*/
+.hdScheduleList,
+.hdAlterLinksList{
+	font-size: 13px;
+	line-height: 1;
+
+	.hdTopBariii &{
+
+		a{
+			color: inherit;
+
+			&:hover{
+				color: $dark;
+			}
+		}
+
+		.icn{
+			color: $clr16;
+		}
+	}
+}
+
+.hdScheduleList{
+
+	&.hdScheduleListii{
+
+		.icn{
+			color: inherit;
+		}
+	}
+
+	li + li{
+		margin-left: $spacer * 2;
+	}
+
+	a{
+		@extend %transitDefault;
+		color: inherit;
+
+		&:hover{
+			color: $white;
+		}
+	}
+
+	.icn{
+		margin-right: $spacer;
+		font-size: 14px;
+	}
+}
+
+/* ---------------------------------------------------------
+32. hdAlterLinksList /.hdAlterLinksList
+--------------------------------------------------------*/
+.hdAlterLinksList{
+
+	&.hdAlterLinksListii{
+
+		a{
+			color: inherit;
+
+			&:hover{
+				color: $dark;
+			}
+		}
+	}
+
+	li{
+
+		+ li{
+			margin-left: $spacer * 2;
+		}
+	}
+
+	a{
+		@extend %transitDefault;
+		color: $gray-500;
+
+		&:hover{
+			color: $light;
+		}
+	}
+}
+/* ---------------------------------------------------------
+33. pageMainNavCollapse /.pageMainNavCollapse
+--------------------------------------------------------*/
+.pageMainNavCollapse{
+	position: absolute;
+	left: 0;
+	top: 100%;
+	right: 0;
+	z-index: 2;
+	background-color: $light;
+	transform-origin: 50% 0 0;
+	transform: scaleY(0);
+	max-height: 450px;
+	overflow-y: auto;
+
+	&.show{
+		transform: scaleY(1);
+	}
+}
+/* ---------------------------------------------------------
+34. hdLangDropdown /.hdLangDropdown
+--------------------------------------------------------*/
+.hdLangDropdown{
+
+	.dropdown-menu{
+		min-width: 1px;
+		width: 100%;
+	}
+
+	.dropdown-toggle{
+		border: 1px solid $border-color;
+		border-radius: 99px;
+		color: $gray-800;
+		font-size: 15px;
+		line-height: 1;
+		padding: 7px 13px;
+
+		&:hover{
+			color: $gray-800;
+		}
+	}
+
+	.dropdown-item{
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 14px;
+		text-align: center;
+
+		&:hover,
+		&.active{
+			color: $white;
+		}
+	}
+
+	.dropIcn{
+
+		&:after{
+			margin-left: 9px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+35. logo /.logo
+--------------------------------------------------------*/
+.logo{
+	max-width: 95px;
+}
+/* ---------------------------------------------------------
+36. mainNavigation /.mainNavigation
+--------------------------------------------------------*/
+.mainNavigation{
+
+	&.navbar-nav{
+
+		.nav-item{
+
+			&.active{
+
+				.nav-link{
+					background-color: $gray-300;
+				}
+
+				.dropIcn{
+
+					&:after{
+						border-color: $navbar-light-color;
+					}
+				}
+			}
+		}
+
+		.nav-link{
+
+			&:hover,
+			&:focus,
+			&:active{
+				background-color: $gray-300;
+			}
+		}
+	}
+
+	.nav-link{
+		@extend %transitDefault;
+		font-size: 15px;
+		line-height: 1;
+	}
+
+	.dropIcn{
+
+		&:after{
+			margin-left: 5px;
+			@include size(6px);
+		}
+	}
+
+	.navbar-expand-md &{
+
+		&.navbar-nav{
+
+			.nav-link{
+				padding: 13px 15px 12px;
+			}
+		}
+	}
+
+	li.nav-item {
+
+		&:nth-last-child(1),
+		&:nth-last-child(2),
+		&:nth-last-child(3),
+		&:nth-last-child(4) {
+
+			.hdDropdownList {
+
+				.dropdown-submenu {
+
+					.dropdown-menu.hdMainDropdown {
+						left: -100% !important;
+					}
+				}
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+37. hdSearchOpener /.hdSearchOpener
+--------------------------------------------------------*/
+.hdSearchOpener{
+	@extend %transitDefault;
+	font-size: 18px;
+	color: $clr1;
+	transition: $transition-default;
+}
+
+/* ---------------------------------------------------------
+38. dropdown-submenu /.dropdown-submenu
+--------------------------------------------------------*/
+.dropdown-submenu {
+	position: relative;
+
+	&:hover {
+
+		>.dropdown-item {
+			color: $white;
+		}
+
+		>.desktopDropOnHover {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0);
+		}
+	}
+
+	.dropIcn {
+
+		&:after {
+			position: absolute;
+			right: 10px;
+			top: 16px;
+		}
+	}
+
+	&.show {
+
+		>.dropdown-item {
+			color: $white;
+		}
+
+		.dropdown-menu {
+
+			.dropdown-item {
+				padding-left: 45px;
+			}
+
+			&.show {
+
+				.dropdown-menu {
+
+					.dropdown-item {
+						padding-left: 60px;
+					}
+				}
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+39. hdDropdownList /.hdDropdownList
+--------------------------------------------------------*/
+.hdDropdownList{
+
+	> li{
+
+		&.active{
+
+			> a{
+				color: $white;
+			}
+		}
+	}
+
+	a{
+		color: $gray-800;
+		@extend %transitDefault;
+		display: block;
+		padding: 5px 8px 5px 28px;
+
+		&:hover{
+			color: $white;
+		}
+	}
+
+	.desktopDropOnHover {
+		left: 100%;
+		top: 0;
+		margin-top: 0;
+	}
+}
+/* ---------------------------------------------------------
+40. hdTopBar /.hdTopBar
+--------------------------------------------------------*/
+.hdTopBar{
+	color: $gray-500;
+
+	&.hdTopBarii{
+		color: $gray-600;
+		border-bottom: 1px solid $gray-200;
+	}
+
+	&.hdTopBariii{
+		color: inherit;
+		border-bottom: 1px solid $gray-200;
+	}
+}
+/* ---------------------------------------------------------
+41. hdMainDropdown /.hdMainDropdown
+--------------------------------------------------------*/
+.hdMainDropdown{
+	padding: 0;
+	background-color: transparent;
+	box-shadow: none;
+	border: 0;
+	font-size: 15px;
+	left: -10px;
+
+	.dropdown-item {
+		padding: 9px 30px;
+	}
+}
+/* ---------------------------------------------------------
+42. hdSearchCollapse /.hdSearchCollapse
+--------------------------------------------------------*/
+.hdSearchCollapse{
+	z-index: 9;
+	transition: $transition-fade;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+	visibility: hidden;
+	background-color: rgba($dark, 0.9);
+	font-size: 14px;
+
+	&.show{
+		opacity: 1;
+		visibility: visible;
+	}
+
+	p{
+
+		a{
+			color: inherit;
+			text-decoration: underline;
+
+			&:hover{
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.btnClose{
+		top: 50%;
+		transform: translate(-50%, -50%);
+		right: auto;
+		left: 50%;
+		margin-top: -100px;
+		font-size: 20px;
+		@include size(35px);
+	}
+}
+
+/* ---------------------------------------------------------
+43. Page Header Button /.btnHd
+--------------------------------------------------------*/
+.btnHd{
+	font-size: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* ---------------------------------------------------------
+44. Page Burger Menu /.pgNavOpener
+--------------------------------------------------------*/
+.pgNavOpener{
+	transition: transform 0.4s ease, border 0.4s ease;
+	@include pseudo(before, 3px, 3px, null, 3px);
+	@include pseudo(after, null, 3px, 3px, 3px);
+
+	&:before,
+	&:after{
+		height: 2px;
+		background-color: currentColor;
+		transition: transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.navbar-toggler-icon{
+		transition: $transition-fade;
+	}
+
+	&[aria-expanded="true"]{
+		transform: rotate(270deg) scale(0.8);
+
+		&:before,
+		&:after{
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&:before{
+			transform: rotate(225deg) translate(-6px, -7px);
+		}
+
+		&:after{
+			transform: rotate(-225deg) translate(-6px, 7px);
+		}
+
+		.navbar-toggler-icon{
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}
+/* ---------------------------------------------------------
+45. ibSlider /.ibSlider
+--------------------------------------------------------*/
+.ibSlider{
+
+	.dotsList{
+		position: absolute;
+		left: 15px;
+		bottom: 30px;
+		right: 15px;
+		z-index: 2;
+	}
+}
+/* ---------------------------------------------------------
+46. ibBgImage /.ibBgImage
+--------------------------------------------------------*/
+.ibBgImage{
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.7s ease;
+	transform-origin: 50% 50% 0;
+	transform: scale(1.7);
+	@include pseudo(before, 0, 0, 0, 0);
+
+	&:before{
+		@extend .inaccessible;
+		background-color: rgba($dark, 0.45);
+	}
+
+	.slick-current &{
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+	}
+}
+/* ---------------------------------------------------------
+47. ibColumn /.ibColumn
+--------------------------------------------------------*/
+.ibColumn{
+	z-index: 1;
+	min-height: 84vh;
+}
+/* ---------------------------------------------------------
+48. flatpWrap /.flatpWrap
+--------------------------------------------------------*/
+.flatpWrap{
+	z-index: 2;
+	@include pseudo(before, 0, 0, 0, 0);
+
+	&:before{
+		z-index: -1;
+		background-color: $white;
+
+		@media (min-width: 1450px){
+			left: -50px;
+			right: -50px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+49. fabFeaturesList /.fabFeaturesList
+--------------------------------------------------------*/
+.fabFeaturesList{
+
+	> li{
+		flex-grow: 1;
+		flex-basis: 0;
+		display: flex;
+		min-width: 50%;
+	}
+}
+/* ---------------------------------------------------------
+50. fflColumn /.fflColumn
+--------------------------------------------------------*/
+.fflColumn{
+	color: inherit;
+	transition: box-shadow 0.3s ease;
+
+	&:hover{
+		box-shadow: 10px 0 50px -10px rgba($black, 0.08), -10px 0 50px -10px rgba($black, 0.08);
+
+		.icnWrap{
+			color: $white;
+			animation-name: icnbounce;
+		}
+
+		h2, .h2{
+
+			&:after {
+				width: 40px;
+				opacity: 1;
+			}
+		}
+	}
+
+	.icnWrap{
+		transition: all 0.3s ease;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: forwards;
+		font-size: 41px;
+		@include size(72px);
+	}
+
+	h2, .h2{
+		font-size: 17px;
+		line-height: (24/20);
+		position: relative;
+		@include pseudo(after, null, 0, -18px, 0);
+
+		&:after{
+			background-color: #cdd0d8;
+			margin-left: auto;
+			margin-right: auto;
+			@include size(0, 1px);
+			width: 0;
+			opacity: 0;
+			transition: all 0.35s ease !important;
+		}
+	}	
+}
+/* ---------------------------------------------------------
+51. featuresAsideBlock /.featuresAsideBlock
+--------------------------------------------------------*/
+.featuresAsideBlock{
+	@include pseudo(before, 40px, 0, 0, 0);
+
+	&:before{
+		z-index: -1;
+	}
+}
+/* ---------------------------------------------------------
+52. esColumn /.esColumn
+--------------------------------------------------------*/
+.esColumn{
+
+	&:hover{
+
+		.btnLink{
+			max-height: 22px;
+			margin-bottom: -5px;
+			margin-top: 10px;
+		}
+	}
+
+	.imgHolder{
+		height: 250px;
+	}
+
+	.btnLink{
+		max-height: 0;
+		transition: all 0.3s ease;
+		overflow: hidden;
+		display: block;
+	}
+
+	h3, .h3{
+		font-size: 20px;
+	}
+}
+/* ---------------------------------------------------------
+53. escCaption /.escCaption
+--------------------------------------------------------*/
+.escCaption{
+	left: 30px;
+	right: 30px;
+	bottom: -35px;
+}
+/* ---------------------------------------------------------
+54. exploreServicesBlock /.exploreServicesBlock
+--------------------------------------------------------*/
+.exploreServicesBlock{
+	z-index: 1;
+	@include pseudo(before, 0, 0, null, 0);
+
+	&:before{
+		z-index: -1;
+		background-color: $light;
+		height: 400px;
+	}
+}
+/* ---------------------------------------------------------
+55. btnPlayLink /.btnPlayLink
+--------------------------------------------------------*/
+.btnPlayLink{
+	font-size: 18px;
+	line-height: (24/18);
+	color: $gray-800;
+	padding: 3px 0 3px 82px;
+
+	&:hover{
+
+		.icnPlay{
+			animation-name: icnbounce;
+		}
+	}
+
+	.icnPlay{
+		color: $white;
+		left: 0;
+		top: 0;
+		text-indent: 7px;
+		font-size: 26px;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: forwards;
+		@include size(60px);
+	}
+}
+/* ---------------------------------------------------------
+56. aboutMayorBlock /.aboutMayorBlock
+--------------------------------------------------------*/
+.aboutMayorBlock{
+	font-size: 18px;
+	line-height: (26/18);
+}
+/* ---------------------------------------------------------
+57. meetQuote /.meetQuote
+--------------------------------------------------------*/
+.meetQuote{
+	font-size: 20px;
+	line-height: (28/20);
+	border-style: solid;
+	border-width: 0 0 0 2px;
+
+	cite{
+		font-style: normal;
+		font-size: 16px;
+		line-height: (24/18);
+
+		&:before{
+			display: inline-block;
+			vertical-align: middle;
+			content: '- ';
+		}
+	}
+}
+
+.ctSubtitleText{
+	color: $clr2;
+}
+/* ---------------------------------------------------------
+58. imgTwoImageHolder /.imgTwoImageHolder
+--------------------------------------------------------*/
+.imgTwoImageHolder{
+	z-index: 1;
+
+	.img1{
+		z-index: 1;
+		max-width: 90%;
+	}
+
+	.img2{
+		z-index: -1;
+		right: 0;
+		bottom: -106px;
+		max-width: 65%;
+	}
+}
+/* ---------------------------------------------------------
+59. itihBgPattern /.itihBgPattern
+--------------------------------------------------------*/
+.itihBgPattern{
+	left: 50%;
+	bottom: -79px;
+	transform: translateX(-50%);
+	margin-left: -74px;
+	z-index: 0;
+	max-width: 117px;
+}
+/* ---------------------------------------------------------
+60. counterftAsideBlock /.counterftAsideBlock
+--------------------------------------------------------*/
+.counterftAsideBlock{
+	min-height: 300px;
+	z-index: 1;
+
+	.alignHolder{
+		z-index: 2;
+	}
+}
+/* ---------------------------------------------------------
+61. cfbFeatList /.cfbFeatList
+--------------------------------------------------------*/
+.cfbFeatList{
+	margin-left: -15px;
+	margin-right: -15px;
+
+	> li{
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-bottom: 30px;
+		width: 50%;
+	}
+
+	.subtitle{
+		color: $clr3;
+		font-size: 15px;
+		line-height: (26/20);
+	}
+
+	.textCount{
+		font-size: 30px;
+		line-height: 1;
+	}
+
+	.icnWrap{
+		height: 45px;
+		font-size: 40px;
+	}
+}
+/* ---------------------------------------------------------
+62. cfbBgWrap /.cfbBgWrap
+--------------------------------------------------------*/
+.cfbBgWrap{
+	left: 0;
+	top: 0;
+	z-index: 1;
+	opacity: 0.4;
+}
+/* ---------------------------------------------------------
+63. ueEveColumn /.ueEveColumn
+--------------------------------------------------------*/
+.ueEveColumn{
+	transition: transform 0.3s ease;
+	transform: scale(1);
+	transform-origin: 50% 50% 0;
+
+	&:hover{
+		transform: scale(1.02);
+
+		.ueTimeTag{
+			top: 0;
+		}
+	}
+
+	h3, .h3{
+		font-size: 26px;
+	}
+
+	.widget &{
+
+		h3, .h3{
+			font-size: 22px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+64. ueTimeTag /.ueTimeTag
+--------------------------------------------------------*/
+.ueTimeTag{
+	left: 0;
+	top: 21px;
+	z-index: 1;
+	line-height: 1;
+	font-size: 16px;
+	transition: top 0.3s ease;
+
+	.textDay{
+		font-size: 20px;
+		padding: 8px 7px;
+	}
+}
+/* ---------------------------------------------------------
+65. ueScheduleList /.ueScheduleList
+--------------------------------------------------------*/
+.ueScheduleList{
+	font-size: 16px;
+	line-height: (20/16);
+
+	> li{
+		position: relative;
+		padding-left: 25px;
+		margin-bottom: 10px;
+	}
+
+	.icn{
+		width: 18px;
+		font-size: 16px;
+		left: 0;
+		top: 2px;
+	}
+}
+
+.upcomeventsBlock{
+	z-index: 1;
+}
+/* ---------------------------------------------------------
+66. cdDocsList /.cdDocsList
+--------------------------------------------------------*/
+.cdDocsList{
+	font-size: 16px;
+
+	> li{
+
+		+ li{
+			border-top: 1px solid $clr5;
+			padding-top: 16px;
+			margin-top: 12px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+67. cdTitle /.cdTitle
+--------------------------------------------------------*/
+.cdTitle{
+	font-size: 18px;
+	line-height: (22/18);
+}
+
+.ccwFoot{
+	border-top: 1px solid $clr5;
+}
+
+/* ---------------------------------------------------------
+68. ccwIcn /.ccwIcn
+--------------------------------------------------------*/
+.ccwIcn{
+	font-size: 55px;
+	height: 140px;
+}
+/* ---------------------------------------------------------
+69. npbBgPattern /.npbBgPattern
+--------------------------------------------------------*/
+.npbBgPattern{
+	left: 0;
+	top: 0;
+	z-index: 1;
+	opacity: 0.4;
+}
+
+.npbHolder{
+	z-index: 2;
+}
+/* ---------------------------------------------------------
+70. npbTimeTag /.npbTimeTag
+--------------------------------------------------------*/
+.npbTimeTag{
+	top: 100%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	line-height: 1;
+	left: 25px;
+}
+/* ---------------------------------------------------------
+71. btnCr /.btnCr
+--------------------------------------------------------*/
+.btnCr{
+	color: $clr7;
+	font-size: 16px;
+	line-height: 1;
+	transition: $transition-default;
+
+	.bcIcn{
+		font-size: 0.9em;
+	}
+
+	&:hover {
+		color: $gray-800;
+	}
+}
+/* ---------------------------------------------------------
+72. npbColumn /.npbColumn
+--------------------------------------------------------*/
+.npbColumn{
+	transition: transform 0.3s ease;
+	transform-origin: 50% 50% 0;
+
+	&:hover{
+		transform: scale(1.02);
+	}
+
+	h3, .h3{
+		line-height: (30/24);
+	}
+}
+/* ---------------------------------------------------------
+73. npbcmWrap /.npbcmWrap
+--------------------------------------------------------*/
+.npbcmWrap{
+	font-size: 16px;
+	line-height: 1;
+
+	> span{
+		vertical-align: 1px;
+	}
+
+	> i{
+		vertical-align: -2px;
+	}
+}
+/* ---------------------------------------------------------
+74. exploreResourceBlock /.exploreResourceBlock
+--------------------------------------------------------*/
+.exploreResourceBlock{
+	z-index: 1;
+	color: $clr8;
+	@include pseudo(before, 0, 0, 155px, 0);
+
+	&:before{
+		z-index: -1;
+		background-color: $dark;
+	}
+}
+/* ---------------------------------------------------------
+75. erLinksList /.erLinksList
+--------------------------------------------------------*/
+.erLinksList{
+
+	&.bgTheme{
+
+		> li{
+
+			+ li{
+				border-top-color: rgba($clr5, 0.25);
+			}
+
+			> a{
+				color: $white;
+
+				&:after{
+					border-color: rgba($white, 0.5);
+				}
+
+				&:hover{
+					color: $gray-800;
+
+					&:after{
+						border-color: currentColor;
+						right: 20px;
+						margin-top: -8px;
+						font-size: 14px;
+						transform: rotate(0);
+						border: 0;
+						content: "\e907";
+						font-family: 'icomoon' !important;
+					}
+				}
+			}
+		}
+	}
+
+	> li{
+
+		+ li{
+			border-top: 1px solid $clr9;
+		}
+
+		> a{
+			display: block;
+			position: relative;
+			color: $gray-800;
+			font-size: 16px;
+			line-height: (22/18);
+			padding: 14px 30px 14px 15px;
+			margin-left: -15px;
+			margin-right: -15px;
+			transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+			@include pseudo(after, 50%, 17px, null, null);
+
+			&:after{
+				border: solid $clr8;
+				border-width: 2px 2px 0 0;
+				transform: rotate(45deg);
+				margin-top: -4px;
+				@include size(8px);
+			}
+
+			&:hover{
+				background-color: $white;
+				box-shadow: $box-shadow;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+76. echSlider /.echSlider
+--------------------------------------------------------*/
+.echSlider{
+	max-width: 233px;
+
+	.slick-list{
+		overflow: visible !important;
+	}
+}
+/* ---------------------------------------------------------
+77. echColumn /.echColumn
+--------------------------------------------------------*/
+.echColumn{
+	height: 220px;
+	max-width: 400px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	@include pseudo(after, 0, 0, 0, 0);
+
+	&:after{
+		@extend .inaccessible;
+		background-image: linear-gradient(to bottom, rgba($black,0) 0%,rgba($black,0.8) 100%);
+	}
+
+	h3, .h3{
+		font-size: 20px;
+		line-height: (28/24);
+	}
+
+	&:hover{
+
+		.spanLinkGo{
+			max-height: 55px;
+			margin-top: 20px;
+			margin-bottom: 5px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+78. echcCaptionWrap /.echcCaptionWrap
+--------------------------------------------------------*/
+.echcCaptionWrap{
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+}
+/* ---------------------------------------------------------
+79. echCountTag /.echCountTag
+--------------------------------------------------------*/
+.echCountTag{
+	z-index: 1;
+	border-radius: 99px;
+	font-size: 15px;
+	line-height: 1;
+	right: 14px;
+	top: 14px;
+	background-color: rgba($black, 0.3);
+	transition: $transition-default;
+
+	.icn{
+		font-size: 1.1em;
+		margin-right: 1px;
+	}
+
+	&:hover {
+		background-color: rgba($black, 0.5);
+	}
+}
+/* ---------------------------------------------------------
+80. echCatTitle /.echCatTitle
+--------------------------------------------------------*/
+.echCatTitle{
+	font-size: 16px;
+	line-height: (20/16);
+	color: $gray-600;
+}
+/* ---------------------------------------------------------
+81. echCatTitle /.echCatTitle
+--------------------------------------------------------*/
+.spanLinkGo{
+	font-size: 12px;
+	transition: max-height 0.3s ease, margin 0.3s ease, transform 0.35s ease;
+	max-height: 0;
+	overflow: hidden;
+	@include size(35px);
+
+	&:hover {
+		transform: scale(1.02);
+	}
+}
+/* ---------------------------------------------------------
+82. meetCouncilBlock /.meetCouncilBlock
+--------------------------------------------------------*/
+.meetCouncilBlock{
+	z-index: 1;
+	@include pseudo(before, 0, 0, null, 0);
+
+	&.noOverlay{
+
+		&:before{
+			display: none;
+		}
+	}
+
+	&:before{
+		z-index: -1;
+		background-color: $light;
+		height: 480px;
+	}
+}
+/* ---------------------------------------------------------
+83. mcssList /.mcssList
+--------------------------------------------------------*/
+.mcssList {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(-50%);
+	background-color: $white;
+	text-align: center;
+	transition: all 0.35s ease;
+
+	.mcssLink {
+		width: 40px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #77849c;
+		text-align: center;
+		font-size: 16px;
+		transition: $transition-default;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	li:first-child {
+
+		.mcssLink {
+			padding-left: 5px;
+		}
+	}
+
+	li:last-child {
+
+		.mcssLink {
+			padding-right: 8px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+84. mccColumn /.mccColumn
+--------------------------------------------------------*/
+.mccColumn{
+	max-width: 290px;
+
+	h4, .h4{
+		font-size: 17px;
+	}
+
+	.imgHolder {
+
+		&:before {
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.35s ease;
+			background-color: rgba($gray-900, 0.10);
+		}
+	}
+
+	&:hover {
+
+		.imgHolder {
+
+			&:before {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		.mcssList {
+			bottom: 15px;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+/* ---------------------------------------------------------
+85. mccInfoList /.mccInfoList
+--------------------------------------------------------*/
+.mccInfoList{
+	font-size: 16px;
+	line-height: 1;
+
+	> li{
+		margin-bottom: 16px;
+	}
+
+	.icn{
+		font-size: 14px;
+	}
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+
+		&:hover{
+			color: $secondary;
+		}
+	}
+}
+/* ---------------------------------------------------------
+86. mccSeprator /.mccSeprator
+--------------------------------------------------------*/
+.mccSeprator{
+	max-width: 40px;
+	margin: 0;
+}
+/* ---------------------------------------------------------
+87. lgsImageWrap /.lgsImageWrap
+--------------------------------------------------------*/
+.lgsImageWrap{
+	opacity: 0.5;
+	transition: $transition-fade;
+
+	&:hover{
+		opacity: 1;
+	}
+}
+
+.ftAreaWrap{
+	color: $clr14;
+}
+/* ---------------------------------------------------------
+88. ftConnectAside /.ftConnectAside
+--------------------------------------------------------*/
+.ftConnectAside{
+	color: $clr12;
+	border-bottom: 1px solid $clr13;
+}
+/* ---------------------------------------------------------
+89. ftcaNav /.ftcaNav
+--------------------------------------------------------*/
+.ftcaNav{
+	font-size: 17px;
+
+	li{
+		margin: 0 7px 5px;
+
+		&.active{
+
+			> a{
+				color: $clr12;
+			}
+		}
+	}
+
+	a{
+		transition: $transition-default;
+		color: inherit;
+
+		&:hover{
+			color: $white;
+		}
+	}
+}
+/* ---------------------------------------------------------
+90. ctConnectWrap /.ctConnectWrap
+--------------------------------------------------------*/
+.ctConnectWrap{
+
+	.title{
+		font-size: 18px;
+	}
+}
+/* ---------------------------------------------------------
+91. ftSocialNetworks /.ftSocialNetworks
+--------------------------------------------------------*/
+.ftSocialNetworks{
+
+	li{
+		margin-bottom: 5px;
+		margin-left: 5px;
+	}
+
+	a{
+		transition: $transition-default;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 20px;
+		color: $primary;
+		background-color: $white;
+		border-radius: 100%;
+		@include size(36px);
+
+		&:hover{
+			background-color: $blue;
+			color: $white;
+		}
+	}
+}
+
+.ftPlace{
+	font-style: normal;
+}
+/* ---------------------------------------------------------
+92. footerAside /.footerAside
+--------------------------------------------------------*/
+.footerAside{
+	font-size: 17px;
+	line-height: (24/17);
+}
+/* ---------------------------------------------------------
+93. ftpScheduleList /.ftpScheduleList
+--------------------------------------------------------*/
+.ftpScheduleList{
+
+	li{
+		position: relative;
+		margin-bottom: 7px;
+	}
+
+	.title{
+		margin-right: 3px;
+	}
+
+	.icn{
+		font-size: 15px;
+	}
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+
+		&:hover{
+			color: $white;
+		}
+	}
+}
+/* ---------------------------------------------------------
+94. ftsrLinksList /.ftsrLinksList
+--------------------------------------------------------*/
+.ftsrLinksList{
+
+	li{
+		margin-bottom: 11px;
+
+		&.active{
+
+			> a{
+				color: $white;
+			}
+		}
+	}
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+		position: relative;
+		padding-left: 16px;
+		@include pseudo(before, 9px, null, null, 0);
+
+		&:before{
+			border: solid $clr15;
+			border-width: 2px 2px 0 0;
+			transform: rotate(45deg);
+			@include size(6px);
+		}
+
+		&:hover{
+			color: $white;
+		}
+	}
+}
+/* ---------------------------------------------------------
+95. pageFooter /#pageFooter
+--------------------------------------------------------*/
+#pageFooter{
+	font-size: 16px;
+	line-height: (20/16);
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+
+		&:hover{
+			color: $white;
+		}
+	}
+}
+/* ---------------------------------------------------------
+96. ftSubscribeForm / .ftSubscribeForm
+--------------------------------------------------------*/
+.ftSubscribeForm{
+
+	.btn{
+		font-size: 20px;
+
+		&:before,
+		.btnText{
+			padding: 14px 19px;
+		}
+	}
+}
+
+.ftLogo{
+	max-width: 134px;
+}
+/* ---------------------------------------------------------
+97. hdSocialNetworks / .hdSocialNetworks
+--------------------------------------------------------*/
+.hdSocialNetworks{
+
+	li{
+		margin-left: 8px;
+	}
+
+	a{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $gray-600;
+		color: $white;
+		font-size: 15px;
+		border-radius: 100%;
+		transition: $transition-default;
+		@include size(30px);
+
+		&:hover{
+			background-color: $dark;
+		}
+	}
+}
+/* ---------------------------------------------------------
+98. pageMainHead / .pageMainHead
+--------------------------------------------------------*/
+.pageMainHead{
+	min-height: 170px;
+	@include pseudo(before, 0, 0, 0, 0);
+
+	&:before{
+		background-color: rgba($dark, 0.4);
+	}
+
+	.align{
+		z-index: 1;
+	}
+}
+/* ---------------------------------------------------------
+99. breadcrumb / .breadcrumb
+--------------------------------------------------------*/
+.breadcrumb{
+	font-size: 0.75rem;
+}
+/* ---------------------------------------------------------
+100. breadcrumb-item / .breadcrumb-item
+--------------------------------------------------------*/
+.breadcrumb-item{
+
+	+ .breadcrumb-item{
+
+		&:before{
+			content: "\f054";
+			font-weight: 900;
+			font-family: "Font Awesome 5 Free";
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			font-size: 0.6em;
+			margin-top: 0.3rem;
+		}
+	}
+}
+/* ---------------------------------------------------------
+101. breadcrWhite / .breadcrWhite
+--------------------------------------------------------*/
+.breadcrWhite{
+	background-color: transparent;
+	color: $white;
+
+	.breadcrumb-item{
+
+		+ .breadcrumb-item{
+
+			&:before{
+				color: inherit;
+			}
+		}
+
+		&.active{
+			color: $white;
+		}
+	}
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+
+		&:hover{
+			color: $light;
+		}
+	}
+}
+/* ---------------------------------------------------------
+102. egdColumn / .egdColumn
+--------------------------------------------------------*/
+.egdColumn{
+	line-height: (24/17);
+	max-width: 290px;
+
+	&:hover{
+
+		.icnWrap{
+			background-color: $white;
+		}
+
+		.btn{
+			color: $white;
+		}
+	}
+
+	.icnWrap{
+		transition: $transition-default;
+		color: $white;
+		font-size: 52px;
+		left: 50%;
+		top: 100%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		@include size(80px);
+	}
+
+	.btn{
+		padding-top: 6px;
+		padding-bottom: 6px;
+	}
+}
+/* ---------------------------------------------------------
+103. dsSingleContent / .dsSingleContent
+--------------------------------------------------------*/
+.dsSingleContent{
+
+	p{
+		margin-bottom: 25px;
+	}
+}
+/* ---------------------------------------------------------
+104. dscInnerSliderWrap / .dscInnerSliderWrap
+--------------------------------------------------------*/
+.dscInnerSliderWrap{
+	width: 100%;
+	max-width: 290px;
+}
+/* ---------------------------------------------------------
+105. dcsColumn / .dcsColumn
+--------------------------------------------------------*/
+.dcsColumn{
+	border: 1px solid $clr9;
+	transition: box-shadow 0.3s ease;
+	min-height: 187px;
+	font-size: 14px;
+
+	&:hover{
+		box-shadow: $box-shadow;
+
+		.icnWrap{
+			transform: translateX(-100px);
+			height: 0;
+			transition-delay: 0s;
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		h3, .h3{
+			margin-bottom: 13px;
+		}
+
+		.dcscCaptionWrap{
+			opacity: 1;
+			visibility: visible;
+			max-height: 555px;
+		}
+
+		h3, .h3{
+			transition-delay: 0.15s;
+		}
+
+		.dcscCaptionWrap{
+			transition-delay: 0.16s;
+		}
+
+		.icnWatermark{
+			transition-delay: 0.27s;
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+	}
+
+	h3, .h3,
+	.icnWatermark,
+	.icnWrap,
+	.dcscCaptionWrap{
+		transition: all 0.3s ease;
+	}
+
+	.icnWrap{
+		margin-top: -10px;
+		transition-delay: 0.3s;
+		opacity: 1;
+		visibility: visible;
+		height: 50px;
+		font-size: 42px;
+	}
+
+	.icnWatermark{
+		right: 46px;
+		bottom: -12px;
+		color: rgba($gray-800, 0.1);
+		font-size: 74px;
+		transform: translateY(-10px);
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	h3, .h3{
+		margin-bottom: 0;
+		font-size: 20px;
+	}
+
+	p{
+		margin-bottom: 15px;
+	}
+}
+/* ---------------------------------------------------------
+106. dcscCaptionWrap / .dcscCaptionWrap
+--------------------------------------------------------*/
+.dcscCaptionWrap{
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+}
+/* ---------------------------------------------------------
+107. coDefaultList / .coDefaultList
+--------------------------------------------------------*/
+.coDefaultList{
+
+	> li{
+		position: relative;
+		padding-left: 33px;
+		margin-bottom: 14px;
+		@include pseudo(before, 5px, null, null, 2px);
+
+		&:before{
+			content: "\e922";
+			font-family: 'icomoon' !important;
+			speak: none;
+			font-style: normal;
+			font-weight: 600;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+}
+/* ---------------------------------------------------------
+108. drItemRow / .drItemRow
+--------------------------------------------------------*/
+.drItemRow{
+	transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	border: 2px solid $clr9;
+	margin-bottom: -2px;
+
+	&:hover{
+		background-color: $white;
+		box-shadow: $box-shadow;
+	}
+
+	h4, .h4{
+		font-size: 17px;
+		line-height: (20/17);
+		word-break: break-all;
+	}
+
+	.fileSize{
+		font-size: 15px;
+	}
+
+	.btnDownload{
+		transition: $transition-default;
+		line-height: 1;
+		font-size: 17px;
+
+		&:hover{
+			color: $secondary;
+		}
+	}
+}
+
+.ctaccRow{
+	border: 1px solid $clr9;
+}
+
+/* ---------------------------------------------------------
+109. Accordion Opener / .ctaccOpener
+--------------------------------------------------------*/
+.ctaccOpener > a{
+	padding: 17px 25px;
+	display: block;
+	color: $gray-800;
+	font-size: 20px;
+	line-height: (24/20);
+	position: relative;
+	@include pseudo(after, 50%, 15px, null, null);
+
+	&:after{
+		border: solid $gray-600;
+		border-width: 0 0 1.5px 1.5px;
+		transform: rotate(-45deg);
+		width: 7px;
+		height: 7px;
+		margin-top: -4px;
+		transition: transform 0.3s ease;
+	}
+
+	&[aria-expanded="true"]{
+
+		&:after{
+			transform: rotate(-225deg);
+		}
+	}
+}
+/* ---------------------------------------------------------
+110. saSocialNetworks / .saSocialNetworks
+--------------------------------------------------------*/
+.saSocialNetworks{
+	margin-left: 12px;
+	margin-right: -2px;
+
+	li{
+		padding-left: 2px;
+		padding-right: 2px;
+		margin-bottom: 10px;
+	}
+
+	a{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $gray-800;
+		color: $white;
+		border-radius: 100%;
+		transition: $transition-default;
+		font-size: 16px;
+		@include size(32px);
+
+		&.facebook{
+			background-color: $facebook;
+
+			&:hover{
+				background-color: darken($facebook, 10%);
+			}
+		}
+
+		&.twitter{
+			background-color: $twitter;
+
+			&:hover{
+				background-color: darken($twitter, 10%);
+			}
+		}
+
+		&.pinterest{
+			background-color: $pinterest;
+
+			&:hover{
+				background-color: darken($pinterest, 10%);
+			}
+		}
+
+		&.linkedin{
+			background-color: $linkedin;
+
+			&:hover{
+				background-color: darken($linkedin, 10%);
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+111. saShareAside / .saShareAside
+--------------------------------------------------------*/
+.saShareAside{
+
+	.title,
+	.causeSingle & .title{
+		font-size: 22px;
+		line-height: (28/24);
+	}
+
+	.newsTagWrap & .title{
+		font-size: 18px;
+	}
+}
+
+/* ---------------------------------------------------------
+112. Widget Nav / .widgetDepartsNav / .widgetFiltersNav
+--------------------------------------------------------*/
+.widgetDepartsNav,
+.widgetFiltersNav{
+
+	li{
+
+		+ li{
+			border-top: 1px solid $gray-200;
+		}
+
+		&.active{
+
+			> a{
+				background-color: $white;
+			}
+		}
+
+		a{
+			font-size: 17px;
+			line-height: (21/17);
+			padding: 14px 10px;
+			color: $gray-800;
+			display: block;
+			transition: $transition-default;
+
+			&:hover{
+				background-color: $white;
+			}
+		}
+	}
+}
+
+.btnDcsBack{
+	font-size: 14px;
+}
+/* ---------------------------------------------------------
+113. widgetHelp / .widgetHelp
+--------------------------------------------------------*/
+.widgetHelp{
+	color: rgba($white, 0.5);
+	line-height: (24/17);
+	z-index: 1;
+
+	.icnWrap{
+		font-size: 54px;
+	}
+}
+
+/* ---------------------------------------------------------
+114. whWatermarkIcn / .whWatermarkIcn
+--------------------------------------------------------*/
+.whWatermarkIcn{
+	bottom: -32px;
+	right: -24px;
+	color: rgba($white, 0.1);
+	font-size: 201px;
+	z-index: -1;
+}
+/* ---------------------------------------------------------
+115. awbHeadingHead / .awbHeadingHead
+--------------------------------------------------------*/
+.awbHeadingHead{
+	font-size: 20px;
+	line-height: (26/20);
+
+	h2, .h2{
+		line-height: (50/40);
+	}
+}
+/* ---------------------------------------------------------
+116. watermarkHeadingHead / .watermarkHeadingHead
+--------------------------------------------------------*/
+.watermarkHeadingHead{
+
+	&[data-watermark]{
+		z-index: 1;
+		@include pseudo(before, -110px, null, null, 40px);
+
+		&:before{
+			@extend .fontBrush;
+			content: attr(data-watermark);
+			color: rgba($gray-850, 0.06);
+			font-size: 210px;
+			z-index: -1;
+		}
+	}
+}
+/* ---------------------------------------------------------
+117. prtColumn / .prtColumn
+--------------------------------------------------------*/
+.prtColumn{
+	line-height: (24/17);
+
+	.icnWrap{
+		height: 70px;
+		font-size: 62px;
+	}
+
+	h3, .h3{
+		line-height: (30/24);
+		position: relative;
+		@include pseudo(after, null, 0, 0, 0);
+
+		&:after{
+			background-color: $clr18;
+			margin-left: auto;
+			margin-right: auto;
+			@include size(40px, 1px);
+		}
+	}
+}
+/* ---------------------------------------------------------
+118. vibrantAsideBlock / .vibrantAsideBlock
+--------------------------------------------------------*/
+.vibrantAsideBlock{
+	font-size: 20px;
+	line-height: (28/20);
+	@include pseudo(before, 0, 0, 0, 0);
+
+	&:before{
+		background-color: rgba($dark, 0.5);
+	}
+
+	&,
+	.parallaxWindow{
+		min-height: 360px;
+	}
+
+	.parallaxWindow{
+		left: 0;
+		top: 0;
+	}
+
+	.align{
+		z-index: 1;
+	}
+
+	h2, .h1{
+		line-height: (56/50);
+	}
+
+	.vabMaxWrap{
+		max-width: 450px;
+	}
+
+	&.noFixHeight {
+
+		&,
+		.parallaxWindow {
+			min-height: 100%;
+		}
+	}
+
+	&.noOverLay {
+
+		&:before {
+			content: none;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+119. timelineList / .timelineList
+--------------------------------------------------------*/
+.timelineList{
+	background-image: linear-gradient(90deg, rgba($clr19,1) 0%, rgba($clr19,1) 100%);
+	background-size: 1px 100%;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	max-width: 290px;
+	@include pseudo(before, 0, null, null, 50%);
+	@include pseudo(after, null, null, 0, 50%);
+
+	&:before,
+	&:after{
+		border-radius: 100%;
+		background-color: $clr19;
+		transform: translateX(-50%);
+		@include size(10px);
+	}
+
+	> li{
+		overflow: hidden;
+		position: relative;
+		@include pseudo(before, 0, null, null, null);
+		@include pseudo(after, 0, null, null, null);
+
+		&:before,
+		&:after{
+			left: 50%;
+			border-radius: 100%;
+			background-color: $white;
+			transform: translateX(-50%);
+		}
+
+		&:before{
+			border: 1px solid $gray-200;
+			z-index: 1;
+			box-shadow: $box-shadow;
+			@include size(36px);
+		}
+
+		&:after{
+			z-index: 2;
+			border-style: solid;
+			border-width: 6px;
+			margin-top: 7px;
+			@include size(22px);
+		}
+
+		+ li{
+			margin-top: 35px;
+		}
+
+		&:nth-child(even){
+			text-align: right;
+
+			.imgHolder{
+				float: right;
+			}
+
+			.tlDescriptionWrap{
+				float: left;
+			}
+		}
+	}
+
+	.imgHolder,
+	.tlDescriptionWrap{
+		float: left;
+		width: 100%;
+	}
+
+	.tlDescriptionWrap{
+		float: right;
+		background-color: $white;
+	}
+}
+/* ---------------------------------------------------------
+120. tlTimeTitle / .tlTimeTitle
+--------------------------------------------------------*/
+.tlTimeTitle{
+	font-size: 22px;
+	line-height: (25/22);
+}
+
+/* ---------------------------------------------------------
+121. introAboutBlock / .introAboutBlock
+--------------------------------------------------------*/
+.introAboutBlock{
+
+	.imagesHolder{
+		padding-top: 68.8%;
+	}
+
+	.imgWrap1{
+		left: 0;
+		top: 0;
+		max-width: 63%;
+		@include pseudo(before, null, null, -31px, 19px);
+
+		&:before{
+			z-index: -1;
+			background-image: url(images/bgPattern3.png);
+			@include size(102px, 32px);
+		}
+	}
+
+	.imgWrap2{
+		bottom: 0;
+		right: -14px;
+		z-index: 1;
+		max-width: 45%;
+	}
+}
+/* ---------------------------------------------------------
+122. adminCountsList / .adminCountsList
+--------------------------------------------------------*/
+.adminCountsList{
+	margin-left: -10px;
+	margin-right: -10px;
+
+	li{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	h3, .h3{
+		font-size: 15px;
+		line-height: (26/17);
+		display: flex;
+	}
+
+	.textLarge{
+		font-size: 53px;
+		line-height: (50/60);
+	}
+}
+/* ---------------------------------------------------------
+123. gsabHolder / .gsabHolder
+--------------------------------------------------------*/
+.gsabHolder{
+	color: $clr20;
+	z-index: 1;
+	min-height: 300px;
+}
+/* ---------------------------------------------------------
+124. patternCircle / .patternCircle
+--------------------------------------------------------*/
+.patternCircle{
+	z-index: -1;
+	opacity: 0.2;
+	border: 1px solid $gray-200;
+	@include size(421px);
+}
+
+.patternCircle1{
+	left: -6px;
+	top: -285px;
+}
+
+.patternCircle2{
+	left: -8px;
+	top: -265px;
+}
+
+.patternCircle3{
+	right: -270px;
+	bottom: -270px;
+}
+/* ---------------------------------------------------------
+125. tmcbSocialNetworks / .tmcbSocialNetworks
+--------------------------------------------------------*/
+.tmcbSocialNetworks{
+	margin-left: -2px;
+	margin-right: -2px;
+
+	li{
+		padding-left: 2px;
+		padding-right: 2px;
+		margin-bottom: 4px;
+	}
+
+	a{
+		border-radius: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $clr21;
+		color: $white;
+		font-size: 15px;
+		transition: $transition-default;
+		@include size(36px);
+
+		&:hover{
+			background-color: $gray-800;
+		}
+	}
+}
+/* ---------------------------------------------------------
+126. tmcbDescriptionBox / .tmcbDescriptionBox
+--------------------------------------------------------*/
+.tmcbDescriptionBox{
+	z-index: 1;
+
+	.imgHolder{
+		width: 260px;
+		@include size(260px);
+	}
+
+	h2, .h2{
+		font-size: 24px;
+	}
+
+	h3, .h3{
+		font-size: 18px;
+	}
+
+	.icnWatermark{
+		bottom: -100px;
+		right: -100px;
+		font-size: 385px;
+		color: rgba($clr22, 0.05);
+		z-index: -1;
+	}
+}
+/* ---------------------------------------------------------
+127. tmcbInfosList / .tmcbInfosList
+--------------------------------------------------------*/
+.tmcbInfosList{
+
+	dt{
+		color: $gray-800;
+		float: left;
+		margin-right: 3px;
+	}
+
+	dt,
+	dd{
+		margin-bottom: 14px;
+	}
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+
+		&:hover{
+			color: $gray-800;
+		}
+	}
+}
+/* ---------------------------------------------------------
+128. edupiInfosList / .edupiInfosList
+--------------------------------------------------------*/
+.edupiInfosList{
+	margin-left: -15px;
+	margin-right: -15px;
+
+	> li{
+		border-bottom: 1px solid $gray-200;
+		width: calc(100% - 30px);
+		margin: 0 15px 30px;
+	}
+
+	.edupiilWrap{
+		padding-left: 0;
+		@include pseudo(before, 11px, null, null, 3px);
+
+		&:before{
+			background-color: $white;
+			border-width: 3px;
+			border-style: solid;
+			border-radius: 100%;
+			@include size(10px);
+		}
+	}
+
+	.timeTitle{
+		font-size: 20px;
+		margin-bottom: 2px;
+	}
+}
+/* ---------------------------------------------------------
+129. prgTopWrap / .prgTopWrap
+--------------------------------------------------------*/
+.prgTopWrap{
+	margin-left: -5px;
+	margin-right: -5px;
+
+	.wrap{
+		width: 50%;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+/* ---------------------------------------------------------
+130. progresWrap / .progresWrap
+--------------------------------------------------------*/
+.progresWrap {
+
+	.progressBar {
+		height: 5px;
+	}
+}
+/* ---------------------------------------------------------
+131. skillsRankList / .skillsRankList
+--------------------------------------------------------*/
+.skillsRankList{
+
+	> li{
+		margin-bottom: 27px;
+	}
+}
+/* ---------------------------------------------------------
+132. infigQuote / .infigQuote
+--------------------------------------------------------*/
+.infigQuote{
+	color: $white;
+	right: -15px;
+	bottom: -35px;
+	font-size: 18px;
+	line-height: (26/22);
+	max-width: 207px;
+	border-radius: 4px;
+
+	a{
+		color: inherit;
+		transition: $transition-default;
+
+		&:hover{
+			color: rgba($white, 0.9);
+		}
+	}
+}
+/* ---------------------------------------------------------
+133. subDiscoverBlock / .subDiscoverBlock
+--------------------------------------------------------*/
+.subDiscoverBlock{
+
+	h2, .h2{
+		line-height: (46/40);
+	}
+}
+/* ---------------------------------------------------------
+134. gbfColumn / .gbfColumn
+--------------------------------------------------------*/
+.gbfColumn{
+
+	&:hover{
+
+		.icnWrap{
+			color: $white;
+		}
+	}
+
+	.icnWrap{
+		font-size: 60px;
+		transition: $transition-default;
+		@include size(102px);
+	}
+
+	h3, .h3{
+		line-height: (24/22);
+		@include pseudo(after, null, 0, 0, 0);
+
+		&:after{
+			background-color: rgba($dark, 0.2);
+			margin-left: auto;
+			margin-right: auto;
+			@include size(40px, 1px);
+		}
+	}
+
+	&.gbfcVII {
+
+		h3, .h3{
+
+			&:after {
+				width: 0;
+				opacity: 0;
+				transition: all 0.35s ease !important;
+			}
+		}
+
+		&:hover {
+
+			h3, .h3{
+
+				&:after {
+					width: 40px;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+135. listDefault / .listDefault
+--------------------------------------------------------*/
+.listDefault{
+
+	> li{
+		position: relative;
+		padding-left: 20px;
+		margin-bottom: 18px;
+		@include pseudo(before, 11px, null, null, 2px);
+
+		&:before{
+			border-radius: 100%;
+			background-color: $gray-800;
+			@include size(6px);
+		}
+	}
+}
+
+.dcsTabContent{
+	border: 1px solid $clr9;
+}
+/* ---------------------------------------------------------
+136. dcsTabset / .dcsTabset
+--------------------------------------------------------*/
+.dcsTabset{
+
+	&,
+	&.nav-tabs{
+		margin-bottom: -1px;
+
+		.nav-link{
+			font-weight: $fwMedium;
+			font-size: 15px;
+			padding: 10px 15px;
+			line-height: (26/20);
+			border-color: transparent;
+			border-radius: 0;
+			color: $gray-800;
+			position: relative;
+			@include pseudo(after, null, 0, -1px, 0);
+			@include pseudo(before, 0, 0, null, 0);
+
+			&.active{
+				border-color: $clr9;
+
+				&:after,
+				&:before{
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			&:hover{
+
+				&:before{
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			&:after{
+				border-bottom: 1px solid $white;
+			}
+
+			&:before{
+				border-style: solid;
+				border-width: 2px 0 0;
+			}
+
+			&:before,
+			&:after{
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+137. drDocColumn / .drDocColumn
+--------------------------------------------------------*/
+.drDocColumn{
+	font-size: 16px;
+	line-height: (26/16);
+
+	h2, .h2{
+		font-size: 20px;
+		line-height: (26/20);
+		margin-bottom: 2px;
+	}
+}
+/* ---------------------------------------------------------
+138. widgetFiltersNav / .widgetFiltersNav
+--------------------------------------------------------*/
+.widgetFiltersNav{
+	overflow: hidden;
+	position: absolute;
+	left: 15px;
+	top: 0;
+	right: 15px;
+	max-height: 64px;
+	transition: max-height 0.3s ease;
+
+	h3, .h3{
+		cursor: pointer;
+		@include pseudo(after, 50%, 0, null, null);
+
+		&:after{
+			border: solid currentColor;
+			border-width: 0 0 2px 2px;
+			transform: rotate(-45deg);
+			margin-top: -5px;
+			transition: transform 0.3s ease;
+			@include size(8px);
+		}
+	}
+
+	&.openActive{
+		max-height: 999px;
+
+		h3, .h3{
+
+			&:after{
+				transform: rotate(-225deg);
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+139. hasFilterPositioned / .hasFilterPositioned
+--------------------------------------------------------*/
+.hasFilterPositioned{
+	padding-top: 90px;
+}
+
+.docHeadingHead{
+	font-size: 16px;
+}
+/* ---------------------------------------------------------
+140. ifbFilterHead / .ifbFilterHead
+--------------------------------------------------------*/
+.ifbFilterHead{
+
+	&.ifbFilterHeadAlter{
+
+		.btn{
+			width: 163px;
+		}
+	}
+
+	.formCol{
+		width: 100%;
+	}
+
+	label{
+		font-size: 16px;
+	}
+
+	.btn{
+		margin-bottom: 12px;
+		width: 176px;
+
+		&:before,
+		.btnText{
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+141. pagination / .pagination
+--------------------------------------------------------*/
+.pagination{
+
+	.page-item{
+		margin-left: 4px;
+		margin-right: 4px;
+
+		&.active{
+
+			.page-link{
+				color: $white;
+			}
+		}
+
+		&.disabled{
+			display: none;
+		}
+	}
+
+	.page-link{
+		font-size: 16px;
+		line-height: 1;
+		transition: $transition-default;
+
+		&:hover{
+			color: $white;
+		}
+	}
+
+	.icn{
+		font-size: 0.7em;
+	}
+}
+/* ---------------------------------------------------------
+142. ueEveColumn__list / .ueEveColumn__list
+--------------------------------------------------------*/
+.ueEveColumn__list{
+	border: 1px solid $clr9;
+	margin-bottom: -1px;
+	transition: box-shadow 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+	// max-width: 370px;
+
+	&:hover{
+		box-shadow: $box-shadow;
+		border-color: $white;
+		background-color: $white;
+	}
+
+	h3, .h3{
+		line-height: (26/24);
+	}
+
+	.imgHolder{
+		@include size(90px);
+	}
+
+	.btnCustomLightOutline {
+
+		&:before {
+			color: $white;
+		}
+	}
+}
+/* ---------------------------------------------------------
+143. uecTime / .uecTime
+--------------------------------------------------------*/
+.uecTime{
+	font-size: 14px;
+	line-height: 1;
+	width: 120px;
+
+	.textLarge{
+		font-size: 30px;
+	}
+
+	.textDay{
+		color: $clr21;
+		font-size: 16px;
+	}
+}
+/* ---------------------------------------------------------
+144. ifbFiltersList / .ifbFiltersList
+--------------------------------------------------------*/
+.ifbFiltersList{
+
+	li{
+		margin-bottom: 10px;
+
+		+ li{
+			margin-left: 5px;
+		}
+
+		&.active{
+
+			a{
+				color: $white;
+			}
+		}
+	}
+
+	a{
+		display: block;
+		color: $clr7;
+		font-size: 17px;
+		line-height: (20/17);
+		padding: 11px;
+		transition: $transition-default;
+
+		&:hover{
+			color: $white;
+		}
+	}
+}
+/* ---------------------------------------------------------
+145. searchForm / .searchForm
+--------------------------------------------------------*/
+.searchForm{
+
+	.form-control{
+		@include placeholder{ color: $clr24; };
+	}
+}
+/* ---------------------------------------------------------
+146. widgetArchiveList / .widgetArchiveList
+--------------------------------------------------------*/
+.widgetArchiveList{
+
+	li{
+		margin-bottom: 9px;
+	}
+
+	a{
+		position: relative;
+		padding-left: 14px;
+		display: block;
+		color: $gray-600;
+		transition: $transition-default;
+		@include pseudo(before, 7px, null, null, 0);
+
+		&:before{
+			content: "\f054";
+			font-weight: 900;
+			font-family: "Font Awesome 5 Free";
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			line-height: 1;
+			font-size: 0.6em;
+		}
+
+		&:hover{
+			color: $gray-800;
+		}
+	}
+}
+/* ---------------------------------------------------------
+147. widgetUpcoming / .widgetUpcoming
+--------------------------------------------------------*/
+.widgetUpcoming{
+
+	li{
+		display: flex;
+		font-size: 15px;
+		line-height: (20/15);
+
+		+ li{
+			border-top: 1px solid $gray-200;
+			padding-top: 15px;
+			margin-top: 18px;
+		}
+	}
+
+	.imgHolder{
+		width: 80px;
+	}
+
+	h4, .h4{
+		font-size: 18px;
+		line-height: (24/18);
+	}
+
+	.readMoreLink{
+		font-size: 18px;
+	}
+}
+/* ---------------------------------------------------------
+148. widgetGallery / .widgetGallery
+--------------------------------------------------------*/
+.widgetGallery{
+
+	ul{
+		margin-left: -5px;
+		margin-right: -5px;
+		max-width: 325px;
+	}
+
+	li{
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-bottom: 10px;
+		width: 33.333%;
+	}
+
+	a{
+		display: block;
+		transition: transform 0.3s ease;
+		transform-origin: 50% 50% 0;
+
+		&:hover{
+			transform: scale(1.04);
+		}
+	}
+
+	img{
+		width: 100%;
+	}
+}
+/* ---------------------------------------------------------
+149. widgetTags / .widgetTags
+--------------------------------------------------------*/
+.widgetTags,
+.tagList{
+	margin-left: -5px;
+	margin-right: -5px;
+
+	li{
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-bottom: 10px;
+	}
+
+	a{
+		display: block;
+		font-size: 15px;
+		line-height: (20/15);
+		color: $gray-600;
+		border: 1px solid $clr4;
+		border-radius: 2px;
+		transition: $transition-default;
+		padding: 2px 9px;
+	}
+}
+
+.tagList{
+
+	a{
+		background-color: $white;
+		border-color: $white;
+	}
+}
+
+/* ---------------------------------------------------------
+150. tagsWrap / .tagsWrap
+--------------------------------------------------------*/
+.tagsWrap{
+
+	.title{
+		font-size: 15px;
+	}
+}
+/* ---------------------------------------------------------
+151. dtlhDress / .dtlhDress
+--------------------------------------------------------*/
+.dtlhDress{
+	color: $white;
+
+	.title{
+		font-size: 24px;
+	}
+
+	.icnWatermark{
+		position: absolute;
+		bottom: -10px;
+		right: 33px;
+		color: rgba($white, 0.3);
+		font-size: 60px;
+	}
+
+	.col-12{
+		
+		&:nth-child(2){
+			background-color: $clr34;
+		}
+	}
+}
+/* ---------------------------------------------------------
+152. countdownAside / .countdownAside
+--------------------------------------------------------*/
+.countdownAside{
+	background-color: $clr25;
+	color: $clr10;
+}
+/* ---------------------------------------------------------
+153. cdScheduleList / .cdScheduleList
+--------------------------------------------------------*/
+.cdScheduleList{
+	font-size: 16px;
+	margin-left: 0;
+	margin-right: 0;
+
+	li{
+		padding-left: 27px;
+		padding-right: 24px;
+	}
+
+	.title{
+		font-size: 36px;
+		line-height: 1;
+	}
+}
+/* ---------------------------------------------------------
+154. listCountDefault / .listCountDefault
+--------------------------------------------------------*/
+.listCountDefault{
+	counter-reset: item;
+
+	> li{
+		position: relative;
+		padding-left: 20px;
+		margin-bottom: 13px;
+		@include pseudo(before, 0, null, null, 0);
+
+		&:before{
+			counter-increment: item;
+			content: counters(item, ".", decimal) ".";
+		}
+	}
+}
+/* ---------------------------------------------------------
+155. scgSpeakersSlider / .scgSpeakersSlider
+--------------------------------------------------------*/
+.scgSpeakersSlider {
+
+	.slick-list {
+		padding-top: 10px;
+	}
+}
+/* ---------------------------------------------------------
+156. speakerColumn / .speakerColumn
+--------------------------------------------------------*/
+.speakerColumn{
+	box-shadow: 0 6px 10px rgba(6, 22, 58, .07) !important;
+
+	h3, .h3{
+		font-size: 20px;
+	}
+
+	h4, .h4{
+		font-size: 17px;
+		color: $body-color;
+	}
+}
+/* ---------------------------------------------------------
+157. scgTabList / .scgTabList
+--------------------------------------------------------*/
+.scgTabList{
+	border-bottom: 1px solid $clr9;
+
+	&,
+	&.nav-tabs{
+
+		.nav-item{
+
+			+ .nav-item{
+				margin-left: 8px;
+			}
+		}
+
+		.nav-link{
+			font-weight: $fwMedium;
+			position: relative;
+			border: 0;
+			transition: $transition-default;
+			color: $body-color;
+			background-color: transparent;
+			font-size: 12px;
+			padding: 0 0 8px;
+			@include pseudo(after, null, 0, -1px, 0);
+
+			&.active{
+				color: $gray-800;
+
+				&:after{
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			&:after{
+				opacity: 0;
+				visibility: hidden;
+				@include size(100%, 2px);
+			}
+
+			&:hover{
+				color: $gray-800;
+				background-color: transparent;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+158. scgGalleryList / .scgGalleryList
+--------------------------------------------------------*/
+.scgGalleryList{
+	margin-left: -10px;
+	margin-right: -10px;
+
+	li{
+		padding-left: 10px;
+		padding-right: 10px;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	img{
+		width: 100%;
+	}
+}
+/* ---------------------------------------------------------
+159. postNavigatorNav / .postNavigatorNav
+--------------------------------------------------------*/
+.postNavigatorNav{
+	border: solid $clr5;
+	border-width: 1px 0;
+
+	.btnPrev,
+	.btnNext{
+		border: 1px solid $gray-200;
+		color: $body-color;
+		font-size: 13px;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: $transition-default, background-position 0.3s ease;
+		background-repeat: no-repeat;
+		background-size: 32px 32px;
+		@include size(32px);
+
+		&:hover{
+			color: $white;
+			background-position: 0 32px;
+		}
+	}
+
+	.btnPrev{
+		left: 0;
+	}
+
+	.btnNext{
+		right: 0;
+	}
+}
+/* ---------------------------------------------------------
+160. pnnPaginList / .pnnPaginList
+--------------------------------------------------------*/
+.pnnPaginList{
+
+	li{
+		width: calc(50% - 50px);
+
+		+ li{
+			text-align: right;
+		}
+
+		> a{
+			transition: $transition-default;
+			font-size: 15px;
+
+			&:hover{
+				color: $secondary;
+			}
+		}
+	}
+
+	h4, .h4{
+		font-size: 16px;
+	}
+}
+/* ---------------------------------------------------------
+161. newsClassicColumn / .newsClassicColumn
+--------------------------------------------------------*/
+.newsClassicColumn{
+	line-height: (28/17);
+
+	.title{
+		font-size: 16px;
+
+		> i{
+			vertical-align: -2px;
+
+			&.icn{
+				vertical-align: -3px;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+162. btnYouPlay / .btnYouPlay
+--------------------------------------------------------*/
+.btnYouPlay{
+	border-radius: 9px;
+	top: 50%;
+	left: 50%;
+	color: $white;
+	transition: $transition-default;
+	transform: translate(-50%, -50%);
+	@include size(70px, 48px);
+
+	&:hover{
+		background-color: $white;
+		box-shadow: $box-shadow;
+	}
+
+	&:before{
+		display: block;
+		content: '';
+		border-style: solid;
+		border-width: 11px 0 11px 18px;
+		border-color: transparent transparent transparent currentColor;
+		@include size(0);
+	}
+}
+
+/* ---------------------------------------------------------
+163. Share Link / .btnLinkShare
+--------------------------------------------------------*/
+.btnLinkShare{
+	border: 1px solid $clr4;
+	color: $body-color;
+	transition: $transition-default;
+	@include size(38px);
+
+	&:hover{
+		color: $white;
+	}
+}
+/* ---------------------------------------------------------
+164. widgetVote / .widgetVote
+--------------------------------------------------------*/
+.widgetVote{
+	background-position: 50% 100%;
+	background-color: $clr27;
+	color: $white;
+	min-height: 298px;
+
+	h3, .h3{
+		color: inherit;
+	}
+
+	.btn{
+		min-width: 133px;
+
+		&:before,
+		.btnText{
+			border-radius: 3px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+165. fpListWidget / .fpListWidget
+--------------------------------------------------------*/
+.fpListWidget {
+
+	ul {
+
+		li {
+			overflow: hidden;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid $gray-200;
+
+			&:last-child {
+				border-bottom: 0;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			&:hover {
+
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	.prPrice {
+		color: $gray-600;
+	}
+
+	.imgWrap {
+		overflow: hidden;
+
+		img {
+			transition: transform 0.55s linear;
+		}
+	}
+}
+/* ---------------------------------------------------------
+166. ctSorterWrapHeader / .ctSorterWrapHeader
+--------------------------------------------------------*/
+.ctSorterWrapHeader {
+	font-size: 14px;
+	line-height: (24/14);
+	margin-bottom: 25px;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+/* ---------------------------------------------------------
+167. dsSortDropdown / .dsSortDropdown
+--------------------------------------------------------*/
+.dsSortDropdown {
+	max-width: 245px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 40px;
+	border: 1px solid $gray-200;
+
+	#dropdownMenuLink {
+		display: block;
+		color: $gray-600;
+		padding: 7px 20px 7px;
+		position: relative;
+		@include pseudo(after, 13px, 20px, null, null);
+
+		&:after{
+			color: $gray-600;
+			content: "\f078";
+			font-weight: 900;
+			font-family: "Font Awesome 5 Free";
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			line-height: 1;
+			font-size: 0.6em;
+		}
+	}
+}
+/* ---------------------------------------------------------
+168. proItemCol / .proItemCol
+--------------------------------------------------------*/
+.proItemCol {
+	max-width: 272px;
+	background-color: $white;
+	padding: 0 10px 24px;
+	margin: 0 auto 30px;
+	transition: box-shadow 0.35s ease;
+
+	.imageHolder {
+		overflow: hidden;
+		margin: 0 -10px 21px;
+	}
+
+	.btnWrap {
+		left: 0;
+		right: 0;
+		z-index: 1;
+		opacity: 0;
+		visibility: hidden;
+		font-size: 18px;
+		line-height: 1;
+		margin-left: -10px;
+		margin-right: -10px;
+		bottom: 30px;
+		transform: translateY(100px);
+		transition: transform 0.35s ease;
+
+		.btnMinSm {
+			min-width: 147px;
+		}
+	}
+
+	.btn:before,
+	.btnText {
+		padding-top: 0.344rem;
+		padding-bottom: 0.344rem;
+	}
+
+	&:hover {
+		box-shadow: 0 10px 40px rgba(6, 22, 58, .10) !important;
+
+		.btnWrap {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+	}
+
+	.prName {
+		font-size: 18px;
+	}
+
+	.prPrice {
+		color: $gray-600;
+		margin-bottom: 0;
+	}
+
+	&[data-featured-tag] {
+		@include pseudo(before, 10px, null, null, 10px);
+		
+		&:before {
+			font-weight: $fwMedium;
+			content: attr(data-featured-tag);
+			color: #fff;
+			text-transform: uppercase;
+			border-radius: 2px 0 0 0;
+			font-size: 14px;
+			line-height: 1;
+			min-width: 54px;
+			text-align: center;
+			padding: 5px 4px 5px;
+			z-index: 1;
+			background-color: $success;
+			font-family: $fontAlter;
+		}
+	}
+}
+/* ---------------------------------------------------------
+169. checkoutAlert / .checkoutAlert
+--------------------------------------------------------*/
+.checkoutAlert {
+	color: $gray-600;
+	background-color: $gray-700;
+	border-radius: 0;
+	margin-bottom: 25px;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+/* ---------------------------------------------------------
+170. alertPopBtn / .alertPopBtn
+--------------------------------------------------------*/
+.alertPopBtn {
+	border: 0;
+	background-color: transparent;
+	padding: 0;
+	color: $gray-800;
+	transition: $transition-default;
+
+	&:hover {
+		text-decoration: underline;
+		color: $gray-600;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+}
+/* ---------------------------------------------------------
+171. alertCollapseWrap / .alertCollapseWrap
+--------------------------------------------------------*/
+.alertCollapseWrap {
+	margin-bottom: 30px;
+	background-color: #fff;
+	padding: 30px 15px;
+	border: 1px solid $clr9;
+	font-size: 15px;
+
+	.alertPopForm {
+
+		label {
+			font-size: 17px;
+		}
+
+		.btnGary {
+			min-width: 90px;
+		}
+
+		.customCheckboxLabel {
+			vertical-align: middle;
+		}
+
+		.txtLink {
+			font-family: $fontAlter;
+			font-weight: $fwMedium;
+			font-size: 17px;
+			color: $gray-800;
+			transition: $transition-default;
+
+			&:hover {
+				color: $gray-600;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+172. fakeInput / .fakeInput
+--------------------------------------------------------*/
+.fakeInput {
+	position: fixed;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	visibility: hidden;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+}
+/* ---------------------------------------------------------
+173. customCheckboxLabel / .customCheckboxLabel
+--------------------------------------------------------*/
+.customCheckboxLabel {
+
+	.cuFakeLabel {
+		font-weight: $fwMedium;
+		font-family: $fontAlter;
+		position: relative;
+		padding-left: 30px;
+		line-height: 21px;
+		color: $gray-600;
+		cursor: pointer;
+
+		&:before,
+		&:after {
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 0;
+		}
+
+		&:before {
+			width: 20px;
+			height: 20px;
+			border: 1px solid #aaaaaa;
+			background-color: transparent;
+			box-shadow: inset 0 0 5px rgba($black, 0.3);
+			transition: box-shadow 0.35s ease 
+		}
+
+		&:after {
+			content: "\f00c";
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			background-color: transparent;
+			width: auto;
+			height: auto;
+			left: 6px;
+			font-size: 9px;
+			top: -1px;
+			opacity: 0;
+			transform: scale(0);
+			transition: transform .1s ease, -webkit-transform .1s
+		}
+	}
+
+	.fakeInput:checked + .cuFakeLabel:after {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+/* ---------------------------------------------------------
+174. customRadioBtnLabel / .customRadioBtnLabel
+--------------------------------------------------------*/
+.customRadioBtnLabel {
+
+	.fakeInput {
+		position: fixed;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		visibility: hidden;
+		clip: rect(0, 0, 0, 0);
+		overflow: hidden;
+	}
+
+	.cuFakeLabel {
+		position: relative;
+		padding-left: 30px;
+		line-height: 21px;
+		color: $gray-600;
+		cursor: pointer;
+
+		&:before,
+		&:after {
+			position: absolute;
+			content: "";
+		}
+
+		&:before {
+			left: 0;
+			top: 3px;
+			width: 14px;
+			height: 14px;
+			border: 1px solid #aaaaaa;
+			border-radius: 50%;
+			background-color: transparent;
+			box-shadow: inset 0 0 5px rgba($black, 0.3);
+			transition: box-shadow 0.35s ease 
+		}
+
+		&:after {
+			width: 8px;
+			height: 8px;
+			background-color: $gray-800;
+			border-radius: 50%;
+			top: 6px;
+			left: 3px;
+			opacity: 0;
+			transform: scale(0);
+			transition: transform .1s ease, -webkit-transform .1s
+		}
+	}
+
+	.fakeInput:checked + .cuFakeLabel:after {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+/* ---------------------------------------------------------
+175. couponAlertPopup / #couponAlertPopup
+--------------------------------------------------------*/
+#couponAlertPopup {
+
+	.btnTheme {
+
+		&:before,
+		.btnText {
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+		}
+	}
+}
+/* ---------------------------------------------------------
+176. bilingDetailsWrap / .bilingDetailsWrap
+--------------------------------------------------------*/
+.bilingDetailsWrap {
+
+	.formCol {
+		width: 100%;
+		padding-left: 5px;
+		padding-right: 5px;
+
+		&.formCol50 {
+			width: 50%;
+		}
+	}
+
+	.fLabel {
+		font-weight: $fwMedium;
+		margin-bottom: 5px;
+	}
+
+	.form-group {
+
+		.form-control {
+			@include placeholder { color: $clr29; font-size: 15px; font-weight: $fwMedium; };
+		}
+
+		.form-control + .form-control {
+			margin-top: 10px;
+		}
+	}
+
+	label.h2vii {
+		font-weight: 700;
+		color: $gray-800;
+		line-height: 1.2222222222;
+
+		&:before{
+			top: 8px !important;
+		}
+
+		&:after {
+			top: 12px !important;
+		}
+	}
+
+	.order-notes {
+		height: 80px;
+	}
+}
+/* ---------------------------------------------------------
+177. coolSelectWrapper / .coolSelectWrapper
+--------------------------------------------------------*/
+.coolSelectWrapper {
+	width: 100%;
+	position: relative;
+	@include pseudo(before, 50%, 15px, null, null);
+
+	&:before{
+		color: $clr29;
+		content: "\f078";
+		font-weight: 900;
+		font-family: "Font Awesome 5 Free";
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		font-size: 0.73em;
+		transform: translateY(-50%);
+	}
+}
+/* ---------------------------------------------------------
+178. coolSelect / .coolSelect
+--------------------------------------------------------*/
+.coolSelect {
+	font-size: 15px;
+	color: $clr29;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+/* ---------------------------------------------------------
+179. checkoutCountTable / .checkoutCountTable
+--------------------------------------------------------*/
+.checkoutCountTable {
+	border: 1px solid $clr9;
+	color: $gray-800;
+	min-width: 455px;
+
+	thead th {
+		border-bottom-width: 1px;
+	}
+
+	td,
+	th {
+		padding: 0.96rem 1.5625rem;
+	}
+
+	.proItemName {
+		color: $gray-600;
+		font-size: 16px;
+	}
+
+	.col01 {
+		width: 60%;
+	}
+
+	.cuFakeLabel {
+		font-size: 15px;
+		color: $gray-600;
+
+		.price {
+			color: $gray-800;
+		}
+	}
+}
+
+.pmsWrap {
+	background-color: $gray-700;
+}
+/* ---------------------------------------------------------
+180. placeOrder / .placeOrder
+--------------------------------------------------------*/
+.placeOrder {
+	margin-top: 40px;
+	border-top: 1px solid $clr4;
+	padding: 20px 28px 20px 28px;
+
+	.btnTheme {
+		min-width: 180px;
+	}
+}
+/* ---------------------------------------------------------
+181. pmSlctList / .pmSlctList
+--------------------------------------------------------*/
+.pmSlctList {
+	padding: 40px 25px 0;
+
+	.cuFakeLabel {
+		font-size: 18px;
+		color: $gray-800;
+	}
+
+	li {
+		margin-bottom: 15px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.pmNotePop {
+		font-size: 17px;
+		line-height: 22px;
+		color: $gray-600;
+		border-radius: 3px;
+		background-color: $white;
+		padding: 27px 22px 20px 22px;
+		margin-bottom: 13px;
+		margin-top: 15px;
+		display: none;
+		transform: none;
+		max-height: 0;
+		overflow: hidden;
+		font-weight: $fwMedium;
+		transition: height .35s ease, transform .35s ease, -webkit-transform .35s ease;
+
+		&:before,
+		&:after {
+			position: absolute;
+			content: "";
+			bottom: 100%;
+			left: 40px;
+			border: 1px solid transparent;
+			height: 0;
+			width: 0;
+			pointer-events: none;
+		}
+
+		&:before {
+			border-color: transparent;
+			border-bottom-color: $white;
+			border-width: 11px;
+			margin-left: -11px;
+		}
+
+		&:after {
+			border-color: transparent;
+			border-bottom-color: $white;
+			border-width: 8px;
+			margin-left: -8px;
+		}
+	}
+
+	.fakeInput:checked + .cuFakeLabel + .pmNotePop,
+	.fakeInput:checked + .cuFakeLabel + img + a + .pmNotePop {
+		display: inline-block;
+		max-height: 500px;
+		overflow: visible;
+		transition: height .35s ease, transform .35s ease, -webkit-transform .35s ease;
+	}
+}
+/* ---------------------------------------------------------
+182. reviewSubmissionForm / .reviewSubmissionForm
+--------------------------------------------------------*/
+.reviewSubmissionForm {
+
+	h4 {
+		font-size: 24px;
+	}
+
+	.btnTheme {
+		min-width: 115px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.col-form-label {
+		padding-top: 0;
+	}
+
+	.req {
+		font-style: normal;
+	}
+}
+/* ---------------------------------------------------------
+183. ratingStarList / .ratingStarList
+--------------------------------------------------------*/
+.ratingStarList {
+
+	li {
+		margin-right: 1px;
+		font-size: 14px;
+		line-height: 14px;
+		color: $gray-400;
+
+		a {
+			color: $gray-400;
+			transition: $transition-default;
+		}
+	}
+}
+/* ---------------------------------------------------------
+184. reviewsList / .reviewsList
+--------------------------------------------------------*/
+.reviewsList {
+
+	li {
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+
+	.descrWrap {
+
+		h3 {
+			font-size: 18px;
+		}
+	}
+
+	.ratingStarList {
+
+		li {
+			margin-bottom: 0;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+	}
+
+	.time {
+		font-size: 16px;
+		color: $clr7;
+		font-weight: $fwMedium;
+	}
+
+	.alignleft {
+		float: none;
+		width: 82px;
+		margin: 0 0 15px;
+	}
+}
+/* ---------------------------------------------------------
+185. sdbWDescription / .sdbWDescription
+--------------------------------------------------------*/
+.sdbWDescription {
+
+	.ratingStarList {
+
+		li {
+			font-size: 14px;
+			line-height: 14px;
+		}
+	}
+
+	h4 {
+		color: $gray-600;
+	}
+
+	.shpDefinaition {
+		margin-bottom: 0;
+		font-size: 16px;
+
+		dt {
+			margin-bottom: 2px;
+			margin-right: 5px;
+			float: left;
+			clear: left;
+			color: $gray-600;
+		}
+
+		dd {
+			color: $gray-800;
+			overflow: hidden;
+			margin-bottom: 2px;
+			font-weight: 600;
+		}
+	}
+
+	h3, .h3{
+		font-size: 26px;
+	}
+}
+/* ---------------------------------------------------------
+186. cartForm / .cartForm
+--------------------------------------------------------*/
+.cartForm {
+
+	.btnTheme {
+		min-width: 207px;
+	}
+}
+/* ---------------------------------------------------------
+187. quantity / .quantity
+--------------------------------------------------------*/
+.quantity {
+	width: 79px;
+	height: 49px;
+	margin-right: 15px;
+
+	input {
+		width: 100%;
+		height: 100%;
+		border: 1px solid $gray-200;
+		color: $gray-800;
+		padding-left: 25px;
+		padding-right: 20px;
+	}
+
+	.quantity-button {
+		position: absolute;
+		right: 15px;
+		cursor: pointer;
+		text-align: center;
+		color: #aaaaaa;
+		user-select: none;
+		font-size: 15px;
+		transition: 0.3s ease;
+		transition: $transition-default;
+
+		&.quantity-plus {
+			top: 12px;
+		}
+
+		&.quantity-minus {
+			bottom: 12px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+188. cartTable / .cartTable
+--------------------------------------------------------*/
+.cartTable {
+	color: $gray-800;
+	min-width: 760px;
+
+	.col01 {
+		width: 50%;
+	}
+
+	.col02,
+	.col03 {
+		width: 14%;
+	}
+
+	.col04 {
+		width: 22%;
+	}
+
+	thead {
+
+		th {
+			border-top: 0;
+			border-bottom: 0;
+			background-color: $gray-700;
+			padding: 15px 0 15px 0;
+		}
+
+		tr {
+
+			th {
+
+				&:first-child {
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+
+	.h6 {
+		font-size: 16px;
+	}
+
+	tbody {
+
+		td {
+			border-top: 0;
+			border-bottom: 1px solid $clr9;
+		}
+	}
+
+	td {
+
+		&.cart-item-details {
+			padding: 20px 0 20px 26px;
+
+			.h6 {
+				color: $gray-600;
+			}
+		}
+
+		&.product-subtotal {
+			padding: 40px 0 0;
+		}
+
+		&.product-quantity {
+			padding: 32px 0 0;
+		}
+
+		&.product-total {
+			padding: 40px 0 0;
+		}
+	}
+
+	.remove-item {
+		position: absolute;
+		right: 27px;
+		top: -3px;
+		width: 26px;
+		height: 26px;
+		border: 1px solid $gray-200;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 12px;
+		color: #25282e;
+		transition: $transition-default;
+
+		&:hover {
+			color: $red;
+		}
+	}
+
+	.quantity {
+		width: 70px;
+		height: 34px;
+
+		.quantity-button {
+			width: 15px;
+			height: 11px;
+			font-size: 9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: $clr5;
+			right: 5px;
+			color: $clr31;
+
+			&.quantity-plus {
+				top: 5px;
+			}
+
+			&.quantity-minus {
+				bottom: 5px;
+			}
+		}
+
+		input {
+			font-size: 16px;
+			font-weight: $fwMedium;
+			font-family: $fontAlter;
+			padding-left: 15px;
+		}
+	}
+
+	.product-price-amount {
+		position: relative;
+	}
+
+	tfoot {
+
+		td {
+			padding: 25px 0;
+		}
+
+		.btn {
+			font-size: 16px;
+
+			&:before,
+			.btnText {
+				padding-top: 0.375rem;
+				padding-bottom: 0.375rem;
+				border-width: 2px;
+			}
+		}
+
+		.btn-outline-secondary{
+			min-width: 146px;
+
+			.btnText {
+			}
+		}
+	}
+
+	.coupenFormControl {
+		width: 160px;
+		height: 40px;
+		font-size: 15px;
+		color: $gray-800;
+
+		@include placeholder{ color: $gray-600; @extend .fontBase; };
+	}
+}
+/* ---------------------------------------------------------
+189. cartTotals / .cartTotals
+--------------------------------------------------------*/
+.cartTotals {
+	font-weight: $fwMedium;
+	color: $gray-800;
+
+	.col01 {
+		width: 30%;
+	}
+
+	thead {
+
+		th {
+			border: 0;
+			padding-left: 0;
+			padding-right: 0;
+			padding-bottom: 40px;
+			font-size: 30px;
+			font-weight: $fwMedium;
+			color: $gray-800;
+		}
+	}
+
+	tbody {
+
+		td {
+			border: 1px solid $clr9;
+			padding: 20px 15px;
+		}
+
+		tr {
+
+			td {
+
+				&:first-child {
+					background-color: #fcfcfc;
+				}
+			}
+		}
+	}
+
+	tfoot {
+
+		td {
+			padding: 25px 0;
+		}
+	}
+
+	.cuFakeLabel {
+		font-size: 15px;
+		color: $gray-600;
+		font-weight: $fwMedium;
+
+		.price {
+			color: $gray-800;
+		}
+	}
+
+	strong.price {
+		font-size: 16px;
+	}
+
+	.tdWrap {
+		font-size: 15px;
+	}
+
+	.form-control {
+		@include placeholder { color: $clr29; font-size: 15px; }
+	}
+
+	.btnGary {
+		min-width: 136px;
+		font-size: 15px;
+
+		&:before,
+		.btnText {
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+		}
+	}
+
+	.btnTheme {
+		font-size: 20px;
+
+		&:before,
+		.btnText {
+			padding-top: 0.875rem;
+			padding-bottom: 0.875rem;
+		}	
+	}
+}
+/* ---------------------------------------------------------
+190. testimonialsBlock / .testimonialsBlock
+--------------------------------------------------------*/
+.testimonialsBlock {
+
+	.watermarkHeadingHead{
+
+		&[data-watermark]{
+			z-index: 1;
+			@include pseudo(before, 50%, null, null, 50%);
+
+			&:before{
+				content: attr(data-watermark);
+				font-size: 80px;
+				transform: translate(-50%, -70%);
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+191. quotesSlider / .quotesSlider
+--------------------------------------------------------*/
+.quotesSlider {
+	position: relative;
+	z-index: 2;
+}
+/* ---------------------------------------------------------
+192. clientQuote / .clientQuote
+--------------------------------------------------------*/
+.clientQuote {
+
+	.profilePicWrap {
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) scale(0);
+		@include size(125px);
+	}
+
+	q {
+		color: $gray-600;
+		font-size: 20px;
+		quotes: none;
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(0);
+		transform-origin: 50% 50% 0;
+		transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+		@include pseudo(before, 0, null, null, 0)
+
+		&:before {
+			top: 12px;
+			left: 0;
+			content: "\e900";
+			font-size: 28px;
+			font-family: 'icomoon' !important;
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+
+	.eWrap {
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(0);
+		transform-origin: 50% 50% 0;
+		transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+	}
+
+	cite{
+		font-size: 18px;
+		color: $gray-800;
+		font-style: normal;
+		line-height: (24/18);
+	}
+
+	.subtitle{
+		font-size: 15px;
+		line-height: (18/15);
+		color: $gray-600;
+		font-family: $font-family-base;
+	}
+
+	.slick-current.slick-active &{
+
+		q,
+		.profilePicWrap,
+		.eWrap{
+			opacity: 1;
+			visibility: visible;
+			transform: scale(1);
+		}
+
+		.profilePicWrap{
+			transform: scale(1) translateX(-50%);
+		}
+	}
+}
+/* ---------------------------------------------------------
+193. becomeVolunteerForm / .becomeVolunteerForm
+--------------------------------------------------------*/
+.becomeVolunteerForm {
+
+	.widgetFormtHead {
+		font-size: 16px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.fLabel {
+		margin-bottom: 5px;
+	}
+}
+/* ---------------------------------------------------------
+194. thanksForSupportingBlock / .thanksForSupportingBlock
+--------------------------------------------------------*/
+.thanksForSupportingBlock {
+	z-index: 1;
+	@include pseudo(before, null, 0, 0, 0);
+
+	&:before{
+		z-index: -1;
+		background-image: url(images/img130.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 450px;
+	}
+
+	header {
+		font-weight: $fwSemiBold;
+	}
+}
+
+/* ---------------------------------------------------------
+195. dfsFormWrap / .dfsFormWrap
+--------------------------------------------------------*/
+.dfsFormWrap {
+	max-width: 750px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* ---------------------------------------------------------
+196. donationForm / .donationForm
+--------------------------------------------------------*/
+.donationForm {
+	position: relative;
+	z-index: 3;
+	font-size: 16px;
+
+	.form-control[readonly] {
+		background-color: transparent;
+		font-size: 20px;
+		color: $gray-800;
+		font-weight: $fwSemiBold;
+
+		&:focus {
+			border-color: $gray-400;
+		}
+	}
+
+	.widgetFormtHead {
+		overflow: hidden;
+		margin: -20px -25px 25px;
+		padding: 10px 25px;
+
+		.h4 {
+			font-size: 20px;
+		}
+	}
+
+	.colFormLabel {
+		font-size: 20px;
+		color: $gray-800;
+		font-weight: $fwSemiBold;
+
+		span {
+			border-bottom: 1px solid $gray-200;
+		}
+	}
+
+	.customRadioInput {
+		position: fixed;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		visibility: hidden;
+		clip: rect(0, 0, 0, 0);
+		overflow: hidden;
+	}
+
+	.input-group-text {
+		border-color: $gray-200;
+		font-size: 20px;
+		color: $gray-800;
+		font-weight: $fwSemiBold;
+		padding: 0.563rem 0.75rem;
+	}
+
+	#donation-total-amount {
+		font-size: 18px;
+		padding: 0.5rem 1.345rem;
+	}
+
+	.input-group-prepend {
+		overflow: hidden;
+	}
+
+	.wdFromLabel {
+		margin-bottom: 4px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+
+		.form-check-inline:last-child {
+
+			.cuFakeLabel {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.igWrap {
+
+		.form-control {
+			height: 50px;
+		}
+	}
+
+	.customRadioBtnLabel {
+
+		.cuFakeLabel {
+
+			&:after {
+				@include size(9px);
+			}
+
+			&:before {
+				@include size(15px);
+				border-color: $gray-400;
+				box-shadow: none;
+			}
+		}
+
+		.customRadioInput:checked + .cuFakeLabel:after {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+}
+/* ---------------------------------------------------------
+197. customRadioTabBtnLabel / .customRadioTabBtnLabel
+--------------------------------------------------------*/
+.customRadioTabBtnLabel {
+
+	input[type="radio"] {
+		position: fixed;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		visibility: hidden;
+		clip: rect(0, 0, 0, 0);
+		overflow: hidden;
+	}
+
+	.cuFakeLabel {
+		font-size: 14px;
+		cursor: pointer;
+		border: 1px solid $gray-200;
+		padding: 11px 18.55px;
+		transition: all 0.35s ease;
+		margin-bottom: 10px;
+		color: $gray-800;
+		font-weight: $fwSemiBold;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $white;
+			border-width: 1px;
+			border-style: solid;
+		}
+	}
+
+	.customRadioInput:checked + .cuFakeLabel,
+	.customRadioInput:hover + .cuFakeLabel {
+		color: $white;
+		border-width: 1px;
+		border-style: solid;
+		background-color: $gray-800; 
+	}
+}
+/* ---------------------------------------------------------
+198. ourPromiseBlock / .ourPromiseBlock
+--------------------------------------------------------*/
+.ourPromiseBlock {
+	background-color: #ebebeb;
+
+	.btnPlayHolder {
+		position: relative;
+		z-index: 1;
+	}
+
+	.videoWrap {
+		z-index: 1;
+		height: 300px;
+		position: relative;
+
+		.btnPlayWrap {
+			border-radius: 10px;
+			padding: 20px 15px;
+			z-index: 2;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background-color: $white;
+		}
+
+		.btPlTxt {
+			font-size: 16px;
+			color: $gray-800;
+		}
+
+		.btnPlay {
+			border: 2px solid rgba($wpThemeColor, 0.3);
+			transition: all 0.35s ease;
+			@include size(54px);
+
+			&:after {
+				border-left: 13px solid $white;
+				position: absolute;
+				content: "";
+				display: block;
+				transform: translateX(3px);
+				height: 0;
+				width: 0;
+				border-bottom: 8px solid transparent;
+				border-top: 8px solid transparent;
+			}
+
+			&:before {
+				position: absolute;
+				content: "";
+				background-color: rgba(255, 53, 20, 0.25);
+				top: 50%;
+				left: 50%;
+				width: 68px;
+				height: 68px;
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				transition: all 0.35s ease;
+			}	
+		}
+	}
+}
+/* ---------------------------------------------------------
+199. opbTabset / .opbTabset
+--------------------------------------------------------*/
+.opbTabset {
+	border-bottom: 0;
+
+	.nav-item {
+		margin-right: 10px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.nav-link {
+		font-size: 15px;
+		font-weight: $fwMedium;
+		color: $gray-800;
+		background-color: $white;
+		border-radius: 50px;
+		border: 0;
+		transition: $transition-default;
+		padding: 2px 0.5em;
+
+		&.active,
+		&:hover {
+			color: $white; 
+		}
+	}
+}
+/* ---------------------------------------------------------
+200. progressBar / .progressBar
+--------------------------------------------------------*/
+.progressBar {
+	width: 100%;
+	height: 4px;
+	background-color: $clr9;
+
+	.percentageProgBar {
+		height: inherit;
+		display: block;
+		position: relative;
+
+		.bar {
+			height: inherit;
+			display: inline-block;
+		}
+
+		.over {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			transition: all .75s linear;
+		}
+	}
+
+	.pbCountNumber {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+		color: $white;
+		width: 48px;
+		height: 24px;
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: $fontAlter;
+		font-weight: $fwSemiBold;
+	}
+}
+/* ---------------------------------------------------------
+201. ourCauseColumn / .ourCauseColumn
+--------------------------------------------------------*/
+.ourCauseColumn {
+	transition: transform 0.3s ease;
+	transform: scale(1);
+	transform-origin: 50% 50% 0;
+
+	&:hover{
+		transform: scale(1.02);
+	}
+
+	.btn-dark {
+		min-width: 125px;
+
+		&:before,
+		.btnText {
+			padding: 0.438rem 1.1rem;
+		}
+	}
+
+	h3, .h3{
+		font-size: 26px;
+	}
+}
+/* ---------------------------------------------------------
+202. ucListWidget / .ucListWidget
+--------------------------------------------------------*/
+.ucListWidget {
+
+	ul {
+
+		li {
+			overflow: hidden;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid $gray-200;
+
+			&:last-child {
+				border-bottom: 0;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	.causeCounterWrap {
+		font-size: 15px;
+	}
+
+	.btn-dark {
+		min-width: 100px;
+		font-size: 15px;
+
+		&:before,
+		.btnText {
+			padding: 0.188rem 0.5rem;
+		}
+	}
+}
+/* ---------------------------------------------------------
+203. causesListWrap / .causesListWrap
+--------------------------------------------------------*/
+.causesListWrap {
+
+	.ourCauseColumn {
+
+		.imgHolder {
+			position: relative;
+			width: 100%;
+			height: 250px;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+204. Page Header 2 / .headervii
+--------------------------------------------------------*/
+.headervii {
+
+	.logo {
+		max-width: 120px;
+		padding: 10px;
+		width: 100%;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		a {
+			width: 100%;
+		}
+	}
+}
+/* ---------------------------------------------------------
+205. Call to Link / .callLink
+--------------------------------------------------------*/
+.callLink {
+	font-size: 16px;
+	line-height: 16px;
+	font-family: 'Cabin', sans-serif;
+	color: $gray-800;
+	transition: color 0.35s ease;
+
+	.icn {
+		font-size: 22px;
+	}
+
+	.txt {
+		font-size: 13px;
+		line-height: 18px;
+		color: $gray-600;
+	}
+}
+/* ---------------------------------------------------------
+206. ftsrLinksListvii / .ftsrLinksListvii
+--------------------------------------------------------*/
+.ftsrLinksListvii {
+
+	a {
+		padding-left: 0;
+
+		&:before {
+			content: none;
+		}
+	}
+}
+/* ---------------------------------------------------------
+207. ftpScheduleListvii / .ftpScheduleListvii
+--------------------------------------------------------*/
+.ftpScheduleListvii {
+
+	.icn {
+		display: none;
+	}
+
+	.title {
+		color: $clr12;
+	}
+
+	li {
+		padding-left: 0;
+	}
+}
+/* ---------------------------------------------------------
+208. ftPlacevii / .ftPlacevii
+--------------------------------------------------------*/
+.ftPlacevii {
+	z-index: 1;
+
+	&:before {
+		position: absolute;
+		content: "";
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 146px;
+		z-index: -1;
+		background-repeat: no-repeat;
+		background-image: url(images/bgPattern3.png); 
+	}
+}
+/* ---------------------------------------------------------
+209. mapHolder / .mapHolder
+--------------------------------------------------------*/
+.mapHolder {
+
+	.contactCard {
+		z-index: 1;
+		max-width: 320px;
+		margin-left: auto;
+		margin-right: 0;
+	}
+}
+/* ---------------------------------------------------------
+210. testimonialSlider / .testimonialSlider
+--------------------------------------------------------*/
+.testimonialSlider {
+
+	.slick-list {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+/* ---------------------------------------------------------
+211. clientFeedback / .clientFeedback
+--------------------------------------------------------*/
+.clientFeedback {
+	max-width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+
+	&.shadowLg {
+		box-shadow: 0 2px 16px rgba($gray-900, .1);
+	}
+}
+/* ---------------------------------------------------------
+212. clientQuoteii / .clientQuoteii
+--------------------------------------------------------*/
+.clientQuoteii {
+	position: relative;
+
+	&:after {
+		position: absolute;
+		content: "\e900";
+		font-family: 'icomoon' !important;
+		right: 0;
+		bottom: 13px;
+		font-size: 24px;
+		z-index: 0;
+	}
+
+	cite {
+		font-size: 15px;
+		font-style: normal;
+
+		.h5 {
+			font-size: 18px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+213. appAdvartiseBlock / .appAdvartiseBlock
+--------------------------------------------------------*/
+.appAdvartiseBlock {
+
+	.headingHead {
+		font-size: 17px;
+	}
+
+	.imgWrap {
+		position: absolute;
+		bottom: -1px;
+	}
+}
+
+.serResRow {
+	counter-reset: item;
+}
+/* ---------------------------------------------------------
+214. serResCol / .serResCol
+--------------------------------------------------------*/
+.serResCol {
+	max-width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.serTxtNbr {
+		color: $clr19;
+
+		&:before {
+			font-size: 26px;
+			counter-increment: item;
+			content: "0"counter(item);
+		}
+	}
+
+	.btnText,
+	.btn:before {
+		padding-top: 0.344rem;
+		padding-bottom: 0.344rem;
+	}
+}
+/* ---------------------------------------------------------
+215. serResList / .serResList
+--------------------------------------------------------*/
+.serResList {
+
+	li {
+		margin-bottom: 4px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		color: $gray-600;
+
+		&:hover {
+			color: $gray-800;
+		}
+	}
+}
+/* ---------------------------------------------------------
+216. exploreHighlightBlock / .exploreHighlightBlock
+--------------------------------------------------------*/
+.exploreHighlightBlock {
+
+	.erHeadingHead {
+		color: $gray-700;
+	}
+}
+/* ---------------------------------------------------------
+217. echSlidervii / .echSlidervii
+--------------------------------------------------------*/
+.echSlidervii {
+
+	.echColumn {
+		max-width: 320px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.exploreCityBlock,
+.mayorAnnoucmentBlock {
+	background-color: $clr30;
+}
+/* ---------------------------------------------------------
+218. ecbCol / .ecbCol
+--------------------------------------------------------*/
+.ecbCol {
+	max-width: 290px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 10px 0 40px rgba($gray-900, .10);
+
+	.icnWrap {
+		background-color: rgba($danger, .20);
+		width: 51px;
+		height: 51px;
+		font-size: 40px;
+		font-weight: 800;
+		color: $gray-800;
+		transition: all 0.35s ease;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+	}
+
+	&:hover {
+
+		.icnWrap {
+			justify-content: center;
+			align-items: center;
+			color: $white;
+			background-color: rgba($danger, 1);
+		}
+	}
+}
+/* ---------------------------------------------------------
+219. upEventsList / .upEventsList
+--------------------------------------------------------*/
+.upEventsList {
+	font-size: 16px;
+
+	> li{
+
+		+ li{
+			border-top: 1px solid $clr5;
+			padding-top: 16px;
+			margin-top: 13px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+220. subsNewsLettForm / .subsNewsLettForm
+--------------------------------------------------------*/
+.subsNewsLettForm {
+
+	.form-control {
+		height: 60px;
+
+		&::-webkit-input-placeholder {
+			color: $clr19;
+			font-size: 17px;
+		}
+
+		&:-moz-placeholder{
+			color: $clr19;
+			font-size: 17px;
+		}
+
+		&::-moz-placeholder{
+			color: $clr19;
+			font-size: 17px;
+		}
+
+		&:-ms-input-placeholder{
+			color: $clr19;
+			font-size: 17px;
+		}
+	}
+
+	.btn-dark {
+
+		.btnText,
+		&:before {
+			padding-top: 0.969rem !important;
+			padding-bottom: 0.969rem !important;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+221. govServiceCol / .govServiceCol
+--------------------------------------------------------*/
+.govServiceCol {
+	border: 1px solid $clr9;
+	transition: box-shadow 0.35s ease;
+
+	.icnWrap {
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		transition: all .35s ease-in;
+		font-size: 60px;
+		line-height: 60px;
+	}
+
+	.detailWrap {
+		margin-top: 80px;
+		transition: all .35s ease-in-out;
+	}
+
+	.onHover {
+		position: relative;
+		transform: translateY(20px);
+		transition: all .35s ease;
+		max-height: 0;
+
+		p,
+		.btnCr {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	.bgSerIcn {
+		right: 20px;
+		bottom: -30px;
+		font-size: 60px;
+		line-height: 60px;
+		color: rgba($gray-800, .10);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.35s linear;
+	}
+
+	&:hover {
+		box-shadow: 10px 0 40px rgba($gray-800, .10);
+
+		.icnWrap {
+			top: 0;
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.bgSerIcn {
+			bottom: -12px;
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.detailWrap {
+			margin-top: 0;
+		}
+
+		.onHover {
+			transform: translateY(0);
+			max-height: 100%;
+
+			p,
+			.btnCr {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+222. mayorQuote / .mayorQuote
+--------------------------------------------------------*/
+.mayorQuote {
+	font-size: 18px;
+
+	q {
+
+		&:before,
+		&:after {
+			content: none;
+		}
+	}
+
+	.wrap {
+		font-style: normal;
+
+		.name {
+			color: $gray-800;
+			font-family: 'Cabin', sans-serif;
+		}
+	}
+}
+/* ---------------------------------------------------------
+223. widgetWrap / .widgetWrap
+--------------------------------------------------------*/
+.widgetWrap{
+	max-width: 390px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 2;
+	position: relative;
+
+	.erLinksList {
+
+		> li {
+
+			a {
+
+				&:hover {
+
+					&:after {
+						right: 20px;
+						margin-top: -8px;
+						font-size: 14px;
+						transform: rotate(0);
+						border: 0;
+						content: "\e907";
+						font-family: 'icomoon' !important;
+					}
+				}
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+224. mayorAnnoucmentBlock / .mayorAnnoucmentBlock
+--------------------------------------------------------*/
+.mayorAnnoucmentBlock {
+
+	.imgWrap {
+		bottom: 0;
+		left: -160px;
+		width: 400px;
+	}
+}
+/* ---------------------------------------------------------
+225. ftAreaWrapvii / .ftAreaWrapvii
+--------------------------------------------------------*/
+.ftAreaWrapvii{
+	color: #7b859d;
+	background-color: $gray-900;
+
+	.ftConnectAside{
+		background-color: $gray-850;
+		border-bottom: 0;
+	}
+
+	.footerAside{
+		border-bottom: 1px solid rgba($white, 0.10);
+	}
+
+	.ftSubscribeForm {
+
+		.form-control {
+			background-color: #2a3856;
+			border-color: #2a3856;
+			color: $white;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+226. Page 404 Coming Up / .page_404 / .page-comingup
+--------------------------------------------------------*/
+.page_404,
+.page-comingup {
+
+	.btn-dark {
+		min-width: 186px;
+	}
+
+	.form-control {
+		height: 60px;
+
+		@include placeholder { color: #999eac; };
+	}
+
+	.header-404 {
+		font-size: 130px;
+		line-height: 130px;
+		font-weight: $fwMedium;
+		font-family: $fontAlter;
+	}
+}
+
+.page-comingup {
+	min-height: 100vh;
+}
+
+/* ---------------------------------------------------------
+227. My Tab / #myTab
+--------------------------------------------------------*/
+#myTab {
+	border-bottom: 0;
+
+	.nav-item {
+		margin-right: 25px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.tablink {
+		font-size: 24px;
+		color: $gray-800;
+		position: relative;
+		border: 0;
+		padding: 0;
+
+		&:before {
+			position: absolute;
+			content: "";
+			bottom: -3px;
+			left: 0;
+			height: 2px;
+			width: 0;
+			padding: 0;
+			opacity: 0;
+			transition: all 0.35s ease;
+		}
+
+		&.active,
+		&:hover {
+
+			&:before {
+				opacity: 1;
+				width: 100%;
+			}
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+228. Login Content / #loginTabContent
+--------------------------------------------------------*/
+#loginTabContent {
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	label {
+		margin-bottom: 12px;
+	}
+
+	.txtLink {
+		transition: $transition-default;
+
+		&:hover {
+			color: $gray-800 !important;
+		}
+	}
+}
+/* ---------------------------------------------------------
+229. cgdOrgDetailList / .cgdOrgDetailList
+--------------------------------------------------------*/
+.cgdOrgDetailList {
+
+	li {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.ddTitle {
+		color: $gray-800;
+		margin-bottom: 2px;
+	}
+
+	.ddDetail {
+		color: $gray-600;
+	}
+}
+/* ---------------------------------------------------------
+230. cDonCol / .cDonCol
+--------------------------------------------------------*/
+.cDonCol {
+	border: 1px solid $clr9;
+	margin-bottom: 20px;
+
+	.cDonImgWrap {
+		width: 70px;
+		height: 70px;
+		background-color: $gray-200;
+		font-size: 16px;
+		font-family: $fontAlter;
+	}
+
+	.cDonarName {
+		font-size: 18px;
+		color: $gray-800;
+	}
+
+	.cDonatationAmount {
+		font-size: 16px;
+	}
+
+	.d_amount {
+		color: $clr7;
+	}
+}
+/* ---------------------------------------------------------
+231. causeSingle / .causeSingle
+--------------------------------------------------------*/
+.causeSingle {
+
+	.scgTabContent {
+
+		.txtLink {
+			font-size: 18px;
+		}
+	}
+
+	.donationForm {
+
+		.btnTheme {
+			min-width: 185px;
+		}
+	}
+
+	.progressBar {
+		height: 6px;
+	}
+
+	.title {
+		font-size: 16px;
+	}
+
+	.ourCauseColumn {
+
+		&:hover {
+			transform: scale(1);
+		}
+
+		&[data-featured-tag] {
+			@include pseudo(before, 20px, 20px, null, null);
+			
+			&:before {
+				font-weight: $fwMedium;
+				content: attr(data-featured-tag);
+				color: #fff;
+				border-radius: 50px;
+				font-size: 17px;
+				line-height: 1;
+				min-width: 54px;
+				text-align: center;
+				padding: 4px 13px 5px;
+				z-index: 1;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+232. echColumnii / .echColumnii
+--------------------------------------------------------*/
+.echColumnii {
+
+	&:after{
+		@extend .inaccessible;
+		background-image: linear-gradient(to bottom, rgba($black,0) 50%,rgba($black,0.7) 100%);
+		transition: all 0.35s ease;
+	}
+
+	&:hover {
+
+		&:after{
+			background-image: linear-gradient(to bottom, rgba($black,0) 20%,rgba($black,0.85) 100%);
+		}
+	}
+
+	.spanLinkGo {
+		color: $white;
+		transition: all 0.35s ease;
+
+		&:hover {
+			opacity: .95;
+		}
+	}
+}
+/* ---------------------------------------------------------
+233. echColumnClassic / .echColumnClassic
+--------------------------------------------------------*/
+.echColumnClassic {
+	max-width: 400px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	transition: box-shadow 0.3s ease;
+
+	&:hover {
+		box-shadow: $box-shadow;
+	}
+
+	.echCatTitle{
+		color: $gray-600;
+	}
+
+	.imgWrap img {
+		width: 100%;
+	}
+}
+/* ---------------------------------------------------------
+234. echColumnModern / .echColumnModern
+--------------------------------------------------------*/
+.echColumnModern {
+	max-width: 400px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+
+	.echCountTag {
+		opacity: 0;
+		visibility: hidden;
+		transition: all .035s ease !important;
+	}
+
+	.echcCaptionWrap {
+		position: absolute;
+		width: calc(100% - 40px);
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: $white;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.2s linear;
+	}
+
+	.imgWrap img {
+		width: 100%;
+	}
+
+	&:hover {
+		box-shadow: none;
+
+		.echCountTag,
+		.echcCaptionWrap {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.echcCaptionWrap {
+			bottom: 20px;
+		}	
+	}
+}
+/* ---------------------------------------------------------
+235. potSingGallery / .potSingGallery
+--------------------------------------------------------*/
+.potSingGallery {
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+
+	img {
+		transition: transform 0.5s ease;
+	}
+
+	&:hover {
+
+		img {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.portSingPagiWrap {
+	border-top: 1px solid $gray-200;
+
+	.postNavigatorNav{
+
+		.btnPrev,
+		.btnNext{
+			@include size(40px);
+		}
+	}
+}
+/* ---------------------------------------------------------
+236. psMetaList / .psMetaList
+--------------------------------------------------------*/
+.psMetaList {
+
+	li {
+		margin-bottom: 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.socialNetworks {
+
+		li {
+			margin-bottom: 0;
+			padding-left: 0;
+			padding-right: 7px;
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+237. proTagList / .proTagList
+--------------------------------------------------------*/
+.proTagList {
+
+	li {
+		font-size: 16px;
+		margin-right: 25px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+238. faqAccordion / .faqAccordion
+--------------------------------------------------------*/
+.faqAccordion {
+
+	.ctaccRow {
+		box-shadow: $box-shadow;
+		background-color: $white;
+		border: 0;
+	}
+
+	.ctaccOpener {
+
+		> a {
+			font-size: 18px;
+			font-weight: $fwSemiBold;
+			padding: 24px 35px 25px 25px;
+			transition: $transition-default;
+
+			&:after {
+				transition: transform 0.35s linear;
+			}
+		}
+
+		a[aria-expanded="true"] {
+
+			&:after {
+				transform: rotate(135deg);
+			}
+		}
+
+		a[aria-expanded="true"],
+		a:hover {
+			color: $blue !important;
+		}
+	}
+}
+/* ---------------------------------------------------------
+239. commentForm / .commentForm
+--------------------------------------------------------*/
+.commentForm {
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.form-control{
+
+		@include placeholder{ 
+			font-family: $fontAlter;
+			color: $gray-600;
+			font-size: 17px;
+			font-weight: 600;
+		}
+	}
+
+	textarea{
+
+		&,
+		&.form-control{
+			height: 180px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+240. contactInfoList / .contactInfoList
+--------------------------------------------------------*/
+.contactInfoList {
+	line-height: 1.25;
+
+	li {
+		position: relative;
+		padding-left: 28px;
+		margin-bottom: 14px;
+	}
+
+	.icn {
+		width: 18px;
+		font-size: 16px;
+		left: 0;
+		top: 2px;
+		color: $gray-600;
+	}
+}
+/* ---------------------------------------------------------
+241. getDirColumn / .getDirColumn
+--------------------------------------------------------*/
+.getDirColumn {
+
+	.gdcHolder {
+		box-shadow: 0 6px 10px rgba(6, 22, 58, .07);
+	}
+
+	.ardBadge {
+		color: $white;
+		font-size: 18px;
+		padding: 3px 9px;
+	}
+
+	address{
+		font-size: 16px;
+	}
+
+	.contactInfoList {
+
+		li {
+			margin-bottom: 8px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.btnGetDir {
+		font-size: 16px;
+		color: $gray-800;
+		border-radius: 50px;
+		border: 1px solid $gray-200;
+		min-width: 135px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		transition: $transition-default;
+		font-weight: $fwMedium;
+
+		&:hover {
+			color: $blue;
+		}
+
+
+		&:before {
+			content: none;
+		}
+	}
+}
+/* ---------------------------------------------------------
+242. arddColumnSlider / .arddColumnSlider
+--------------------------------------------------------*/
+.arddColumnSlider {
+
+	.slick-list {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.slick-arrow {
+		left: -264px;
+		top: auto;
+		bottom: 120px;
+		transform: none;
+		border: 1px solid $gray-200;
+
+		&.slickPrev {
+			left: -324px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+243. display-3 / .display-3
+--------------------------------------------------------*/
+.display-3 {
+	font-size: (33/16) + rem;
+}
+/* ---------------------------------------------------------
+244. countdownList / .countdownList
+--------------------------------------------------------*/
+.countdownList {
+	font-size: 15px;
+	line-height: 1;
+	margin-left: -5px;
+	margin-right: -5px;
+
+	> li {
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+
+		&:after {
+			position: absolute;
+			content: ":";
+			right: 0;
+			top: 35%;
+			font-size: 20px;
+			transform: translateY(-50%);
+		}
+
+		&:last-child {
+
+			&:after {
+				content: none;
+			}
+		}
+
+		.h1 {
+			font-size: 40px;
+		}
+	}
+}
+/* ---------------------------------------------------------
+245. getResultsWrap / .getResultsWrap
+--------------------------------------------------------*/
+.getResultsWrap {
+
+	.btnGreyAlter {
+		font-size: 18px;
+		max-width: 79px;
+		min-width: 79px;
+
+		&:before,
+		.btnText {
+			padding: 0.188rem 0;
+		}
+	}
+
+	#amount {
+		font-size: 14px;
+		color: $gray-800;
+	}
+}
+
+/* ---------------------------------------------------------
+246. Ui Widget Content / .ui-widget-content
+--------------------------------------------------------*/
+.ui-widget.ui-widget-content{
+	border-color: $input-border-color;
+}
+
+.ui-widget.ui-slider.ui-slider-horizontal{
+	border-radius: 0;
+	height: 5px;
+	border: 0;
+	background-color: $gray-200;
+	margin: 0 3px 20px 11px;
+	cursor: pointer;
+
+	.ui-slider-handle{
+		border-radius: 100%;
+		background-color: $white;
+		border-color: $gray-200;
+		top: -6px;
+		cursor: pointer;
+		@include size(16px);
+
+		&:focus-visible {
+			outline: 0;
+		}
+	}
+
+	.ui-widget-header{
+		border-radius: 0;
+		border: 0;
+	}
+}
+/* ---------------------------------------------------------
+247. fabBtNoteTextWrap / .fabBtNoteTextWrap
+--------------------------------------------------------*/
+.fabBtNoteTextWrap {
+
+	.btn-dark.btnSwitchDark {
+		color: $white;
+
+		&:before,
+		.btnText {
+			padding-top: 4px;
+			padding-bottom: 4px;
+		}
+	}
+
+}
+
+/* ---------------------------------------------------------
+248. nwssHolder / .nwssHolder
+--------------------------------------------------------*/
+.nwssHolder {
+
+	.vssIcn {
+		color: $white;
+		font-size: 15px;
+		line-height: 15px;
+	}
+
+	.vssOpener {
+		border-radius: 50px;
+		position: relative;
+		z-index: 3;
+
+		&.hover {
+			background-color: #f52200;
+			color: $white;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	.vssLink {
+		width: 35px;
+		height: 35px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:hover {
+			background-color: #f52200;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+249. vssDropdownHolder / .vssDropdownHolder
+--------------------------------------------------------*/
+.vssDropdownHolder {
+	border-radius: 50px;
+
+	.vssDropdown {
+		position: absolute;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		z-index: 2;
+	}
+
+	&:hover {
+
+		.vssDropdown {
+
+			li {
+				opacity: 1;
+				visibility: visible;
+
+				&:nth-child(2) {
+					transition-delay: .2s;
+				}
+
+				&:nth-child(3) {
+					transition-delay: .4s;
+				}
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+250. vssDropdownList / .vssDropdownList
+--------------------------------------------------------*/
+.vssDropdownList {
+
+	li {
+		position: absolute;
+		display: block;
+		visibility: hidden;
+		overflow: hidden;
+		opacity: 0;
+		transition: opacity .2s ease-out, visibility .2s ease-out;
+
+		&:nth-child(1) {
+			padding-bottom: 25px;
+			bottom: -25px;
+			border-bottom-left-radius: 50px;
+			border-bottom-right-radius: 50px;
+		}
+
+		&:nth-child(2) {
+			bottom: 34px;
+		}
+
+		&:nth-child(3) {
+			bottom: 68px;
+			border-top-left-radius: 50px;
+			border-top-right-radius: 50px;
+
+			.vssLink {
+				padding-top: 8px;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+251. widgetProfilerInfo / .widgetProfilerInfo
+--------------------------------------------------------*/
+.widgetProfilerInfo {
+
+	.socialNetworks {
+
+		li + li {
+			margin-left: 3px;
+		}
+
+		a {
+			@include size(30px);
+			font-size: 14px;
+			background-color: $gray-600;
+
+			&:hover {
+				background-color: $gray-800;
+			}
+		}
+	}
+}
+/* ---------------------------------------------------------
+252. newsSingleWrap / .newsSingleWrap
+--------------------------------------------------------*/
+.newsSingleWrap {
+
+	.nrcHead {
+		font-size: 16px;
+	}
+
+	.dropCap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include size(40px);
+		color: $white;
+		font-size: 30px;
+		border-radius: 50%;
+		font-weight: $fwSemiBold;
+		font-family: $fontAlter;
+		float: left;
+		margin-right: 10px;
+		margin-top: 5px;
+		box-shadow: 10px 0 50px rgba($black, 0.05); 
+	}
+
+	.newsTagWrap {
+		font-size: 15px;
+		background-color: $clr32;
+		padding: 12px 10px 2px 10px;
+	}
+
+	.tagList {
+
+		a {
+			border-radius: 3px;
+		}
+	}
+
+	.nwzPostDetailList {
+
+		li + li {
+			margin-top: 40px;
+		}
+	}
+
+	.ntwTagTitle{
+		font-size: 18px;
+	}
+}
+
+/* ---------------------------------------------------------
+253. noFoundContentBlock / .noFoundContentBlock
+--------------------------------------------------------*/
+.noFoundContentBlock{
+
+	.btn{
+
+		&:before,
+		.btnText{
+			padding-top: (15/16) + rem;
+			padding-bottom: (15/16) + rem;
+		}
+	}
+}
+
+/* ---------------------------------------------------------
+254. ctMapWrap / .ctMapWrap
+--------------------------------------------------------*/
+.ctMapWrap{
+	padding-top: 31.25%;
+
+	&.cmwBg{
+		z-index: -1;
+		padding-top: 0;
+		left: 0;
+		top: 0;
+	}
+
+	iframe{
+		border: 0;
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include size(100%);
+	}
+
+	.scgTabContent &{
+		padding-top: 57.3%;
+	}
+}
+
+.widget{
+
+	.ueEveColumn{
+
+		h3, .h3{
+			color: $headings-color;
+		}
+	}
+}

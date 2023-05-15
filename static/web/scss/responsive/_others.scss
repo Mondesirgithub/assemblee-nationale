@@ -1,0 +1,16 @@
+@include media-breakpoint-down(sm){
+	.pageMainNavCollapse{
+		height: auto !important;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+		display: block !important;
+		transition: $transition-collapse !important;
+	}
+}
+
+@media (min-width: 1450px){
+	.gsabHolder{
+		margin-left: -50px;
+		margin-right: -50px;
+	}
+}

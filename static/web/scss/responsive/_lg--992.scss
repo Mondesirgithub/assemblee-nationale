@@ -1,0 +1,474 @@
+@include media-breakpoint-up(lg){
+	h1, .h1{
+		font-size: (45/16) + rem;
+	}
+
+	h2, .h2{
+		font-size: (36/16) + rem;
+	}
+
+	.h1Large{
+		font-size: 50px;
+	}
+
+	.h2Small{
+		font-size: 30px;
+	}
+
+	.h2vii{
+		font-size: 30px;
+	}
+
+	.h2Medium{
+		font-size: 28px;
+	}
+
+	.h3Medium{
+		font-size: 26px;
+	}
+
+	.h3Large{
+		font-size: 26px;
+	}
+
+	.phStickyWrap{
+		min-height: 111px;
+	}
+
+	.hdAlterLinksList{
+
+		li{
+
+			+ li{
+				margin-left: $spacer * 5;
+			}
+		}
+	}
+
+	.logo{
+		max-width: 135px;
+	}
+
+	.mainNavigation{
+
+		.ddohOpener{
+
+			&:after{
+				height: 32px;
+			}
+		}
+
+		li.nav-item{
+
+			&:nth-last-child(2),
+			&:nth-last-child(3),
+			&:nth-last-child(4){
+
+				.hdDropdownList{
+
+					.dropdown-submenu{
+
+						.dropdown-menu.hdMainDropdown{
+							left: 100% !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.hdMainDropdown{
+		margin-top: 31px;
+		min-width: 150px;
+	}
+
+	.fabFeaturesList{
+
+		> li{
+			min-width: 16.667%;
+		}
+	}
+
+	.exploreServicesBlock{
+
+		&:before{
+			height: 408px;
+		}
+	}
+
+	.meetQuote{
+		font-size: 24px;
+		line-height: (30/24);
+
+		cite{
+			font-size: 18px;
+		}
+	}
+
+	.itihBgPattern{
+		max-width: 167px;
+	}
+
+	.counterftAsideBlock{
+		min-height: 400px;
+
+		&.counterftAsideBlockvii{
+			min-height: 330px;
+		}
+	}
+
+	.cfbFeatList{
+
+		.subtitle{
+			font-size: 20px;
+		}
+
+		.textCount{
+			font-size: 50px;
+		}
+
+		.icnWrap{
+			height: 65px;
+			font-size: 60px;
+		}
+	}
+
+	.uecColBg{
+		@include pseudo(before, 0, 0, 0, 50%);
+
+		&:before{
+			z-index: -1;
+			background-color: $clr6;
+			margin-left: 150px;
+		}
+	}
+
+	.spanLinkGo{
+		font-size: 16px;
+		@include size(45px);
+	}
+
+	.meetCouncilBlock{
+
+		&:before{
+			height: 510px;
+		}
+	}
+
+	.ftcaNav{
+
+		li{
+			margin: 0 0 5px;
+
+			+ li{
+				margin-left: 28px;
+			}
+		}
+	}
+
+	.pageMainHead{
+		min-height: 300px;
+	}
+
+	.vibrantAsideBlock{
+
+		.vabMaxWrap{
+			max-width: 590px;
+		}
+	}
+
+	.timelineList{
+
+		> li{
+
+			+ li{
+				margin-top: 60px;
+			}
+		}
+	}
+
+	.introAboutBlock{
+
+		.imagesHolder{
+			padding-top: 90.8%;
+		}
+
+		.imgWrap1{
+			max-width: 88%;
+		}
+
+		.imgWrap2{
+			max-width: 61%;
+		}
+	}
+
+	.patternCircle{
+		@include size(581px);
+	}
+
+	.tmcbDescriptionBox{
+
+		.imgHolder{
+			height: auto;
+		}
+	}
+
+	.widgetFiltersNav{
+		position: static;
+		max-height: none;
+		overflow: visible;
+		transition: none;
+
+		h3, .h3{
+			cursor: default;
+
+			&:after{
+				display: none;
+			}
+		}
+
+		&.openActive{
+			max-height: none;
+		}
+	}
+
+	.hasFilterPositioned{
+		padding-top: 0;
+	}
+
+	.ifbFilterHead{
+
+		&.ifbFilterHeadAlter{
+
+			.formCol{
+				width: calc(50% - 96px);
+			}
+		}
+
+		.formCol{
+			width: calc(33.333% - 69px);
+		}
+	}
+
+	.ueEveColumn__list{
+
+		.imgHolder{
+			@include size(160px);
+		}
+	}
+
+	.uecTime{
+		font-size: 16px;
+		width: 150px;
+
+		.textLarge{
+			font-size: 45px;
+		}
+
+		.textDay{
+			font-size: 20px;
+		}
+	}
+
+	.ifbFiltersList{
+
+		a{
+			padding: 11px 16px;
+		}
+	}
+
+	.widgetGallery{
+
+		ul{
+			max-width: none;
+		}
+	}
+
+	.widgetFeaturEvent{
+
+		.ueEveColumn{
+			max-width: none;
+		}
+	}
+
+	.pnnPaginList{
+
+		h4, .h4{
+			font-size: 20px;
+		}
+	}
+
+	.fpListWidget{
+
+		ul{
+
+			.imgWrap{
+				margin: 0 0.8em 4px 0;
+			}
+
+			h4{
+				font-size: 18px;
+			}
+		}
+	}
+
+	.ctSorterWrapHeader{
+		font-size: 18px;
+		line-height: (24/18);
+		margin-bottom: 40px;
+	}
+
+	.bilingDetailsWrap{
+
+		.formCol{
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.form-row{
+			margin-left: -10px;
+			margin-right: -10px;
+		}
+	}
+
+	.clientQuote{
+
+		.profilePicWrap{
+			@include size(142px);
+		}
+
+		q{
+			font-size: 23px;
+		}
+	}
+
+	.thanksForSupportingBlock{
+
+		&:before{
+			height: 502px;
+		}
+
+		header{
+			font-size: 18px;
+			line-height: (26/18);
+		}
+	}
+
+	.ourPromiseBlock{
+
+		.videoWrap{
+			position: absolute;
+			height: 100%;
+			width: 48%;
+			top: 0;
+			left: 0;
+
+			.btnPlayWrap{
+				right: -55px;
+				left: auto;
+				transform: translateY(-50%);
+				padding: 23px 19px;
+			}
+		}
+	}
+
+	.causesListWrap{
+
+		.ourCauseColumn{
+
+			.imgHolder{
+				width: 50%;
+				height: unset;
+			}
+		}
+	}
+
+	.headervii{
+
+		.mainNavigation{
+
+			li{
+
+				&.nav-item{
+
+					&:last-child{
+
+						.hdMainDropdown{
+							left: -36px !important;
+						}
+					}
+
+					&:nth-last-child(1),
+					&:nth-last-child(2),
+					&:nth-last-child(3),
+					&:nth-last-child(4),
+					&:nth-last-child(5){
+
+						.hdDropdownList{
+
+							.dropdown-submenu{
+
+								.dropdown-menu{
+
+									&.hdMainDropdown{
+										left: -100% !important;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.clientQuoteii{
+
+		&:after{
+			bottom: 22px;
+		}
+	}
+
+	.govAgencyServicesBlock{
+
+		.uecColBg{
+			@include pseudo(before, 0, 50%, 0, 0);
+
+			&:before{
+				margin-right: 150px;
+				margin-left: 0;
+			}
+		}
+	}
+
+	.centerLayout{
+		max-width: 80%;
+
+		.h3{
+			width: 230px;
+		}
+	}
+
+	.display-3{
+		font-size: (45/16) + rem;
+	}
+
+	.countdownList{
+
+		> li{
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	.getResultsWrap{
+
+		#amount{
+			font-size: 16px;
+		}
+	}
+
+	.widgetVote{
+		min-height: 508px;
+	}
+}

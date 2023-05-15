@@ -1,0 +1,307 @@
+/*
+	Theme Name: EGovt - City Government HTML Template
+	Author: Arklogics
+	Author URI: https://themeforest.net/user/arklogics
+	Version: 1
+	Description: EGOVT theme for Wordpress
+	License: GNU General Public License v2 or later
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	Text Domain: EGOVT
+	Tags: one-column, two-columns
+	Theme URI: http://htmlbeans.com/html/egovt/home.html
+*/
+
+/*------------------------------------------------------------------
+1. Icomoon / .icomoon
+2. Slick Slider / .slick-slider
+3. Fancybox Lightbox Popup / .lightbox
+4. Jquery Ui Slider / .ui-*
+5. background Size Cover /.bgCover
+6. Font Weight Medium /.fwMedium
+7. Font Weight Semi Bold /.fwSemiBold
+8. Font Family Base /.fontBase
+9. Font Family Alternative /.fontAlter
+10. Font Family Brush /.fontBrush
+11. Dropdown Icon /.dropIcn
+12. Align Holder /.alignHolder
+13. Pointer Events None /.inaccessible
+14. Background Custom Light /.bgLight
+15. Button Text /.btnText
+16. Button /.btn
+17. Button Theme /.btnTheme
+18. Button Gray White /.btnGaryWhite
+19. Button Gray /.btnGary
+20. Button Custom Light Outline /.btnCustomLightOutline
+21. Button Dark Alternative /.btnDarkAlter
+22. Button Gray Alternative /.btnGreyAlter
+23. Font Size Medium /.fzMedium
+24. Slick Dots List /.dotsList
+25. Button Link /.btnLink
+26. Read More Link /.readMoreLink
+27. Body Font Size Alternative /.bodyFontAlter
+28. Background Absolute Image /.bgImg
+29. Page Wrapper / #pageWrapper
+30. hdFixerWrap /.stickyWrap-sSticky
+31. hdScheduleList /.hdScheduleList
+32. hdAlterLinksList /.hdAlterLinksList
+33. pageMainNavCollapse /.pageMainNavCollapse
+34. hdLangDropdown /.hdLangDropdown
+35. logo /.logo
+36. mainNavigation /.mainNavigation
+37. hdSearchOpener /.hdSearchOpener
+38. dropdown-submenu /.dropdown-submenu
+39. hdDropdownList /.hdDropdownList
+40. hdTopBar /.hdTopBar
+41. hdMainDropdown /.hdMainDropdown
+42. hdSearchCollapse /.hdSearchCollapse
+43. Page Header Button /.btnHd
+44. Page Burger Menu /.pgNavOpener
+45. ibSlider /.ibSlider
+46. ibBgImage /.ibBgImage
+47. ibColumn /.ibColumn
+48. flatpWrap /.flatpWrap
+49. fabFeaturesList /.fabFeaturesList
+50. fflColumn /.fflColumn
+51. featuresAsideBlock /.featuresAsideBlock
+52. esColumn /.esColumn
+53. escCaption /.escCaption
+54. exploreServicesBlock /.exploreServicesBlock
+55. btnPlayLink /.btnPlayLink
+56. aboutMayorBlock /.aboutMayorBlock
+57. meetQuote /.meetQuote
+58. imgTwoImageHolder /.imgTwoImageHolder
+59. itihBgPattern /.itihBgPattern
+60. counterftAsideBlock /.counterftAsideBlock
+61. cfbFeatList /.cfbFeatList
+62. cfbBgWrap /.cfbBgWrap
+63. ueEveColumn /.ueEveColumn
+64. ueTimeTag /.ueTimeTag
+65. ueScheduleList /.ueScheduleList
+66. cdDocsList /.cdDocsList
+67. cdTitle /.cdTitle
+68. ccwIcn /.ccwIcn
+69. npbBgPattern /.npbBgPattern
+70. npbTimeTag /.npbTimeTag
+71. btnCr /.btnCr
+72. npbColumn /.npbColumn
+73. npbcmWrap /.npbcmWrap
+74. exploreResourceBlock /.exploreResourceBlock
+75. erLinksList /.erLinksList
+76. echSlider /.echSlider
+77. echColumn /.echColumn
+78. echcCaptionWrap /.echcCaptionWrap
+79. echCountTag /.echCountTag
+80. echCatTitle /.echCatTitle
+81. echCatTitle /.echCatTitle
+82. meetCouncilBlock /.meetCouncilBlock
+83. mcssList /.mcssList
+84. mccColumn /.mccColumn
+85. mccInfoList /.mccInfoList
+86. mccSeprator /.mccSeprator
+87. lgsImageWrap /.lgsImageWrap
+88. ftConnectAside /.ftConnectAside
+89. ftcaNav /.ftcaNav
+90. ctConnectWrap /.ctConnectWrap
+91. ftSocialNetworks /.ftSocialNetworks
+92. footerAside /.footerAside
+93. ftpScheduleList /.ftpScheduleList
+94. ftsrLinksList /.ftsrLinksList
+95. pageFooter /#pageFooter
+96. ftSubscribeForm / .ftSubscribeForm
+97. hdSocialNetworks / .hdSocialNetworks
+98. pageMainHead / .pageMainHead
+99. breadcrumb / .breadcrumb
+100. breadcrumb-item / .breadcrumb-item
+101. breadcrWhite / .breadcrWhite
+102. egdColumn / .egdColumn
+103. dsSingleContent / .dsSingleContent
+104. dscInnerSliderWrap / .dscInnerSliderWrap
+105. dcsColumn / .dcsColumn
+106. dcscCaptionWrap / .dcscCaptionWrap
+107. coDefaultList / .coDefaultList
+108. drItemRow / .drItemRow
+109. Accordion Opener / .ctaccOpener
+110. saSocialNetworks / .saSocialNetworks
+111. saShareAside / .saShareAside
+112. Widget Nav / .widgetDepartsNav / .widgetFiltersNav
+113. widgetHelp / .widgetHelp
+114. whWatermarkIcn / .whWatermarkIcn
+115. awbHeadingHead / .awbHeadingHead
+116. watermarkHeadingHead / .watermarkHeadingHead
+117. prtColumn / .prtColumn
+118. vibrantAsideBlock / .vibrantAsideBlock
+119. timelineList / .timelineList
+120. tlTimeTitle / .tlTimeTitle
+121. introAboutBlock / .introAboutBlock
+122. adminCountsList / .adminCountsList
+123. gsabHolder / .gsabHolder
+124. patternCircle / .patternCircle
+125. tmcbSocialNetworks / .tmcbSocialNetworks
+126. tmcbDescriptionBox / .tmcbDescriptionBox
+127. tmcbInfosList / .tmcbInfosList
+128. edupiInfosList / .edupiInfosList
+129. prgTopWrap / .prgTopWrap
+130. progresWrap / .progresWrap
+131. skillsRankList / .skillsRankList
+132. infigQuote / .infigQuote
+133. subDiscoverBlock / .subDiscoverBlock
+134. gbfColumn / .gbfColumn
+135. listDefault / .listDefault
+136. dcsTabset / .dcsTabset
+137. drDocColumn / .drDocColumn
+138. widgetFiltersNav / .widgetFiltersNav
+139. hasFilterPositioned / .hasFilterPositioned
+140. ifbFilterHead / .ifbFilterHead
+141. pagination / .pagination
+142. ueEveColumn__list / .ueEveColumn__list
+143. uecTime / .uecTime
+144. ifbFiltersList / .ifbFiltersList
+145. searchForm / .searchForm
+146. widgetArchiveList / .widgetArchiveList
+147. widgetUpcoming / .widgetUpcoming
+148. widgetGallery / .widgetGallery
+149. widgetTags / .widgetTags
+150. tagsWrap / .tagsWrap
+151. dtlhDress / .dtlhDress
+152. countdownAside / .countdownAside
+153. cdScheduleList / .cdScheduleList
+154. listCountDefault / .listCountDefault
+155. scgSpeakersSlider / .scgSpeakersSlider
+156. speakerColumn / .speakerColumn
+157. scgTabList / .scgTabList
+158. scgGalleryList / .scgGalleryList
+159. postNavigatorNav / .postNavigatorNav
+160. pnnPaginList / .pnnPaginList
+161. newsClassicColumn / .newsClassicColumn
+162. btnYouPlay / .btnYouPlay
+163. Share Link / .btnLinkShare
+164. widgetVote / .widgetVote
+165. fpListWidget / .fpListWidget
+166. ctSorterWrapHeader / .ctSorterWrapHeader
+167. dsSortDropdown / .dsSortDropdown
+168. proItemCol / .proItemCol
+169. checkoutAlert / .checkoutAlert
+170. alertPopBtn / .alertPopBtn
+171. alertCollapseWrap / .alertCollapseWrap
+172. fakeInput / .fakeInput
+173. customCheckboxLabel / .customCheckboxLabel
+174. customRadioBtnLabel / .customRadioBtnLabel
+175. couponAlertPopup / #couponAlertPopup
+176. bilingDetailsWrap / .bilingDetailsWrap
+177. coolSelectWrapper / .coolSelectWrapper
+178. coolSelect / .coolSelect
+179. checkoutCountTable / .checkoutCountTable
+180. placeOrder / .placeOrder
+181. pmSlctList / .pmSlctList
+182. reviewSubmissionForm / .reviewSubmissionForm
+183. ratingStarList / .ratingStarList
+184. reviewsList / .reviewsList
+185. sdbWDescription / .sdbWDescription
+186. cartForm / .cartForm
+187. quantity / .quantity
+188. cartTable / .cartTable
+189. cartTotals / .cartTotals
+190. testimonialsBlock / .testimonialsBlock
+191. quotesSlider / .quotesSlider
+192. clientQuote / .clientQuote
+193. becomeVolunteerForm / .becomeVolunteerForm
+194. thanksForSupportingBlock / .thanksForSupportingBlock
+195. dfsFormWrap / .dfsFormWrap
+196. donationForm / .donationForm
+197. customRadioTabBtnLabel / .customRadioTabBtnLabel
+198. ourPromiseBlock / .ourPromiseBlock
+199. opbTabset / .opbTabset
+200. progressBar / .progressBar
+201. ourCauseColumn / .ourCauseColumn
+202. ucListWidget / .ucListWidget
+203. causesListWrap / .causesListWrap
+204. Page Header 2 / .headervii
+205. Call to Link / .callLink
+206. ftsrLinksListvii / .ftsrLinksListvii
+207. ftpScheduleListvii / .ftpScheduleListvii
+208. ftPlacevii / .ftPlacevii
+209. mapHolder / .mapHolder
+210. testimonialSlider / .testimonialSlider
+211. clientFeedback / .clientFeedback
+213. clientQuoteii / .clientQuoteii
+214. appAdvartiseBlock / .appAdvartiseBlock
+215. serResCol / .serResCol
+216. serResList / .serResList
+217. exploreHighlightBlock / .exploreHighlightBlock
+218. echSlidervii / .echSlidervii
+219. ecbCol / .ecbCol
+220. upEventsList / .upEventsList
+221. subsNewsLettForm / .subsNewsLettForm
+222. govServiceCol / .govServiceCol
+223. mayorQuote / .mayorQuote
+224. widgetWrap / .widgetWrap
+225. mayorAnnoucmentBlock / .mayorAnnoucmentBlock
+226. ftAreaWrapvii / .ftAreaWrapvii
+226. cgdOrgDetailList / .cgdOrgDetailList
+227. cDonCol / .cDonCol
+228. causeSingle / .causeSingle
+229. echColumnii / .echColumnii
+230. echColumnClassic / .echColumnClassic
+231. echColumnModern / .echColumnModern
+232. potSingGallery / .potSingGallery
+233. psMetaList / .psMetaList
+234. proTagList / .proTagList
+235. faqAccordion / .faqAccordion
+236. commentForm / .commentForm
+237. contactInfoList / .contactInfoList
+238. getDirColumn / .getDirColumn
+239. arddColumnSlider / .arddColumnSlider
+240. display-3 / .display-3
+241. countdownList / .countdownList
+242. getResultsWrap / .getResultsWrap
+243. fabBtNoteTextWrap / .fabBtNoteTextWrap
+244. nwssHolder / .nwssHolder
+
+
+211. vssDropdownHolder / .vssDropdownHolder
+212. vssDropdownList / .vssDropdownList
+213. widgetProfilerInfo / .widgetProfilerInfo
+214. newsSingleWrap / .newsSingleWrap
+215. noFoundContentBlock / .noFoundContentBlock
+216. ctMapWrap / .ctMapWrap
+------------------------------------------------------------------*/
+
+@import "/static/web/scss/bootstrap/functions";
+@import "/static/web/scss/bootstrap/variables";
+
+@import "/static/web/scss/customVariables";
+@import "/static/web/scss/bootstrap/mixins";
+@import "/static/web/scss/base/customMixins";
+
+@font-face { @include fontface(Govazd, govazd, 400, normal); }
+
+/*------------------------------------------------------------------
+1. Icomoon / .icomoon
+-------------------------------------------------------------------*/
+@import "/static/web/scss/icomoon";
+
+@import '/static/web/scss/base/wp-reset';
+
+/*------------------------------------------------------------------
+2. Slick Slider / .slick-slider
+-------------------------------------------------------------------*/
+@import "/static/web/scss/vendor/slickSlider";
+
+/*------------------------------------------------------------------
+3. Fancybox Lightbox Popup / .lightbox
+-------------------------------------------------------------------*/
+@import "/static/web/scss/vendor/fancyBox";
+
+/*------------------------------------------------------------------
+4. Jquery Ui Slider / .ui-*
+-------------------------------------------------------------------*/
+@import "/static/web/scss/vendor/jqueryUi";
+
+@import "/static/web/scss/base/commonClasses";
+@import "/static/web/scss/all";
+
+/*------------------------------------------------------------------
+Animations
+-------------------------------------------------------------------*/
+@import 'animations';
+@import '/static/web/scss/vendor/animate';

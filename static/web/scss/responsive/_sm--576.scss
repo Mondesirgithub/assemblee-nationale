@@ -1,0 +1,317 @@
+@include media-breakpoint-up(sm){
+	.desktopDropOnHover{
+		/*display: block !important;
+		opacity: 0;
+		visibility: hidden;*/
+		transform: translateY(5px);
+		transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+	}
+
+	.fabFeaturesList{
+
+		> li{
+			min-width: 33.333%;
+		}
+	}
+
+	.exploreServicesBlock{
+
+		&:before{
+			height: 340px;
+		}
+	}
+
+	.erLinksList{
+
+		> li{
+
+			> a{
+				font-size: 18px;
+			}
+		}
+	}
+
+	.echSlider{
+		max-width: 333px;
+	}
+
+	.echColumn{
+		height: 220px;
+
+		h3, .h3{
+			font-size: 24px;
+		}
+	}
+
+	.meetCouncilBlock{
+
+		&:before{
+			height: 408px;
+		}
+	}
+
+	.mccColumn{
+		max-width: none;
+	}
+
+	.ftpScheduleList{
+
+		li{
+			padding-left: 27px;
+		}
+
+		.icn{
+			left: 0;
+			top: 5px;
+			position: absolute;
+		}
+	}
+
+	.egdColumn{
+		max-width: none;
+	}
+
+	.dscInnerSliderWrap{
+		max-width: 236px;
+	}
+
+	.drItemRow{
+
+		.btnDownload{
+			position: absolute;
+			top: 50%;
+			right: 15px;
+			transform: translateY(-50%);
+		}
+	}
+
+	.timelineList{
+		max-width: none;
+
+		.imgHolder,
+		.tlDescriptionWrap{
+			width: calc(50% - 30px);
+		}
+
+		.tlDescriptionWrap{
+			background-color: transparent;
+		}
+	}
+
+	.introAboutBlock{
+
+		.imgWrap1{
+
+			&:before{
+				left: 69px;
+				bottom: -51px;
+				@include size(162px, 52px);
+			}
+		}
+	}
+
+	.adminCountsList{
+		margin-left: -24px;
+		margin-right: -24px;
+
+		li{
+			padding-left: 24px;
+			padding-right: 24px;
+		}
+
+		h3, .h3{
+			font-size: 17px;
+		}
+
+		.textLarge{
+			font-size: 60px;
+		}
+	}
+
+	.edupiInfosList{
+
+		> li{
+			width: calc(50% - 30px);
+			margin: 0 15px 30px;
+		}
+	}
+
+	.widgetGallery{
+
+		img{
+			width: auto;
+		}
+	}
+
+	.scgGalleryList{
+
+		li{
+			width: 50%;
+		}
+	}
+
+	.reviewSubmissionForm{
+
+		.col-form-label{
+			padding-bottom: 0;
+		}
+	}
+
+	.reviewsList{
+
+		li{
+			margin-bottom: 40px;
+		}
+
+		.alignleft{
+			float: left;
+			margin: 0 25px 0 0;
+		}
+	}
+
+	.cartTotals{
+
+		tbody{
+
+			td{
+				padding: 20px;
+			}
+		}
+	}
+
+	.testimonialsBlock{
+
+		.watermarkHeadingHead{
+
+			&[data-watermark]{
+
+				&:before{
+					font-size: 100px;
+					transform: translate(-50%, -60%);
+				}
+			}
+		}
+	}
+
+	.clientQuote{
+
+		.profilePicWrap{
+			left: 40px;
+			top: 30px;
+			opacity: 0;
+			visibility: hidden;
+			transform: scale(0);
+			transform-origin: 50% 50% 0;
+			transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
+		}
+
+		q{
+
+			&:before{
+				left: -40px;
+				top: 12px;
+			}
+		}
+
+		.slick-current.slick-active &{
+
+			.profilePicWrap{
+				transform: scale(1);
+			}
+		}
+	}
+
+	.thanksForSupportingBlock{
+
+		&:before{
+			height: 440px;
+		}
+	}
+
+	.opbTabset{
+
+		.nav-link{
+			padding: 1px 0.8em;
+			font-size: 17px;
+		}
+	}
+
+	.mapHolder{
+
+		.contactCard{
+			max-width: 350px;
+		}
+	}
+
+	.serResCol{
+		max-width: none;
+	}
+
+	.echSlidervii{
+
+		.echColumn{
+			max-width: 100%;
+		}
+	}
+
+	.ecbCol{
+		max-width: 100%;
+	}
+
+	.cgdOrgDetailList{
+
+		li{
+			width: 50%;
+		}
+	}
+
+	.vssDropdownList{
+
+		li{
+
+			&:nth-child(1){
+				padding-bottom: 0;
+				bottom: auto;
+				padding-right: 25px;
+				right: -25px;
+				border-bottom-left-radius: 0;
+				border-top-right-radius: 50px;
+			}
+
+			&:nth-child(2){
+				bottom: auto;
+				right: 34px;
+			}
+
+			&:nth-child(3){
+				bottom: auto;
+				right: 68px;
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 50px;
+
+				.vssLink{
+					padding-left: 8px;
+					padding-top: 0;
+				}
+			}
+		}
+	}
+
+	.scgTabList{
+
+		&,
+		&.nav-tabs{
+
+			.nav-item{
+
+				+ .nav-item{
+					margin-left: 17px;
+				}
+			}
+
+			.nav-link{
+				font-size: 18px;
+			}
+		}
+	}
+}
