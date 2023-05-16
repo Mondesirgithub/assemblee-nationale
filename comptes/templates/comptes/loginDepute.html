@@ -29,11 +29,11 @@
                             <a class="nav-link tablink active" id="login-tab" href="#" aria-selected="true">Connexion</a>
                         </li>
 
-                        {% if user.is_superuser %}
+                       
                         <li class="nav-item">
                             <a class="nav-link tablink" id="register-tab" href="{% url 'comptes:registerDepute' %}" aria-selected="false">Inscription</a>
                         </li>
-                        {% endif %}
+                        
                     </ul>
 
                     <div class="tab-content" id="loginTabContent">
