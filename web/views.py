@@ -9,3 +9,8 @@ def index(request):
     }
     
     return render(request, 'web/index.html', context)
+def actualite(request):
+    return render(request,'web/act.html')
+
+def galerie(request):
+    return render(request,'web/GaleriePhoto.html')
