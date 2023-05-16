@@ -1,0 +1,61 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Compte{% endblock title %}
+
+{% block content %}
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">Comptes</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="login_section py-8 py-md-15 py-xl-22 fontAlter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <ul class="nav nav-tabs tabset justify-content-center mb-10" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link tablink active" id="login-tab" href="#" aria-selected="true">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tablink" id="register-tab" href="{% url 'comptes:registerDepute' %}" aria-selected="false">Inscription</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="loginTabContent">
+                        <form action="{% url 'comptes:loginDepute' %}" method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{field.label}}">{{field.label}}<span class="text-danger">*</span></label>
+                                {{field}}
+                                {%for error in field.errors %}
+                                <span style="color: red;">{{error}}</span><br />
+                                {%endfor%}
+                            </div>
+                            {% endfor %}
+                            <div class="form-check mb-5 p-0">
+                                <a href="javascript:void(0);" class="float-right text-body txtLink">Mot de passe oublié?</a>
+                            </div>
+                            <button type="submit" class="btn btnTheme fwMedium w-100 d-block text-capitalize position-relative border-0 p-0" data-hover="Login" id="button">
+                                <span class="d-block btnText">Se connecter</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}

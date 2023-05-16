@@ -54,7 +54,7 @@ def articles(request, pk):
     return render(request, 'web/articles.html', context)
 
 
-def actualite_details(request, id):
+def actualite_video_details(request, id):
     try:
         actualiteVideo = ActualiteVideo.objects.get(pk=id)
         videos = ActualiteVideo.objects.all()
@@ -66,7 +66,7 @@ def actualite_details(request, id):
         'videos':videos
     }
     
-    return render(request, 'web/actualite_details.html', context)
+    return render(request, 'web/actualite_video_details.html', context)
 
 
 

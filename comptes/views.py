@@ -1,28 +1,69 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import get_user_model,login,authenticate,logout
-from .forms import InscriptionForm, ConnexionForm
+from django.contrib.auth import get_user_model,login,authenticate
+from .forms import InscriptionForm, ConnexionForm, ValidationForm
 from django.contrib import messages
+from .models import Depute
 # Create your views here.
 
 def registerDepute(request):
-    pass
-    # form = InscriptionForm()
-    # if request.method == "POST":
-    #     form = InscriptionForm(request.POST, request.FILES)
+    form = InscriptionForm()
+    if request.method == "POST":
+        form = InscriptionForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.email
+            user.save()
+            print("USER => ", user)
+            login(request, user)
+            messages.success(request, "Le compte a été crée avec succès !!")
+            return redirect('web:index')
 
-    #     if form.is_valid():
-    #         user = form.save()
-    #         login(request, user)
-    #         messages.success(request, "Le compte a été crée avec succès !!")
+    context = {
+        'form':form
+    }
+    
 
-    #         return redirect('index')
-
-    # context = {
-    #     'form':form
-    # }
-
-    # return render(request, 'comptes/inscription.html', context)
+    return render(request, 'comptes/registerDepute.html', context)
 
 
 def loginDepute(request):
-    pass
+    form = ConnexionForm()
+    if request.method == "POST":
+        form = ConnexionForm(request.POST)
+        if form.is_valid():
+            user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password'])
+            if user:
+                user.identifiant = "MONDESIR"
+                user.save()
+                # login(request, user)
+                messages.info(request, "Veuillez entrer le code que vous avez reçu via mail !!")
+                return redirect('comptes:validation')
+            else:
+                messages.error(request, "Username ou email incorrect !")
+
+    context = {
+        'form':form
+    }
+
+    return render(request, 'comptes/loginDepute.html', context)
+
+
+def validation(request):
+    form = ValidationForm()
+    if request.method == "POST":
+        form = ValidationForm(request.POST)
+        if form.is_valid():
+            try:
+                user = Depute.objects.get(identifiant=form.cleaned_data['identifiant'])
+                login(request, user)
+                messages.info(request, "Connexion reussie")
+                return redirect('web:index')
+            except:
+                messages.error(request, "L'identifiant est incorrect !")
+                print("L'identifiant est incorrect !")
+
+    context = {
+        'form':form
+    }
+    
+    return render(request, 'comptes/validation.html', context)

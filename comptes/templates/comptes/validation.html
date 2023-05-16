@@ -1,0 +1,49 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Validation{% endblock title %}
+
+{% block content %}
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">Validation</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="login_section py-8 py-md-15 py-xl-22 fontAlter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="tab-content" id="loginTabContent">
+                        <form action="{% url 'comptes:validation' %}" method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{field.label}}">{{field.label}}<span class="text-danger">*</span></label>
+                                {{field}}
+                                {%for error in field.errors %}
+                                <span style="color: red;">{{error}}</span><br />
+                                {%endfor%}
+                            </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btnTheme fwMedium w-100 d-block text-capitalize position-relative border-0 p-0" data-hover="Login" id="button">
+                                <span class="d-block btnText">Valider</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
