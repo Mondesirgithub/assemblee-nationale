@@ -84,3 +84,10 @@ def actualite_image_details(request, id):
     }
     
     return render(request, 'web/actualite_image_details.html', context)
+
+def actualite(request):
+    return render(request,'web/act.html')
+
+def galerie(request):
+    return render(request,'web/GaleriePhoto.html')
+
