@@ -67,12 +67,12 @@
             </article>
         </div>
     </div>
-    <aside class="featuresAsideBlock position-relative text-white" style="background-color: transparent;">
+    <aside class="featuresAsideBlock position-relative text-white">
         <div class="container">
-            <div class="flatpWrap position-relative mt-n8 mt-md-n18">
-                <ul class="list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
+            <div class=" mt-n8 mt-md-n18">
+                <ul class="container list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
                     {% for categorie in categories %}
-                        <li style="border: 1px solid black;margin-top: 30px;margin: 20px;">
+                        <li style="margin: 30px;background-color: white;">
                             <a href="{% url 'web:articles' categorie.pk %}" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
                                 <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
                                     <!-- <i class="icomoon-ico1"><span class="sr-only">icon</span></i> -->
