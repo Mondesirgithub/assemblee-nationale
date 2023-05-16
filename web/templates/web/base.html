@@ -27,6 +27,14 @@
 		<!-- phStickyWrap -->
 		<div class="phStickyWrap">
 			<!-- pageHeader -->
+			{% if messages %}
+            {% for message in messages %}
+               <div class="{% if message.tags == 'error' %} alert alert-danger {% else %} alert alert-{{message.tags}}{% endif %} alert-dismissible" role="alert" style="height: 60px;">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong style="font-size: 20px;">{{message}}</strong>
+               </div>
+            {% endfor %}
+         	{% endif %}
 			<header id="pageHeader" class="bg-white">
 				<div class="hdTopBar py-2 py-xl-3 d-none d-md-block" style="background-color: green;">
 					<div class="container">

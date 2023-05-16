@@ -13,8 +13,6 @@ def registerDepute(request):
             user = form.save(commit=False)
             user.username = user.email
             user.save()
-            print("USER => ", user)
-            login(request, user)
             messages.success(request, "Le compte a été crée avec succès !!")
             return redirect('web:index')
 
@@ -33,8 +31,7 @@ def loginDepute(request):
         if form.is_valid():
             user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password'])
             if user:
-                user.identifiant = "MONDESIR"
-                user.save()
+                login(request, user)
                 # login(request, user)
                 messages.info(request, "Veuillez entrer le code que vous avez reçu via mail !!")
                 return redirect('comptes:validation')
@@ -56,8 +53,8 @@ def validation(request):
             try:
                 user = Depute.objects.get(identifiant=form.cleaned_data['identifiant'])
                 login(request, user)
-                messages.info(request, "Connexion reussie")
-                return redirect('web:index')
+                messages.info(request, "Bienvenue sur le forum")
+                return redirect('forums:index')
             except:
                 messages.error(request, "L'identifiant est incorrect !")
                 print("L'identifiant est incorrect !")
