@@ -2,8 +2,6 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as myviews
 
-app_name = 'comptes'
-
 urlpatterns = [
     path('register/', views.registerDepute, name="registerDepute"),
     path('login/', views.loginDepute, name="loginDepute"),

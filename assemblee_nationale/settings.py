@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'tinymce',
     'hitcount',
     'taggit',
+    'widget_tweaks',
     'corsheaders'
 ]
 
