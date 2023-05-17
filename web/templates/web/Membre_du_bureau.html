@@ -1,0 +1,210 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">Membres Du Bureau De L'Assemblée</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'web:Liste_d' %}">Liste Des Députés En fonction</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'web:President' %}">Président</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="exploreDepartmentsBlock py-8 py-md-10 py-lg-14 py-xl-22">
+        <div class="container">
+            <ul class="list-unstyled ifbFiltersList d-flex isoFiltersList mb-lg-12 fontAlter flex-wrap justify-content-center">
+                <li class="active">
+                    <a href="javascript:void(0);">All</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-filter=".government">Government</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-filter=".business">Business</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-filter=".culture">Culture</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-filter=".pubpla">Public Places</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-filter=".events">Events</a>
+                </li>
+            </ul>
+            <div class="row justify-content-center isoContentHolder mb-8">
+                <div class="col-12 col-md-6 col-lg-4 isoCol business">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Business</strong>
+                                <a href="portfolioSingle-1.html">Mayor of Arsonia</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol government">	
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Goverment</strong>
+                                <a href="portfolioSingle-1.html">Town of Maximonia</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol culture">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Culture</strong>
+                                <a href="portfolioSingle-1.html">Melton Art Museum</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol pubpla">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Public Places</strong>
+                                <a href="portfolioSingle-1.html">Cinema Teatre</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol business">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Business</strong>
+                                <a href="portfolioSingle-1.html" class="d-block">Business Agencies</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol government">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Government</strong>
+                                <a href="portfolioSingle-1.html" class="d-block">Historical Buildings</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol events">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Events</strong>
+                                <a href="portfolioSingle-1.html" class="d-block">Summer Conference</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol pubpla">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Public Places</strong>
+                                <a href="portfolioSingle-1.html" class="d-block">Metro Train Station</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 isoCol business">
+                    <div class="echColumnModern bg-white position-relative mb-6">
+                        <div class="imgWrap">
+                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                                <i class="far fa-image icn"><span class="sr-only">icon</span></i>
+                                6
+                            </a>
+                        </div>
+                        <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
+                            <h3 class="mb-0">
+                                <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Business</strong>
+                                <a href="portfolioSingle-1.html" class="d-block">Modern Buildings</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btnTheme text-capitalize position-relative border-0 p-0 minWidthMedium btnxLarge" data-hover="Load More">
+                    <span class="d-block btnText">Load More</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock content %}

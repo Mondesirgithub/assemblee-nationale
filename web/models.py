@@ -55,4 +55,9 @@ class ImageAssociee(models.Model):
     
     def __str__(self) -> str:
         return f"image de {self.actualiteImage.titre}"
+
+
+
+
+
     
