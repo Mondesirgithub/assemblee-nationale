@@ -10,6 +10,7 @@ from .models import Depute
 from django.conf import settings 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as lt
+from django.http import HttpResponse
 # Create your views here.
 
 def registerDepute(request):
@@ -88,3 +89,28 @@ def logout(request):
     lt(request)
     messages.info(request, "Vous avez été déconnecté")
     return redirect("web:index")
+
+
+
+
+def check_input_connexion(request, nom):
+    form = ConnexionForm(request.POST)
+    erreurs = form[nom].errors 
+    erreurs = f"<span color='red'>{erreurs}</span>"
+    if not form.is_valid():
+        erreurs += "<script>$(function(){$('#submit').attr('disabled','true');});</script>"
+    else:
+        erreurs += "<script>$(function(){$('#submit').removeAttr('disabled');});</script>"
+    return HttpResponse(erreurs)
+
+
+def check_input_validation(request, nom):
+    form = ValidationForm(request.POST)
+    erreurs = form[nom].errors 
+
+    erreurs = f"<span color='red'>{erreurs}</span>"
+    if not form.is_valid():
+        erreurs += "<script>$(function(){$('#submit').attr('disabled','true');});</script>"
+    else:
+        erreurs += "<script>$(function(){$('#submit').removeAttr('disabled');});</script>"
+    return HttpResponse(erreurs)
