@@ -4,7 +4,7 @@ from hitcount.models import HitCount
 from django.contrib.contenttypes.fields import GenericRelation
 from taggit.managers import TaggableManager
 from django.shortcuts import reverse
-from comptes.models import Depute
+from django.contrib.auth.models import User
 from django.utils.text import slugify
 
 class Category(models.Model):
@@ -22,14 +22,14 @@ class Category(models.Model):
 # class Topic(models.Model):
 #     content = models.CharField(max_length=200)
 #     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-#     user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
 #     created_at = models.DateTimeField(auto_now_add=True)
 
 #     def __str__(self):
 #         return self.content
 
 class Reply(models.Model):
-    user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
@@ -40,7 +40,7 @@ class Reply(models.Model):
         verbose_name_plural = "replies"
 
 class Comment(models.Model):
-    user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     replies = models.ManyToManyField(Reply, blank=True)
@@ -53,7 +53,7 @@ class Post(models.Model):
     content = HTMLField()
     # topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     parent_post = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
-    user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category)

@@ -3,14 +3,14 @@ from .models import Author, Category, Post, Comment, Reply
 from .utils import update_views
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from comptes.models import Depute
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def home(request):
     forums = Category.objects.all()
     num_posts = Post.objects.all().count()
-    num_users = User.objects.all().count()
+    num_users = Depute.objects.all().count()
     num_categories = forums.count()
     try:
         last_post = Post.objects.latest("date")
@@ -23,35 +23,37 @@ def home(request):
         "num_users":num_users,
         "num_categories":num_categories,
         "last_post":last_post,
-        "title": "OZONE forum app"
+        "title": "Forum de l'assemblee nationale"
     }
     return render(request, "forums.html", context)
 
+
 def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    if request.user.is_authenticated:
-        author = Author.objects.get(user=request.user)
+    author = Depute.objects.get(user=request.user)
     
     if "comment-form" in request.POST:
         comment = request.POST.get("comment")
-        new_comment, created = Comment.objects.get_or_create(user=author, content=comment)
+        new_comment, _ = Comment.objects.get_or_create(user=author, content=comment)
         post.comments.add(new_comment.id)
 
     if "reply-form" in request.POST:
         reply = request.POST.get("reply")
         commenr_id = request.POST.get("comment-id")
         comment_obj = Comment.objects.get(id=commenr_id)
-        new_reply, created = Reply.objects.get_or_create(user=author, content=reply)
+        new_reply, _ = Reply.objects.get_or_create(user=author, content=reply)
         comment_obj.replies.add(new_reply.id)
 
 
     context = {
         "post":post,
-        "title": "OZONE: "+post.title,
+        "title": "Assemblee Nationale: "+post.title,
     }
+    
     update_views(request, post)
 
     return render(request, "detail.html", context)
+
 
 def posts(request, slug):
     category = get_object_or_404(Category, slug=slug)

@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
 from django_resized import ResizedImageField
+from forums.models import Post
 # Create your models here.
+
 
 
 class Depute(AbstractUser):
@@ -13,6 +15,10 @@ class Depute(AbstractUser):
     
     def __str__(self) -> str:
         return f"{self.email}"
+    
+    @property
+    def num_posts(self):
+        return Post.objects.filter(user=self).count()
         
 
     def save(self, *args, **kwargs):
