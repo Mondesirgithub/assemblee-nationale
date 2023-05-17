@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="{% static 'forums/css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,41 +19,42 @@
             <nav class="navigation hide" id="navigation">
                 <span class="close-icon" id="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="forums.html">Forums</a></li>
-                    <li class="nav-item"><a href="posts.html">Posts</a></li>
-                    <li class="nav-item"><a href="detail.html">Detail</a></li>
+                    <li class="nav-item"><a href="{% url 'forums:home' %}">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'comptes:logout' %}">Logout</a></li>
+                    <li class="nav-item">{{user.first_name}}</li>
                 </ul>
             </nav>
             <a class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
-            <div class="brand">My Forum</div>
+            <div class="brand">OZONE</div>
+            {% if user.is_authenticated %}
+            <div style="font-size:50px;font-weight300px;margin-left:100px;"><a href="{% url 'forums:create_post' %}">+</a></div>
+            {% endif %}
         </div>
         <!--SearchBox Section-->
-        <div class="search-box">
-            <div>
-                <select name="" id="">
-                    <option value="Everything">Everything</option>
-                    <option value="Titles">Titles</option>
-                    <option value="Descriptions">Descriptions</option>
-                </select>
-                <input type="text" name="q" placeholder="search ...">
-                <button><i class="fa fa-search"></i></button>
-            </div>
-        </div>
+                <form action="{% url 'forums:search_result' %}" role="form" method="GET">
+                <div class="search-box">
+                    <div>
+                        <select name="search-box" id="">
+                            <option value="Everything">Everything</option>
+                            <option value="Titles">Titles</option>
+                            <option value="Descriptions">Descriptions</option>
+                        </select>
+                        <input type="text" name="q" placeholder="search ...">
+                        <button type="submit" name="search"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                </form>
     </header>
-    {% block content %}{% endblock content %}
-    
-    <!-- Forum Info -->
-    <div class="forum-info">
-        <div class="chart">
-            MyForum - Stats &nbsp;<i class="fa fa-bar-chart"></i>
-        </div>
-        <span><u>5,369</u> Posts in <u>48</u> Topics by <u>8,124</u> Members.</span><br>
-        <span>Latest post: <b><a href="">Random post</a></b> on Dec 15 2021 By <a href="">RandomUser</a></span>.<br>
-        <span>Check <a href="">the latest posts</a> .</span><br>
-    </div>
-
+    {% if messages %}
+        {% for message in messages %}
+            <div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;"> {{message}} </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+    <div style="margin-bottom: 150px;"></div>
     <footer>
-        <span>&copy;  Selmi Abderrahim | All Rights Reserved</span>
+        <span>&copy;  Elwil Reyes Hernandez | All Rights Reserved</span>
     </footer>
     <script src="{% static 'forums/js/main.js' %}"></script>
 </body>

@@ -1,4 +1,4 @@
-from main.models import Post
+from forums.models import Post
 
 def searchFunction(request):
     search_context = {}

@@ -24,7 +24,7 @@
                         <div class="subforum-info subforum-column">
                             {% if forum.last_post %}
                                 <b><a href="{{forum.last_post.get_url}}">Dernier post</a></b> par <a href="">{{forum.last_post.user.first_name|title}}</a> 
-                                <br>le <small>{{forum.last_post.date|date}}</small>
+                                <br>le <small>{{forum.last_post.created_at|date}}</small>
                             {% else %}
                                 <span>Pas de post pour cette categorie</span>
                             {% endif %}
@@ -51,8 +51,8 @@
         </div>
         <span><u>{{num_posts}}</u> Posts dans <u>{{num_categories}}</u> Categories par <u>{{num_users}}</u> Membres.</span><br>
         {% if forums %}
-            <span>Dernier post: <b><a href="{{last_post.get_url}}">{{last_post.title}}</a></b> le {{last_post.date|date}} Par <a href="">{{last_post.user.first_name|title}}</a></span>.<br>
-            <span>Verifié <a href="{% url 'latest_posts' %}">Les derniers posts</a> .</span><br>
+            <span>Dernier post: <b><a href="{{last_post.get_url}}">{{last_post.title}}</a></b> le {{last_post.created_at|date}} Par <a href="">{{last_post.user.first_name|title}}</a></span>.<br>
+            <span>Verifié <a href="{% url 'forums:latest_posts' %}">Les derniers posts</a> .</span><br>
         {% endif %}
     </div>
 

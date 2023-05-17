@@ -31,4 +31,4 @@ class ConnexionForm(forms.Form):
  
  
 class ValidationForm(forms.Form):
-	identifiant = forms.CharField(widget=forms.PasswordInput({'class':'form-control'}), label="Identifiant")
+	identifiant = forms.CharField(widget=forms.TextInput({'class':'form-control'}), label="Identifiant")

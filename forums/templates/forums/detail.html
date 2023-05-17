@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'forums/base.html' %}
 {% load hitcount_tags %}
 {% block content %}
 
 <div class="container">
     <!--Navigation-->
     <div class="navigate">
-        <span><a href="{% url 'home' %}">MyForum - Forums</a> >> <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a> >> <a href="{{post.get_url}}">{{post.title}}</a></span>
+        <span><a href="{% url 'forums:home' %}">MyForum - Forums</a> >> <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a> >> <a href="{{post.get_url}}">{{post.title}}</a></span>
     </div>
 
     <!--Topic Section-->
@@ -18,8 +18,7 @@
 
         <div class="body">
             <div class="authors">
-                <div class="username"><a href="">{{post.user.fullname|title}}</a></div>
-                <div>Role</div>
+                <div class="username"><a href="">{{post.user.first_name|title}}</a></div>
                 <img src="{{post.user.photo.url}}" alt="Image">
                 <div>Posts: <u>{{post.user.num_posts}}</u></div>
                 <!-- <div>Points: <u>{{post.user.points}}</u></div> -->
@@ -28,7 +27,7 @@
                 {{post.content|safe}}
                 <br>
                 <div class="comment">
-                    <button onclick="showComment()">Commenter</button>
+                    <button onclick="showComment()">Exprimez Vous</button>
                 </div>
             </div>
         </div>
@@ -50,24 +49,28 @@
 
     <!--Comments Section-->
 
-    {% for comment in post.comments.all %}
-    <div class="comments-container">
-        <div class="body">
-            <div class="authors">
-                <div class="username"><a href="">{{comment.user.first_name|title}}</a></div>
-                <div>Role</div>
-                <img src="{{comment.user.photo.url}}" alt="">
-                <div>Posts: <u>{{comment.user.num_posts}}</u></div>
-            </div>
-            <div class="content">
-                {{comment.content}}
-                <br>
-                <div class="comment">
-                    <button onclick="showReplies('comment{{comment.id}}')">Repondre</button>
+    {% for comment in comments %}
+        <div class="comments-container">
+            <div class="body">
+                <div class="authors">
+                    <div class="username"><a href="">{{comment.user.first_name|title}}</a></div>
+                    <div>Role</div>
+                    <img src="{{comment.user.photo.url}}" alt="">
+                    <div>Posts: <u>{{comment.user.num_posts}}</u></div>
+                </div>
+                <div class="content">
+                    {{comment.content}}
+                    <br>
+                    <div class="comment">
+                        <!-- <button onclick="showReply('comment{{comment.id}}')">Repondre</button> -->
+                        <button onclick="showReplies('comment{{comment.id}}')">Repondre</button>
+                    </div>
+                    <div>
+                        {{comment.date}}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <!--Reply Area-->
     <form action="." method="post">
         {% csrf_token %}
@@ -79,22 +82,25 @@
     </form>
     
     <!--Reply section-->
-    {% for reply in comment.replies.all %}
-    <div class="comments-container" style="width: 95%; margin-left:5%;">
-        <div class="body">
-            <div class="authors">
-                <div class="username"><a href="">{{reply.user.first_name|title}}</a></div>
-                <div>Role</div>
-                <img src="{{reply.user.photo.url}}" alt="">
-                <div>Posts: <u>{{reply.user.num_posts}}</u></div>
-            </div>
-            <div class="content">
-                {{reply.content}}
-                <br>
+        {% for reply in comment.replies.all %}
+        <div class="comments-container" style="width: 95%; margin-left:5%;">
+            <div class="body">
+                <div class="authors">
+                    <div class="username"><a href="">{{reply.user.first_name|title}}</a></div>
+                    <div>Role</div>
+                    <img src="{{reply.user.photo.url}}" alt="">
+                    <div>Posts: <u>{{reply.user.num_posts}}</u></div>
+                </div>
+                <div class="content">
+                    {{reply.content}}
+                    <br>
+                    <div>
+                        {{reply.date}}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
     
     {% endfor %}
 </div>

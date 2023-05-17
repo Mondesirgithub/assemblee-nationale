@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'forums/base.html' %}
 {% load hitcount_tags %}
 {% block content %}
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span><a href="{% url 'home' %}">MyForum - Forums</a> >> <a href="{{forum.get_url}}">{{forum.title}}</a></span>
+            <span><a href="{% url 'forums:home' %}">MyForum - Forums</a> >> <a href="{{forum.get_url}}">{{forum.title}}</a></span>
         </div>
         {% if posts %}
             <!--Display posts table-->
@@ -12,7 +12,7 @@
                 <div class="table-head">
                     <div class="status">Status</div>
                     <div class="subjects">Sujets</div>
-                    <div class="replies">Reponses/Vues</div>
+                    <div class="replies">Commentaires/Vues</div>
                     <div class="last-reply">Derniere Reponse</div>
                 </div>
 
@@ -39,18 +39,19 @@
                         <span>Lancé par <b><a href="">{{post.user.first_name|title}}</a></b> .</span>
                     </div>
                     <div class="replies">
-                        {{post.num_comments}} commentaires <br> {% get_hit_count for post %} vues
+                        {{post.num_comments}} commentaires <br>
+                         {% get_hit_count for post %} vues 
                     </div>
 
                     {% if post.last_reply %}
                     <div class="last-reply">
                         {{post.last_reply.date|date}}
-                        <br>By <b><a href="">{{post.last_reply.user.first_name|title}}</a></b>
+                        <br>Par <b><a href="">{{post.last_reply.user.first_name|title}}</a></b>
                     </div>
                     {% else %}
                     <div class="last-reply">
                         {{post.date|date}}
-                        <br>By <b><a href="">{{post.user.first_name|title}}</a></b>
+                        <br>Par <b><a href="">{{post.user.first_name|title}}</a></b>
                     </div>
                     {% endif %}
                 </div>

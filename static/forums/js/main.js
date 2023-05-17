@@ -20,7 +20,9 @@ function showComment(){
 }
 
 //Reply
-function showReply(){
-    var replyArea = document.getElementById("reply-area");
-    replyArea.classList.remove("hide");
+function showReplies(id){
+    let replyArea = document.getElementById(id);
+    replyArea.classList.remove('hide');
+    // commentArea.classList.remove("hide");
+    //replyArea.classList.remove("hide");
 }

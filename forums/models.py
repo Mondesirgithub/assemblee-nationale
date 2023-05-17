@@ -24,7 +24,7 @@ class Category(models.Model):
         super(Category, self).save(*args, **kwargs)
 
     def get_url(self):
-        return reverse("posts", kwargs={
+        return reverse("forums:posts", kwargs={
             "slug":self.slug
         })
 
@@ -72,7 +72,7 @@ class Post(models.Model):
     parent_post = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     user = models.ForeignKey(Depute, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category)
     approved = models.BooleanField(default=False)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',
@@ -91,8 +91,17 @@ class Post(models.Model):
             self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
         
+    @property
+    def num_comments(self):
+        return self.comments.count()
+    
+
+    @property
+    def last_reply(self):
+        return self.comments.latest("date")
+        
     def get_url(self):
-        return reverse("detail", kwargs={
+        return reverse("forums:detail", kwargs={
             "slug":self.slug
         })
 

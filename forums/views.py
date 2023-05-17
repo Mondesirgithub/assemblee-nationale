@@ -30,9 +30,8 @@ def home(request):
 
 def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    author = Depute.objects.get(user=request.user)
+    author = request.user
     author.num_post = Post.objects.filter(user=author).count()
-    author.save()
     
     if "comment-form" in request.POST:
         comment = request.POST.get("comment")
@@ -46,9 +45,11 @@ def detail(request, slug):
         new_reply, _ = Reply.objects.get_or_create(user=author, content=reply)
         comment_obj.replies.add(new_reply.id)
 
+    comments = post.comments.all().order_by('-date')
 
     context = {
         "post":post,
+        "comments": comments,
         "title": "Assemblee Nationale: "+post.title,
     }
     
@@ -60,6 +61,7 @@ def detail(request, slug):
 def posts(request, slug):
     category = get_object_or_404(Category, slug=slug)
     posts = Post.objects.filter(approved=True, categories=category)
+    print("POSTS =>", posts)
     paginator = Paginator(posts, 5)
     page = request.GET.get("page")
     try:
@@ -83,12 +85,12 @@ def create_post(request):
     form = PostForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
-            author = Depute.objects.get(user=request.user)
+            author = request.user
             new_post = form.save(commit=False)
             new_post.user = author
             new_post.save()
             form.save_m2m()
-            return redirect("home")
+            return redirect("forums:home")
         
     context.update({
         "form": form,
