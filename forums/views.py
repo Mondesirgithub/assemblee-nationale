@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import Author, Category, Post, Comment, Reply
+from .models import Category, Post, Comment, Reply
 from .utils import update_views
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
@@ -31,6 +31,8 @@ def home(request):
 def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     author = Depute.objects.get(user=request.user)
+    author.num_post = Post.objects.filter(user=author).count()
+    author.save()
     
     if "comment-form" in request.POST:
         comment = request.POST.get("comment")
