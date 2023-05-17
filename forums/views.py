@@ -32,6 +32,7 @@ def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     author = request.user
     author.num_post = Post.objects.filter(user=author).count()
+    reponses = None
     
     if "comment-form" in request.POST:
         comment = request.POST.get("comment")
@@ -46,11 +47,12 @@ def detail(request, slug):
         comment_obj.replies.add(new_reply.id)
 
     comments = post.comments.all().order_by('-date')
-
+    
     context = {
         "post":post,
         "comments": comments,
         "title": "Assemblee Nationale: "+post.title,
+        'reponses': reponses
     }
     
     update_views(request, post)

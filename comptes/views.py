@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import get_user_model,login,authenticate
+from django.contrib.auth import login,authenticate
 from .forms import InscriptionForm, ConnexionForm, ValidationForm
 from django.contrib import messages
 import hashlib
