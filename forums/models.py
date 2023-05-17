@@ -1,30 +1,82 @@
 from django.db import models
+from tinymce.models import HTMLField
+from hitcount.models import HitCount
+from django.contrib.contenttypes.fields import GenericRelation
+from taggit.managers import TaggableManager
+from django.shortcuts import reverse
 from comptes.models import Depute
+from django.utils.text import slugify
+
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=400, unique=True, blank=True)
+    description = models.TextField(default="description")
+
+    class Meta:
+        verbose_name_plural = "categories"
+        
+    def __str__(self):
+        return self.title
 
 
-class CategorieSujet(models.Model):
-    name = models.CharField(max_length=100)
+# class Topic(models.Model):
+#     content = models.CharField(max_length=200)
+#     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+#     user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+#     created_at = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.content
+
+class Reply(models.Model):
+    user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    content = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.content[:100]
 
+    class Meta:
+        verbose_name_plural = "replies"
 
-class Sujet(models.Model):
-    contenu = models.CharField(max_length=200)
-    categorie = models.ForeignKey(CategorieSujet, on_delete=models.CASCADE)
-    created_by = models.ForeignKey(Depute, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+class Comment(models.Model):
+    user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    content = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    replies = models.ManyToManyField(Reply, blank=True)
 
     def __str__(self):
-        return self.contenu
-
+        return self.content[:100]
 
 class Post(models.Model):
-    contenu = models.TextField()
-    sujet = models.ForeignKey(Sujet, on_delete=models.CASCADE)
+    title = models.CharField(max_length=400)
+    content = HTMLField()
+    # topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     parent_post = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
-    created_by = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    user = models.ForeignKey(Depute, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=400, unique=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    categories = models.ManyToManyField(Category)
+    approved = models.BooleanField(default=False)
+    hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',
+        related_query_name='hit_count_generic_relation'
+    )
+    tags = TaggableManager()
+    comments = models.ManyToManyField(Comment, blank=True)
+    closed = models.BooleanField(default=False)
+    state = models.CharField(max_length=40, default="zero")
 
     def __str__(self):
-        return f"Post {self.pk} par {self.created_by.username}"
+        return f"{self.title}, posté par {self.user.username}"
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
+        
+    def get_url(self):
+        return reverse("detail", kwargs={
+            "slug":self.slug
+        })
+
+    

@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 # Create your models here.
 class Categorie(models.Model):
@@ -11,7 +12,7 @@ class Categorie(models.Model):
 
 class Article(models.Model):
     titre = models.CharField(max_length=50, verbose_name="Titre de l'article", blank=False, null=False) 
-    description = models.TextField(verbose_name="Description de l'article", blank=False, null=False)
+    description = HTMLField()
     categorie = models.ForeignKey(Categorie, on_delete=models.DO_NOTHING, null=True)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -44,7 +45,7 @@ class ActualiteVideo(Actualite):
     
     
 class ActualiteImage(Actualite):
-    description = models.TextField(verbose_name="Description de l'actualite", blank=False, null=False)
+    description = HTMLField()
     
     def __str__(self) -> str:
         return f"{super().titre}"

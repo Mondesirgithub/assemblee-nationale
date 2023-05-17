@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'comptes.apps.ComptesConfig',
     'forums.apps.ForumsConfig',
     'web.apps.WebConfig',
+    'tinymce',
+    'hitcount',
+    'taggit',
     'corsheaders'
 ]
 

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import CategorieSujet, Sujet, Post
-# Register your models here.
+from .models import Category, Author, Post, Comment, Reply
 
-
-admin.site.register(CategorieSujet)
-admin.site.register(Sujet)
+admin.site.register(Category)
+admin.site.register(Author)
 admin.site.register(Post)
+admin.site.register(Comment)
+admin.site.register(Reply)
