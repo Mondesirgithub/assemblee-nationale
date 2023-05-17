@@ -14,10 +14,27 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "categories"
-        
     def __str__(self):
         return self.title
+    
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
+
+    def get_url(self):
+        return reverse("posts", kwargs={
+            "slug":self.slug
+        })
+
+    @property
+    def num_posts(self):
+        return Post.objects.filter(categories=self).count()
+    
+    @property
+    def last_post(self):
+        return Post.objects.filter(categories=self).latest("date")
 
 # class Topic(models.Model):
 #     content = models.CharField(max_length=200)

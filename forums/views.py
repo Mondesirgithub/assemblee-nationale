@@ -25,7 +25,7 @@ def home(request):
         "last_post":last_post,
         "title": "Forum de l'assemblee nationale"
     }
-    return render(request, "forums.html", context)
+    return render(request, "forums/forums.html", context)
 
 
 def detail(request, slug):
@@ -54,7 +54,7 @@ def detail(request, slug):
     
     update_views(request, post)
 
-    return render(request, "detail.html", context)
+    return render(request, "forums/detail.html", context)
 
 
 def posts(request, slug):
@@ -72,40 +72,40 @@ def posts(request, slug):
     context = {
         "posts":posts,
         "forum": category,
-        "title": "OZONE: Posts"
+        "title": "L'Assemblee Nationale: Posts"
     }
 
-    return render(request, "posts.html", context)
+    return render(request, "forums/posts.html", context)
 
 
-@login_required
 def create_post(request):
     context = {}
     form = PostForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
-            print("\n\n its valid")
-            author = Author.objects.get(user=request.user)
+            author = Depute.objects.get(user=request.user)
             new_post = form.save(commit=False)
             new_post.user = author
             new_post.save()
             form.save_m2m()
             return redirect("home")
+        
     context.update({
         "form": form,
-        "title": "OZONE: Create New Post"
+        "title": "L'Assemblee Nationale: Create New Post"
     })
-    return render(request, "create_post.html", context)
+    return render(request, "forums/create_post.html", context)
+
+
 
 def latest_posts(request):
     posts = Post.objects.all().filter(approved=True)[:10]
     context = {
         "posts":posts,
-        "title": "OZONE: Latest 10 Posts"
+        "title": "L'Assemblee Nationale: Latest 10 Posts"
     }
 
-    return render(request, "latest-posts.html", context)
+    return render(request, "forums/latest-posts.html", context)
 
 def search_result(request):
-
-    return render(request, "search.html")
+    return render(request, "forums/search.html")
