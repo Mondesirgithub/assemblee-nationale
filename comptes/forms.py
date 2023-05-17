@@ -71,11 +71,10 @@ class ValidationForm(forms.Form):
      				'hx-trigger': "keyup",
 					'hx-target':f'#{name}_errors'
 					})
-	
 
 	def clean_identifiant(self):
 		if self.cleaned_data['identifiant'] == '':
 			raise forms.ValidationError("Ce champ est obligatoire")
 		if len(self.cleaned_data['identifiant']) != 8:
 			raise forms.ValidationError("L'identifiant est un code de 8 caractères")
-		return self.champObligatoire(self.cleaned_data['password'])
+		return self.cleaned_data['identifiant']

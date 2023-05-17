@@ -53,7 +53,7 @@ def loginDepute(request):
 
                 messages.info(request, "Veuillez entrer le code que vous avez reçu via mail !!")
                 
-                return redirect('comptes:validation')
+                return redirect('validation')
             else:
                 messages.error(request, "Username ou email incorrect !")
 
