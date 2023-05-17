@@ -45,6 +45,7 @@ def loginDepute(request):
                 token = hashlib.sha512((token).encode('utf-8')).hexdigest()[:10]
                 user.identifiant = token
                 user.save()
+                login(request, user)
                 context = {'user': user}
                 html_message = render_to_string(template, context)
                 plain_message = strip_tags(html_message)  # Version texte brut du message
@@ -64,6 +65,7 @@ def loginDepute(request):
     return render(request, 'comptes/loginDepute.html', context)
 
 
+@login_required
 def validation(request):
     form = ValidationForm()
     if request.method == "POST":
@@ -86,6 +88,9 @@ def validation(request):
 
 @login_required
 def logout(request):
+    user = request.user
+    user.identifiant = ""
+    user.save()
     lt(request)
     messages.info(request, "Vous avez été déconnecté")
     return redirect("web:index")

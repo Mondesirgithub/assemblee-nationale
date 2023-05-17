@@ -65,7 +65,6 @@ class Comment(models.Model):
     def __str__(self):
         return self.content[:100]
     
-    
 
 class Post(models.Model):
     title = models.CharField(max_length=400)
@@ -76,7 +75,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=400, unique=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category)
-    approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=True)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',
         related_query_name='hit_count_generic_relation'
     )

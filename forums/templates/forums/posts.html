@@ -16,7 +16,7 @@
                     <div class="last-reply">Derniere Reponse</div>
                 </div>
 
-                {% for post in posts %}
+                {% if posts %}
                 <div class="table-row">
                     {% if post.closed == True %}
                         <div class="status"><i class="fa fa-lock"></i></div>
