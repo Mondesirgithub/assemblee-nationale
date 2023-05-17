@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'comptes.apps.ComptesConfig',
     'forums.apps.ForumsConfig',
     'web.apps.WebConfig',
+    'tinymce',
+    'hitcount',
+    'taggit',
+    'widget_tweaks',
     'corsheaders'
 ]
 
@@ -122,6 +126,13 @@ USE_I18N = True
 USE_TZ = True
 
 CSRF_COOKIE_SECURE = False
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ridelntsoumou@gmail.com'
+EMAIL_HOST_PASSWORD = 'phaygtjfwxmqtbkr'
 
 
 # Static files (CSS, JavaScript, Images)

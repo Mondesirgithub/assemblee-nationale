@@ -9,7 +9,7 @@
         <div>
             <article class="d-flex w-100 position-relative ibColumn text-white overflow-hidden">
                 <div class="alignHolder d-flex align-items-center w-100">
-                    <div class="align w-100 pt-20 pb-20 pt-md-40 pb-md-30 px-md-17" style="height: 700px;">
+                    <div class="align w-100 pt-20 pb-20 pt-md-40 pb-md-30 px-md-17">
                         <div class="container position-relative">
                             <div class="row" style="display: flex; justify-content: flex-end;margin-right: -640px;">
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
@@ -68,24 +68,27 @@
         </div>
     </div>
 
-    <aside class="featuresAsideBlock position-relative text-white" style="background-color: #BB0505;">
-        <div class="container">
-            <div class=" mt-n8 mt-md-n18">
-                <ul class="container list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
-                    {% for categorie in categories %}
-                        <li style="margin: 30px;background-color: white;">
-                            <a href="{% url 'web:articles' categorie.pk %}" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
-                                <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
-                                    <!-- <i class="icomoon-ico1"><span class="sr-only">icon</span></i> -->
-                                    <img src={{categorie.icone.url}} />
-                                </span>
-                                <h2 class="mb-0">
-                                    {{categorie.nom}}
-                                </h2>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
+    
+    <aside class="featuresAsideBlock position-relative text-white" style="background-color: #BB0505;padding: 30px">
+        <div class="row">
+            <div class="mt-n8 mt-md-n18">
+                    <ul class="container-fluid list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
+                        {% for categorie in categories %}
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 w-100">
+                                <li style="margin: 2px;background-color: white;">
+                                    <a href="{% url 'web:articles' categorie.pk %}" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
+                                        <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
+                                            <!-- <i class="icomoon-ico1"><span class="sr-only">icon</span></i> -->
+                                            <img src={{categorie.icone.url}} />
+                                        </span>
+                                        <h2 class="mb-0">
+                                            {{categorie.nom}}
+                                        </h2>
+                                    </a>
+                                </li>
+                            </div>
+                        {% endfor %}
+                    </ul>
             </div>
         </div>
         <div class="fabBtNoteTextWrap text-center fontAlter fzMedium pt-6 pt-md-10 pb-6 pb-md-10 pb-lg-14">
@@ -97,16 +100,17 @@
             </div>
         </div>
     </aside>
+    </div>
     <section class="exploreServicesBlock position-relative pt-7 pt-md-12 pt-lg-16 pt-xl-20 pb-0 pb-md-4 pb-lg-8 pb-xl-12">
         <div class="container">
             <header class="headingHead mb-7 md-md-9 mb-lg-13">
                 <div class="row align-items-end">
                     <div class="col-12 col-sm-7 col-xl-5">
-                        <h2 class="mb-0">Let’s explore local services, programs &amp; initiatives.</h2>
+                        <h2 class="mb-0">Restez connecté aux actualités parlementaires</h2>
                     </div>
                     <div class="col-12 col-sm-5 col-xl-7 d-sm-flex justify-content-sm-end">
                         <a href="services.html" class="btn btn-dark text-capitalize position-relative border-0 p-0 mt-4 mt-sm-0 mb-sm-1 minWidthMedium" data-hover="Explore Services">
-                            <span class="d-block btnText">Explore Services</span>
+                            <span class="d-block btnText">En savoir plus</span>
                         </a>
                     </div>
                 </div>
@@ -116,8 +120,8 @@
                     <article class="esColumn position-relative text-center mb-13">
                         <iframe width="405" height="250" src="https://www.youtube.com/embed/{{actualiteVideo.lien}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-                        <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
-                            <h3 class="fwMedium mb-0">{{actualiteVideo.titre}}</h3>
+                        <div class="escCaption shadow position-absolute pt-4 px-2 pb-5" style="background-color: #000;">
+                            <h3 class="fwMedium mb-0" style="color: white;">{{actualiteVideo.titre}}</h3>
                             <a href="{% url 'web:actualite-video-details' actualiteVideo.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
                         </div>
                     </article>
@@ -125,8 +129,8 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
                         <span class="imgHolder d-block w-100 bgCover" style="background-image: url('{{image1.source.url}}');"></span>
-                        <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
-                            <h3 class="fwMedium mb-0">{{actualiteImage1.titre}}</h3>
+                        <div class="escCaption shadow position-absolute pt-4 px-2 pb-5" style="background-color: #000;">
+                            <h3 class="fwMedium mb-0" style="color: white;">{{actualiteImage1.titre}}</h3>
                             <a href="{% url 'web:actualite-image-details' actualiteImage1.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
                         </div>
                     </article>
@@ -134,8 +138,8 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
                         <span class="imgHolder d-block w-100 bgCover" style="background-image: url('{{image2.source.url}}');"></span>
-                        <div class="escCaption bg-white shadow position-absolute pt-4 px-2 pb-5">
-                            <h3 class="fwMedium mb-0">{{actualiteImage2.titre}}</h3>
+                        <div class="escCaption shadow position-absolute pt-4 px-2 pb-5" style="background-color: #000;">
+                            <h3 class="fwMedium mb-0" style="color: white;">{{actualiteImage2.titre}}</h3>
                             <a href="{% url 'web:actualite-image-details' actualiteImage2.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>
                         </div>
                     </article>
@@ -147,27 +151,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 pt-4">
-                    <h2 class="lh44 mb-6">Meet Ideological leader for youth generation</h2>
-                    <p>Mayor Carnee Simmons is committed to solving problems for town people across the state under her leadership.</p>
-                    <p>Expanding access to affordable healthcare, improving skills, respecting working families as the City’s 45th mayor. Mayor Carnee was won in the serve a sixth term on Octorber 7, 2018.</p>
+                    <h2 class="lh44 mb-6" style="color: black;">Innovation du Président de l'Assemblée Nationale.<br/>
+                    Plan stratégique de développement et de modernisation.
+                    </h2>
+                    <p>
+                        Depuis son élection à la présidence de l’Assemblée nationale, l’Honorable Isidore MVOUBA, a la volonté chevillée au corps pour arrimer la chambre des députés aux impératifs du 21ème siècle et sortir cette importante institution des sentiers battus.
+                    </p>
+                    <p>
+                        C’est ainsi qu’il œuvre à la mise en place, avec l’aide des partenaires bi et multi latéraux, d’un plan stratégique de développement et de modernisation de l’Assemblée nationale.
+                    </p>
+                    <a href="javascript:void(0);" class="btn btn-dark btnSwitchDark fwMedium position-relative border-0 p-0 btnCustomSmall mt-md-1 mt-lg-0 ml-lg-4" data-hover="Lire Plus"><span class="d-block btnText fwMedium">Lire Plus</span></a>
                     <blockquote class="meetQuote fontAlter text-lDark mt-6 py-1 pl-4 pl-lg-8 pr-md-12 pr-lg-20 pr-xl-28">
                         <q class="d-block mb-4">Stand at the top of a cliff and jump off and build your wings on the way down.</q>
-                        <cite class="d-block fsNormal">Carnee Simmons, <span class="fontBase ctSubtitleText">Mayor</span></cite>
+                        <cite class="d-block">Isidore MVOUBA,<br /> Président de l'Assemblée Nationale </cite>
                     </blockquote>
-                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="btnPlayLink fontAlter position-relative d-inline-block align-top mt-4 mt-lg-7 lightbox" data-fancybox="true">
-                        <i class="icnPlay d-flex align-items-center justify-content-center position-absolute fas fa-play rounded-circle"><span class="sr-only">icon</span></i>
-                        <div class="bplTextWrap">
-                            <em class="d-block fsNormal">
-                                <span class="d-block">Video Intro</span>
-                                <span class="d-block">About Our Municipal</span>
-                            </em>
-                        </div>
-                    </a>
+                    
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="imgTwoImageHolder position-relative mt-7 mt-md-0 mb-20 mb-md-0">
                         <span class="img img1 position-relative d-block">
-                            <img src="media\commissions\icones\b.jpg" class="img-fluid" alt="image description">
+                            <img src="{% static 'web/images/president.jpg' %}" class="img-fluid" alt="image description">
                         </span>
                     </div>
                 </div>
@@ -181,10 +184,10 @@
             <div class="row">
                 <div class="col-12 col-lg-3">
                     <header class="headingHead pt-2 mb-7 mb-lg-0">
-                        <h2 class="fwSemiBold mb-2">Nos Publications</h2>
-                        <p>Voir plus dans les onglets suivants.</p>
-                        <a href="newsSingle.html" class="btn btn-outline-secondary bdrWidthAlter text-capitalize position-relative border-0 p-0 mt-5 btnXsMinWidth" style="background-color: #BB0505;" data-hover="Plus de Publications">
-                            <span class="d-block btnText"  style="background-color:#BB0505 ;color: white;">Plus de Publications</span>
+                        <h2 class="fwSemiBold mb-2">Nos Médias et Publications</h2>
+                        <p>The news about recent activities for needed peoples.</p>
+                        <a href="newsSingle.html" class="btn btn-outline-secondary bdrWidthAlter text-capitalize position-relative border-0 p-0 mt-5 btnXsMinWidth" data-hover="More News">
+                            <span class="d-block btnText">More News</span>
                         </a>
                     </header>
                 </div>
