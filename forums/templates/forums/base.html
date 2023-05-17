@@ -20,7 +20,7 @@
                 <span class="close-icon" id="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
                 <ul class="nav-list">
                     <li class="nav-item"><a href="{% url 'forums:home' %}">Home</a></li>
-                    <li class="nav-item"><a href="{% url 'comptes:logout' %}">Logout</a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
                     <li class="nav-item">{{user.first_name}}</li>
                 </ul>
             </nav>
