@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (Categorie, Article, ActualiteImage, ActualiteVideo, ImageAssociee,Annonce,
-                     SymbolesAssemblee,EvenementHemicycle,LoiAdoptee,TravauxCommission)
+                     SymbolesAssemblee,EvenementHemicycle,LoiAdoptee,TravauxCommission,Picture)
 # Register your models here.
 
 
@@ -15,4 +15,5 @@ admin.site.register(Article)
 admin.site.register(ImageAssociee)
 admin.site.register(ActualiteImage)
 admin.site.register(ActualiteVideo)
+admin.site.register(Picture)
 

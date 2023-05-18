@@ -1,8 +1,30 @@
 {% extends 'web/base.html' %}
 
-{% block title %}Articles{% endblock title %}
+{% block title %}Travaux en commission{% endblock title %}
 
 {% block content %}
+
+<main>
+    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+        <div class="alignHolder d-flex w-100 align-items-center">
+            <div class="align w-100 position-relative">
+                <div class="container">
+                    <h1 class="text-white mb-2">Travaux en commission</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'web:Liste_d' %}">Liste Des Députés En fonction</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'web:President' %}">Président</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="exploreDepartmentsBlock py-8 py-md-10 py-lg-14 py-xl-22">
+        
+    </section>
+</main>
 
 
 {% endblock content %}

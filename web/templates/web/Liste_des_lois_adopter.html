@@ -1,5 +1,5 @@
 {% extends 'web/base.html' %}
-
+{% load static %}
 {% block title %}Listes Des Lois Adoptées{% endblock title %}
 
 {% block content %}
@@ -9,7 +9,7 @@
         <div class="alignHolder d-flex w-100 align-items-center">
             <div class="align w-100 position-relative">
                 <div class="container">
-                    <h1 class="text-white mb-2">Listes Des Lois Adoptées</h1>
+                    <h1 class="text-white mb-2">Listes Des Lois</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
                             <li class="breadcrumb-item"><a href="home.html">Home</a></li>
@@ -23,41 +23,33 @@
         </div>
     </header>
     <article class="dsSingleContent pt-7 pb-2 pt-md-10 pb-md-1 pt-lg-16 pb-lg-10 pt-xl-21 pb-xl-16">
-        <div class="container position-relative">
+        <div class="position-relative">
             <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 order-lg-2 mb-6">
-                    <div class="pl-xl-14">
+                {% for loi in lois %}
+                <div class="col-8 col-md-8 col-lg-8 col-xl-8 offset-2">
                         <ul class="list-unstyled drItemsList mb-11">
                             <li>
                                 <div class="drItemRow position-relative d-flex pl-3 pl-md-6 pr-3 pr-sm-27 pr-md-30 py-3 mb-4">
                                     <span class="icnWrap flex-shrink-0 pt-1 mr-3">
-                                        <img src="images/icopdf.png" class="img-fluid" alt="icon">
+                                        <img src="{% static 'web/images/icopdf.png' %}" class="img-fluid" alt="icon">
                                     </span>
                                     <div class="descrWrap">
-                                        <h4 class="fontBase font-weight-normal mb-1">Company_Briefing_Update_for_the_Year.pdf</h4>
-                                        <strong class="d-block fileSize font-weight-normal">PDF (400kb)</strong>
-                                        <a href="javascript:void(0);" class="btnDownload fwSemiBold">[ Download ]</a>
+                                        <h4 class="fontBase font-weight-normal mb-1">{{loi.nom}}</h4>
+                                        <strong class="d-block fileSize font-weight-normal">PDF {{loi.fichier.size|filesizeformat }}</strong>
+                                        <a href="{{loi.fichier.url}}" download class="btnDownload fwSemiBold">[ Télécharger ]</a>
                                     </div>
                                 </div>
                             </li>
                         </ul>
-                        
-                        <hr class="mt-6 mb-10">
-                       
-                    </div>
+                        <!-- <hr class="mt-6 mb-10"> -->
                 </div>
-                <div class="col-12 col-lg-4 col-xl-3 order-lg-1 mb-6 position-static">
-                    <aside class="dscSidebar pt-1 mr-xl-n5">
-                        <nav class="widget mb-6 mb-lg-10 widgetDepartsNav widgetBgLight py-3 py-lg-5 px-6">
-                            <h3 class="fwSemiBold mb-4 position-relative">Listes Des Lois Adoptées</h3>
-                            <ul class="list-unstyled pl-0 mx-n2 mb-0 mb-3">
-                                <li>
-                                    <a href="javascript:void(0);">Tous les Documents</a>
-                                </li>  
-                            </ul>
-                        </nav>
-                    </aside>
-                </div>
+                {% empty %}
+                <h3 class="text-center">
+                    Pas de lois enregistrés !
+                </h3>
+                {% endfor %}
+
+               
             </div>
         </div>
     </article>

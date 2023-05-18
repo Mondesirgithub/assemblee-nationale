@@ -23,14 +23,18 @@
 	<article class="ItemfullBlock portfolioSingle bodyFontAlter pt-7 pb-7 pt-md-10 pb-md-9 pt-lg-14 pb-lg-13 pt-xl-22 pb-xl-19">
 		<div class="container">
 			<div class="row mb-3 mb-md-6">
-				<div class="col-12 col-sm-6 col-lg-4">
-					<a href="http://placehold.it/405x300" class="potSingGallery overflow-hidden mb-6 lightbox d-block w-100" data-fancybox="true">
-						<img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
+				{% for picture in pictures %}
+				<div class="col-12 col-sm-6 col-lg-4" style="width: 405;height: 300;">
+					<a href="{{picture.source.url}}" class="potSingGallery overflow-hidden mb-6 lightbox d-block w-100" data-fancybox="true">
+						<img src="{{picture.source.url}}"style="width: 100%;height:100%" class="img-fluid" alt="image description">
 					</a>
 				</div>
-				
+				{% empty %}
+				<h3 style="text-align: center;">
+					Pas encore de photos
+				</h3>
+				{% endfor %}
 			</div>
-			
 		</div>
 	</article>
 	

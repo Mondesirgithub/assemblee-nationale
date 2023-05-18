@@ -23,12 +23,13 @@ urlpatterns = [
     path('Liste_depute/', views.Liste_des_depute_Fon, name='Liste_depute'),
     path('Ancien/', views.Ancien_President, name='Ancien'),
     path('Liste_d/', views.Liste_des_depute_P, name='Liste_d'),
-    path('Annonce/', views.Annonce, name='Annonce'),
-    path('Actualite/', views.Actualite, name='Actualite'),
+    path('Annonce/', views.annonce, name='Annonce'),
+    path('actualites/', views.actualite, name='Actualite'),
     path('Galerie_p/', views.Galerie_p, name='Galerie_p'),
     path('Symbole/', views.Symbole, name='Symbole'),
     path('Vac/', views.Vac, name='Vac'),
-    path('Membre_Detail/', views.membredetail, name='MembreDetail'),
+    path('historique/', views.historique, name='historique'),
+    path('Membre_Detail/<str:pk>', views.membredetail, name='MembreDetail'),
 ]
 
    

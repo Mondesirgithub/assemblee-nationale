@@ -89,6 +89,7 @@
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
 													<li><a class="dropdown-item" href="{% url 'web:Actualite' %}">Actualités</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:historique' %}">Historique</a></li>
 													<li><a class="dropdown-item" href="{% url 'web:Annonce' %}">Annonces</a></li>
 													<li><a class="dropdown-item" href="{% url 'web:Galerie_p' %}">Galerie Photos</a></li>
 													<li><a class="dropdown-item" href="{% url 'web:Symbole' %}">Symboles De L'Assemblée</a></li>
@@ -131,13 +132,7 @@
 										{% endif %}
 										
 										<li class="nav-item dropdown ddohOpener">
-											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nous Contacter</a>
-											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
-												<ul class="list-unstyled mb-0 hdDropdownList">
-													<li><a class="dropdown-item" href="{% url 'web:contact1' %}">Contact 1</a></li>
-													<li><a class="dropdown-item" href="{% url 'web:contact2' %}">Contact 2</a></li>
-												</ul>
-											</div>
+											<a class="nav-link" href="{% url 'web:contact1' %}">Nous Contacter</a>
 										</li>
 									</ul>
 								</div>

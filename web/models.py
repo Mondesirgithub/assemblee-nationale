@@ -30,18 +30,10 @@ class Actualite(models.Model):
         return f"{self.titre}"
     
 class ActualiteVideo(Actualite):
-    lien = models.CharField(max_length=255, blank=False, verbose_name="Lien de la video", null=False)
+    lien = models.FileField(upload_to="Actualites/videos/", verbose_name="Fichier de la video", null=True)
     
     def __str__(self) -> str:
         return f"{super().titre}"
-    
-
-    def save(self, *args, **kwargs):
-        # Modifier la valeur du champ lien ici avant d'appeler la méthode save() parente
-        self.lien = self.lien.split("=")[-1]  # Exemple de modification, met le lien en majuscules
-
-        # Appeler la méthode save() parente pour effectuer la sauvegarde
-        super().save(*args, **kwargs)
     
     
 class ActualiteImage(Actualite):
@@ -79,6 +71,8 @@ class SymbolesAssemblee(models.Model):
 class LoiAdoptee(models.Model):
     nom = models.CharField(max_length=255)
     fichier = models.FileField(upload_to="LoisAdoptees/pdf/", null=True)
+    date = models.DateTimeField()
+    typeLoi = models.CharField(max_length=30, default="", null=True, blank=True)
     
     def __str__(self) -> str:
         return f"{self.nom}"
@@ -107,4 +101,6 @@ class TravauxCommission(models.Model):
     
     
     
+class Picture(models.Model):
+    source = models.ImageField(upload_to="Galerie/photos/", null=True, blank=True)
     
