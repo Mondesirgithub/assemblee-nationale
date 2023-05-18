@@ -8,3 +8,4 @@ admin.site.register(Article)
 admin.site.register(ImageAssociee)
 admin.site.register(ActualiteImage)
 admin.site.register(ActualiteVideo)
+

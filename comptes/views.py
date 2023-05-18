@@ -11,6 +11,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as lt
 from django.http import HttpResponse
+from .models import Depute
 # Create your views here.
 
 def registerDepute(request):
@@ -119,3 +120,12 @@ def check_input_validation(request, nom):
     else:
         erreurs += "<script>$(function(){$('#submit').removeAttr('disabled');});</script>"
     return HttpResponse(erreurs)
+
+def Affichage(request,id_Depute):
+    personne=Depute.objects.get(id=id_Depute)
+    kate=personne.kate
+    Depute_on_rel =Depute.objects.filter(kate=kate)
+    return render(request,"web/GaleriePhoto.html",
+                  {"article":personne,
+                  "aer":Depute_on_rel})
+    

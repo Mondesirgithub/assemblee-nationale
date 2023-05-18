@@ -8,12 +8,11 @@
         <div class="alignHolder d-flex w-100 align-items-center">
             <div class="align w-100 position-relative">
                 <div class="container">
-                    <h1 class="text-white mb-2">Les artciles de la {{categorie.nom}}</h1>
+                    <h1 class="text-white mb-2">Actualités</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
-                            <li class="breadcrumb-item"><a href="home.html">Accueil</a></li>
-                            <li class="breadcrumb-item"><a href="eventsList.html">Event</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Events List</li>
+                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'web:Symbole' %}">Symbole De L'Assemblée</a></li>
                         </ol>
                     </nav>
                 </div>

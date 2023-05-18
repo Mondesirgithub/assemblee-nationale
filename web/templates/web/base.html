@@ -88,10 +88,10 @@
 											<a class="nav-link dropdown-toggle dropIcn" href="{% url 'web:index' %}" role="button">Accueil</a>
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
-													<li><a class="dropdown-item" href="#" ">Actualités</a></li>
-													<li><a class="dropdown-item" href="home.html">Annonces</a></li>
-													<li><a class="dropdown-item" href="home.html">Galerie Photos</a></li>
-													<li><a class="dropdown-item" href="home.html">Symboles De L'Assemblée</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Actualite' %}">Actualités</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Annonce' %}">Annonces</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Galerie_p' %}">Galerie Photos</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Symbole' %}">Symboles De L'Assemblée</a></li>
 												</ul>
 											</div>
 										</li>
@@ -99,10 +99,10 @@
 											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hémicylcle</a>
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
-													<li><a class="dropdown-item" href="services.html">Calendrier Des Sessions</a></li>
-													<li><a class="dropdown-item" href="servicesSingle.html">Liste Des Lois Adoptées</a></li>
-													<li><a class="dropdown-item" href="servicesSingle.html">Evènements à L'Hémicylcle</a></li>
-													<li><a class="dropdown-item" href="servicesSingle.html">Travaux En Commission</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:calendrierS' %}">Calendrier Des Sessions</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Liste_de_loi' %}">Liste Des Lois Adoptées</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Evenement_H' %}">Evènements à L'Hémicylcle</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Travaux' %}">Travaux En Commission</a></li>
 												</ul>
 											</div>
 										</li>
@@ -110,11 +110,11 @@
 											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Députés</a>
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
-													<li><a class="dropdown-item" href="departments.html">Président</a></li>
-													<li><a class="dropdown-item" href="departmentsSingle.html">Membres Du Bureau De L'Assemblée</a></li>
-													<li><a class="dropdown-item" href="departmentsSingle.html">Liste Des Députés En Fonction</a></li>
-													<li><a class="dropdown-item" href="departmentsSingle.html">Anciens Présidents</a></li>
-													<li><a class="dropdown-item" href="departmentsSingle.html">Liste Des Députés Des Précédentes Législatures</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:President' %}">Président</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Membre' %}">Membres Du Bureau De L'Assemblée</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Liste_depute' %}">Liste Des Députés En Fonction</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Ancien' %}">Anciens Présidents</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:Liste_d' %}">Liste Des Députés Des Précédentes Législatures</a></li>
 												</ul>
 											</div>
 										</li>
@@ -124,8 +124,8 @@
 											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nous Contacter</a>
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
-													<li><a class="dropdown-item" href="newsClassic.html">Contact 1</a></li>
-													<li><a class="dropdown-item" href="newsGridLarge.html">Contact 2</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:contact1' %}">Contact 1</a></li>
+													<li><a class="dropdown-item" href="{% url 'web:contact2' %}">Contact 2</a></li>
 												</ul>
 											</div>
 										</li>
@@ -230,7 +230,7 @@
 						<div class="col-12 col-sm-6 col-md-5 col-xl-3 mb-6">
 							<div class="ftLogo mt-md-1 mb-6">
 								<a href="home.html">
-									<img src="{% static 'web/images/logoWhite.png' %}" class="img-fluid" alt="egovt">
+									<img src="{% static 'web/images/logo.png' %}" class="img-fluid" alt="egovt">
 								</a>
 							</div>
 							<address class="mb-0 ftPlace">

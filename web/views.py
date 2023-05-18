@@ -91,3 +91,52 @@ def actualite(request):
 def galerie(request):
     return render(request,'web/GaleriePhoto.html')
 
+def President(request):
+    return render(request,'web/President.html')
+
+def Membre(request):
+    return render(request,'web/Membre_du_bureau.html')
+
+def contact1(request):
+    return render(request,'web/contact1.html')
+
+def contact2(request):
+    return render(request,'web/contact2.html')
+
+def calendrierS(request):
+    return render(request,'web/Calendrier_des_session.html')
+
+def Liste_des_Lois(request):
+    return render(request,'web/Liste_des_lois_adopter.html')
+
+def Evenement_H(request):
+    return render(request,'web/Evenement_a_lhemicycle.html')
+
+def Travaux_en(request):
+    return render(request,'web/Travaux_en_commission.html')
+
+def Liste_des_depute_Fon(request):
+    return render(request,'web/Liste_des_depute.html')
+
+def Ancien_President(request):
+    return render(request,'web/Ancien_President.html')
+
+def Liste_des_depute_P(request):
+    return render(request,'web/Liste_des_depute_desP.html')
+
+def Annonce(request):
+    return render(request,'web/annonce.html')
+
+def Actualite(request):
+    return render(request,'web/articles.html')
+
+def Galerie_p(request):
+    return render(request,'web/GaleriePhoto.html')
+
+def Symbole(request):
+    return render(request,'web/Symbole.html')
+
+
+
+   
+
