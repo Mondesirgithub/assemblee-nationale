@@ -135,6 +135,8 @@ def Galerie_p(request):
 
 def Symbole(request):
     return render(request,'web/Symbole.html')
+def Vac(request):
+    return render(request,'web/VacancesP.html')
 
 
 

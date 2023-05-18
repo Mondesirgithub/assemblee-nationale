@@ -11,63 +11,314 @@
                     <h1 class="text-white mb-2">Actualités</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
-                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'web:Symbole' %}">Symbole De L'Assemblée</a></li>
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="eventsList.html">Event</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Organizing City Photography Contest-2022</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <section class="ItemfullBlock pt-7 pb-7 pt-md-10 pb-md-9 pt-lg-14 pb-lg-13 pt-xl-22 pb-xl-19">
+    <article class="ItemfullBlock pt-7 pb-7 pt-md-10 pb-md-9 pt-lg-14 pb-lg-13 pt-xl-22 pb-xl-19">
         <div class="container">
-            <div class="pt-7 pb-6 pt-lg-11 pb-lg-9 pt-xl-14 pb-xl-12">
-                
-                {% for article in articles %}
-                <article class="ueEveColumn__list position-relative px-4 py-3 px-lg-8 py-lg-6">
-                    <div class="d-lg-flex align-items-md-center">
-                        <!-- <time datetime="2011-01-12" class="uecTime text-lDark fontAlter text-uppercase flex-shrink-0 mr-4 mr-lg-6 d-block mb-2 mb-lg-0">
-                            <span class="textLarge">01</span> October
-                            <span class="d-block textDay fwMedium pt-1">WEDNESDAY</span>
-                        </time> -->
-                        <div class="d-md-flex align-items-md-center flex-grow-1">
-                            <div class="imgHolder rounded-circle overflow-hidden flex-shrink-0 mr-4 mr-lg-10 mb-1 mb-md-0">
-                                <img src="http://placehold.it/160x160" class="img-fluid rounded-circle" alt="image description">
+            <div class="row">
+                <div class="col-12 col-lg-9 mb-6">
+                    <div class="pr-lg-5 pr-xl-15 bodyFontAlter">
+                        <header class="dtlItemHeader mt-n1 mb-10">
+                            <strong class="dtlihTitle d-block">In <a href="javascript:void(0);">Conference</a></strong>
+                            <h2 class="mb-9">Organizing City Photography Contest-2022</h2>
+                            <div class="imgHolder">
+                                <img src="http://placehold.it/875x650" class="img-fluid w-100" alt="image description">
                             </div>
-                            <div class="descrWrap flex-grow-1">
-                                <!-- <strong class="tagTitle d-block text-secondary fwSemiBold mb-2">Entertainement</strong> -->
-                                <h3 class="fwMedium">
-                                    <a href="{% url 'web:article-details' article.pk %}">{{article.titre}}</a>
-                                </h3>
-                                <div class="list-unstyled ueScheduleList mb-0">
-                                    <p>{{article.description}}</p>
+                           
+                        </header>
+                        
+                        
+                        <h2 class="h2vii fwSemiBold mb-5">Speakers &amp; Chief Guests</h2>
+                        <div class="row d-block mb-7 mb-lg-9 mb-xl-13">
+                            <div class="scgSpeakersSlider">
+                                <div class="col-12">
+                                    <article class="speakerColumn text-center shadow bg-white pt-6 pb-7 px-4 mb-6">
+                                        <div class="imgHolder rounded-circle mb-3">
+                                            <img src="http://placehold.it/150x150" class="img-fluid rounded-circle" alt="image description">
+                                        </div>
+                                        <h3 class="fwMedium mb-1">Anna Roselaw</h3>
+                                        <h4 class="fontBase font-weight-normal">City Council</h4>
+                                    </article>
+                                </div>
+                                <div class="col-12">
+                                    <article class="speakerColumn text-center shadow bg-white pt-6 pb-7 px-4 mb-6">
+                                        <div class="imgHolder rounded-circle mb-3">
+                                            <img src="http://placehold.it/150x150" class="img-fluid rounded-circle" alt="image description">
+                                        </div>
+                                        <h3 class="fwMedium mb-1">Robert Davis</h3>
+                                        <h4 class="fontBase font-weight-normal">City Council</h4>
+                                    </article>
+                                </div>
+                                <div class="col-12">
+                                    <article class="speakerColumn text-center shadow bg-white pt-6 pb-7 px-4 mb-6">
+                                        <div class="imgHolder rounded-circle mb-3">
+                                            <img src="http://placehold.it/150x150" class="img-fluid rounded-circle" alt="image description">
+                                        </div>
+                                        <h3 class="fwMedium mb-1">San Mangrow</h3>
+                                        <h4 class="fontBase font-weight-normal">President</h4>
+                                    </article>
+                                </div>
+                                <div class="col-12">
+                                    <article class="speakerColumn text-center shadow bg-white pt-6 pb-7 px-4 mb-6">
+                                        <div class="imgHolder rounded-circle mb-3">
+                                            <img src="http://placehold.it/150x150" class="img-fluid rounded-circle" alt="image description">
+                                        </div>
+                                        <h3 class="fwMedium mb-1">Anna Roselaw</h3>
+                                        <h4 class="fontBase font-weight-normal">City Council</h4>
+                                    </article>
+                                </div>
+                                <div class="col-12">
+                                    <article class="speakerColumn text-center shadow bg-white pt-6 pb-7 px-4 mb-6">
+                                        <div class="imgHolder rounded-circle mb-3">
+                                            <img src="http://placehold.it/150x150" class="img-fluid rounded-circle" alt="image description">
+                                        </div>
+                                        <h3 class="fwMedium mb-1">Robert Davis</h3>
+                                        <h4 class="fontBase font-weight-normal">City Council</h4>
+                                    </article>
+                                </div>
+                                <div class="col-12">
+                                    <article class="speakerColumn text-center shadow bg-white pt-6 pb-7 px-4 mb-6">
+                                        <div class="imgHolder rounded-circle mb-3">
+                                            <img src="http://placehold.it/150x150" class="img-fluid rounded-circle" alt="image description">
+                                        </div>
+                                        <h3 class="fwMedium mb-1">San Mangrow</h3>
+                                        <h4 class="fontBase font-weight-normal">President</h4>
+                                    </article>
                                 </div>
                             </div>
-                            <a href="{% url 'web:article-details' article.pk %}" class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 flex-shrink-0 ml-md-4" data-hover="Plus de Détails">
-                                <span class="d-block btnText">Plus de Détails</span>
-                            </a>
                         </div>
+                        
+                        <div class="tab-content scgTabContent mb-10" id="scgTabsContent">
+                            <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
+                                <div class="overflow-hidden">
+                                    <div class="ctMapWrap position-relative w-100">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3117.246590958436!2d-90.29455418438972!3d38.62020787083965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b57ada367f63%3A0xe3ea4c84d3e6b420!2sC%20%26%20B%20Lift%20Truck%20Service%2C%20Inc.!5e0!3m2!1sen!2s!4v1630908088272!5m2!1sen!2s" width="100%" height="498" allowfullscreen="" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="condet" role="tabpanel" aria-labelledby="condet-tab">
+                                <div class="overflow-hidden">
+                                    <ul class="list-unstyled ueScheduleList">
+                                        <li>
+                                            <i class="icomoon-clock icn position-absolute"><span class="sr-only">icon</span></i>
+                                            9:30am - 1:00pm
+                                        </li>
+                                        <li>
+                                            <i class="icomoon-location icn position-absolute"><span class="sr-only">icon</span></i>
+                                            Mayor Office, Texas city
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+                                <div class="overflow-hidden">
+                                    <ul class="list-unstyled d-flex flex-wrap scgGalleryList">
+                                        <li>
+                                            <a href="http://placehold.it/405x220" class="lightbox" data-fancybox="true">
+                                                <img src="http://placehold.it/405x220" class="img-fluid" alt="image description">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://placehold.it/405x220" class="lightbox" data-fancybox="true">
+                                                <img src="http://placehold.it/405x220" class="img-fluid" alt="image description">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://placehold.it/405x220" class="lightbox" data-fancybox="true">
+                                                <img src="http://placehold.it/405x220" class="img-fluid" alt="image description">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://placehold.it/405x220" class="lightbox" data-fancybox="true">
+                                                <img src="http://placehold.it/405x220" class="img-fluid" alt="image description">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://placehold.it/405x220" class="lightbox" data-fancybox="true">
+                                                <img src="http://placehold.it/405x220" class="img-fluid" alt="image description">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://placehold.it/405x220" class="lightbox" data-fancybox="true">
+                                                <img src="http://placehold.it/405x220" class="img-fluid" alt="image description">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                     
+                        
                     </div>
-                </article>
-                {% endfor %}
+                </div>
+                <div class="col-12 col-lg-3 mb-6">
+                    <div class="ml-lg-n5">
+                        <aside class="sidebar">
+                            <section class="widget widgetSearch mb-6 mb-lg-10">
+                                <form action="#" class="searchForm">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control" placeholder="Search Here&hellip;">
+                                        <div class="input-group-append">
+                                            <button class="btn btnTheme btnNoOver d-flex align-items-center justify-content-center" type="button">
+                                                <i class="icomoon-search"><span class="sr-only">search</span></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                            <section class="widget widgetFeaturEvent mb-6 mb-lg-10">
+                                <h3 class="fwMedium mb-5">Featured Event</h3>
+                                <article class="ueEveColumn position-relative shadow bg-white w-100">
+                                    <div class="imgHolder position-relative">
+                                        <a href="eventSingle.html">
+                                            <img src="http://placehold.it/385x285" class="img-fluid d-block w-100" alt="image description">
+                                        </a>
+                                        <time class="ueTimeTag position-absolute text-center d-flex bg-white fontAlter fwSemiBold text-lDark text-uppercase" datetime="2011-01-12">
+                                            <span class="d-block text-white textDay flex-shrink-0 font-weight-bold">15</span>
+                                            <span class="d-block py-2 px-3">OCT 2022</span>
+                                        </time>
+                                    </div>
+                                    
+                                </article>
+                            </section>
+                            <nav class="widget widgetArchiveList mb-6 mb-lg-10">
+                                <h3 class="fwMedium mb-5">Categories</h3>
+                                <ul class="list-unstyled pl-0">
+                                    <li>
+                                        <a href="javascript:void(0);">Conference</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Entertainment</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Health &amp; Sports</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Meeting</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Workshop</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <nav class="widget widgetUpcoming mb-6 mb-lg-10">
+                                <h3 class="fwMedium mb-5">Upcoming Events</h3>
+                                <ul class="list-unstyled pl-0 mb-7">
+                                    <li>
+                                        <div class="imgHolder flex-shrink-0 mr-4 mt-1">
+                                            <img src="http://placehold.it/80x80" class="img-fluid" alt="image description">
+                                        </div>
+                                        <div class="descrWrap">
+                                            <h4 class="fwMedium mb-1">
+                                                <a href="eventSingle.html">Annual Cycling Race 2020 for the Covid-19</a>
+                                            </h4>
+                                            <time datetime="2011-01-12" class="d-block">Oct 16, 2020 <br>@ 1:00 pm - 6:00 pm</time>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="imgHolder flex-shrink-0 mr-4 mt-1">
+                                            <img src="http://placehold.it/80x80" class="img-fluid" alt="image description">
+                                        </div>
+                                        <div class="descrWrap">
+                                            <h4 class="fwMedium mb-1">
+                                                <a href="eventSingle.html">Celebrating World Fiteness Day at White Corner’20</a>
+                                            </h4>
+                                            <time datetime="2011-01-12" class="d-block">Nov 16, 2020 <br>@ 9:00 am - 6:00 pm</time>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="imgHolder flex-shrink-0 mr-4 mt-1">
+                                            <img src="http://placehold.it/80x80" class="img-fluid" alt="image description">
+                                        </div>
+                                        <div class="descrWrap">
+                                            <h4 class="fwMedium mb-1">
+                                                <a href="eventSingle.html">City Innovation and Technology Committee&hellip;</a>
+                                            </h4>
+                                            <time datetime="2011-01-12" class="d-block">Dec 16, 2020  <br>@ 8:00 am - 5:00 pm</time>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="javascript:void(0);" class="readMoreLink fontAlter fwMedium">View All Events <i class="fas fa-chevron-right btnRmlIcn" aria-hidden="true"><span class="sr-only">icon</span></i></a>
+                            </nav>
+                            <section class="widget widgetGallery mb-6 mb-lg-10">
+                                <h3 class="fwMedium mb-5">Photo Gallery</h3>
+                                <ul class="list-unstyled pl-0 d-flex flex-wrap">
+                                    <li>
+                                        <a href="http://placehold.it/90x90" class="lightbox" data-fancybox="true">
+                                            <img src="http://placehold.it/90x90" class="img-fluid" alt="image description">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://placehold.it/90x90" class="lightbox" data-fancybox="true">
+                                            <img src="http://placehold.it/90x90" class="img-fluid" alt="image description">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://placehold.it/90x90" class="lightbox" data-fancybox="true">
+                                            <img src="http://placehold.it/90x90" class="img-fluid" alt="image description">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://placehold.it/90x90" class="lightbox" data-fancybox="true">
+                                            <img src="http://placehold.it/90x90" class="img-fluid" alt="image description">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://placehold.it/90x90" class="lightbox" data-fancybox="true">
+                                            <img src="http://placehold.it/90x90" class="img-fluid" alt="image description">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://placehold.it/90x90" class="lightbox" data-fancybox="true">
+                                            <img src="http://placehold.it/90x90" class="img-fluid" alt="image description">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="widget widgetTags mb-6 mb-lg-10">
+                                <h3 class="fwMedium mb-5">Tags</h3>
+                                <ul class="list-unstyled pl-0 d-flex flex-wrap fontAlter">
+                                    <li>
+                                        <a href="javascript:void(0);">City</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Developement</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Road</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Design</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Smart City</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Goverment</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Announcement</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">Meeting</a>
+                                    </li>
+                                </ul>
+                            </section>
+                        </aside>
+                    </div>
+                </div>
             </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center pt-2">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="javascript:void(0);">Prev</a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="javascript:void(0);">1 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="javascript:void(0);">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="javascript:void(0);">Next <i class="fas fa-chevron-right icn"><span class="sr-only">icon</span></i></a>
-                    </li>
-                </ul>
-            </nav>
         </div>
-    </section>
+    </article>
 </main>
 {% endblock content %}

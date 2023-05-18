@@ -26,6 +26,7 @@ urlpatterns = [
     path('Actualite/', views.Actualite, name='Actualite'),
     path('Galerie_p/', views.Galerie_p, name='Galerie_p'),
     path('Symbole/', views.Symbole, name='Symbole'),
+    path('Vac/', views.Vac, name='Vac'),
 ]
 
    

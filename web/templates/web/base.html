@@ -64,7 +64,7 @@
 							<div class="col-4">
 								<ul class="list-unstyled hdAlterLinksList d-flex justify-content-end flex-wrap mb-0">
 									<li>
-										<a style="color: white;" href="javascript:void(0);">Vacances parlementaires</a>
+										<a style="color: white;" href="{% url 'web:Vac' %}">Vacances parlementaires</a>
 									</li>
 								</ul>
 							</div>
@@ -171,23 +171,21 @@
 							<nav class="ftcaNav mb-4 mb-lg-0">
 								<ul class="list-unstyled d-flex flex-wrap mb-0 justify-content-center justify-content-lg-start">
 									<li>
-										<a href="about.html">About Us</a>
+										<a href="{% url 'web:index' %}">Acceuil</a>
 									</li>
 									<li>
-										<a href="services.html">Services</a>
+										<a href="{% url 'web:President' %}">President</a>
 									</li>
 									<li>
-										<a href="eventsList.html">Events</a>
+										<a href="{% url 'web:Liste_depute' %}">Listes des Députés En Fonction</a>
 									</li>
 									<li>
-										<a href="newsGridSmall.html">News</a>
+										<a href="{% url 'web:Ancien' %}">Anciens Présidents</a>
 									</li>
 									<li>
-										<a href="contact-1.html">Contact</a>
+										<a href="{% url 'loginDepute' %}">Se Connecter</a>
 									</li>
-									<li>
-										<a href="portfolioClassic.html">Portfolio</a>
-									</li>
+								
 								</ul>
 							</nav>
 						</div>
