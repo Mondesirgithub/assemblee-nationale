@@ -8,7 +8,7 @@ from .resources import profiles
 class Depute(AbstractUser):
     identifiant = models.CharField(max_length=255)
     slug = slug = models.SlugField(max_length=400, unique=True, blank=True)
-    photo = ResizedImageField(size=[50, 80], quality=100, upload_to="Deputes/photos/", default=None, null=True, blank=True) 
+    photo = ResizedImageField(size=[60, 80], quality=100, upload_to="Deputes/photos/", default=None, null=True, blank=True) 
     num_post = models.IntegerField(blank=True, default=0)
     categorie = models.CharField(choices=profiles.PROFILES, max_length=100, null=True, blank=True)
     

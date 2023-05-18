@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Categorie, Article, ActualiteImage, ActualiteVideo
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import EvenementHemicycle
+from datetime import datetime
 # Create your views here.
 
 def index(request):
@@ -141,6 +143,24 @@ def Galerie_p(request):
 def Symbole(request):
     return render(request,'web/Symbole.html')
 
+
+
+def searcheEvenement(request):
+    context = {}
+    evenements = EvenementHemicycle.objects.all()
+    if request.method == "POST":
+        if request.POST['dateDebut'] != "" and request.POST['dateFin'] != "":
+            debut = datetime.strptime(request.POST['dateDebut'], '%Y-%m-%d')
+            fin = datetime.strptime(request.POST['dateFin'], '%Y-%m-%d')
+            evenements = EvenementHemicycle.objects.filter(date__gte=debut, date__lte=fin)
+            if len(evenements) == 0:
+                messages.info(request, f"Pas d'évènements qui se sont passé entre {debut} et {fin}")
+            else:
+                messages.info(request, f"{len(evenements)} évènement(s) correspondant(s) à votre recherche")
+            
+            print("Evenements => ", evenements)
+            context['evenements'] = evenements   
+    return render(request, "web/Evenement_a_lhemicycle.html", context)
 
 
    
