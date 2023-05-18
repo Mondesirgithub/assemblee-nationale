@@ -70,6 +70,7 @@ class Annonce(models.Model):
 class SymbolesAssemblee(models.Model):
     nom = models.CharField(max_length=255)
     image = models.ImageField(upload_to="SymbolesAssemblee/images/", null=True)
+    description = HTMLField(blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.nom}"
@@ -87,8 +88,10 @@ class EvenementHemicycle(models.Model):
     nom = models.CharField(max_length=255)
     content = HTMLField()
     image = models.ImageField(upload_to="EvenemenetsHemicycle/images/")
-    dateDebut = models.DateField()
-    dateFin = models.DateField()
+    date = models.DateField()
+    heureDebut = models.TimeField()
+    heureFin = models.TimeField()
+    lieu = models.CharField(max_length=50, null=True, blank=True)
     
     def __str__(self) -> str:
         return f"{self.nom}"
@@ -97,7 +100,7 @@ class EvenementHemicycle(models.Model):
 class TravauxCommission(models.Model):
     titre = models.CharField(max_length=255)
     commission = models.ForeignKey(Categorie,on_delete=models.CASCADE, null=True)
-    decription = HTMLField()
+    decription = HTMLField(blank=True, null=True)
     
     def __str__(self) -> str:
         return f"{self.titre} pour la {self.commission.nom}"

@@ -11,7 +11,7 @@ class Category(models.Model):
     title = models.CharField(max_length=50)
     user = models.ForeignKey(Depute, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
-    description = models.TextField(default="description")
+    description = HTMLField()
 
     class Meta:
         verbose_name_plural = "categories"
@@ -48,7 +48,7 @@ class Category(models.Model):
 
 class Reply(models.Model):
     user = models.ForeignKey(Depute, on_delete=models.CASCADE)
-    content = models.TextField()
+    content = HTMLField()
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -59,7 +59,7 @@ class Reply(models.Model):
 
 class Comment(models.Model):
     user = models.ForeignKey(Depute, on_delete=models.CASCADE)
-    content = models.TextField()
+    content = HTMLField()
     date = models.DateTimeField(auto_now_add=True)
     replies = models.ManyToManyField(Reply, blank=True)
 
