@@ -59,6 +59,4 @@ class ImageAssociee(models.Model):
 
 
 
-
-
     
