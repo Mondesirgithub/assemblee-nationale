@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/', views.loginDepute, name="loginDepute"),
     path('validation/', views.validation, name="validation"),
     path('logout/', views.logout, name="logout"),
+    path('loginForAnnonce/', views.loginForAnnonce, name="loginForAnnonce"),
     path('check_input_connexion/<str:nom>', views.check_input_connexion, name='check_input_connexion'),
     path('check_input_validation/<str:nom>', views.check_input_validation, name='check_input_validation'),
     path('reset_password/', myviews.PasswordResetView.as_view(template_name='comptes/password_reset.html'), name='reset_password'),

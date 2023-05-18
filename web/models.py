@@ -58,5 +58,50 @@ class ImageAssociee(models.Model):
         return f"image de {self.actualiteImage.titre}"
 
 
+class Annonce(models.Model):
+    titre = models.CharField(max_length=255)
+    description = HTMLField()
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to="Annonces/images/", null=True)
+    
+    def __str__(self) -> str:
+        return f"{self.titre}"
+    
+class SymbolesAssemblee(models.Model):
+    nom = models.CharField(max_length=255)
+    image = models.ImageField(upload_to="SymbolesAssemblee/images/", null=True)
 
+    def __str__(self) -> str:
+        return f"{self.nom}"
+    
+    
+class LoiAdoptee(models.Model):
+    nom = models.CharField(max_length=255)
+    fichier = models.FileField(upload_to="LoisAdoptees/pdf/", null=True)
+    
+    def __str__(self) -> str:
+        return f"{self.nom}"
+
+
+class EvenementHemicycle(models.Model):
+    nom = models.CharField(max_length=255)
+    content = HTMLField()
+    image = models.ImageField(upload_to="EvenemenetsHemicycle/images/")
+    dateDebut = models.DateField()
+    dateFin = models.DateField()
+    
+    def __str__(self) -> str:
+        return f"{self.nom}"
+    
+
+class TravauxCommission(models.Model):
+    titre = models.CharField(max_length=255)
+    commission = models.ForeignKey(Categorie,on_delete=models.CASCADE, null=True)
+    decription = HTMLField()
+    
+    def __str__(self) -> str:
+        return f"{self.titre} pour la {self.commission.nom}"
+    
+    
+    
     

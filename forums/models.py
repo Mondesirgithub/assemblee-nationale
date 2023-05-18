@@ -9,13 +9,14 @@ from django.utils.text import slugify
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
+    user = models.ForeignKey(Depute, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
     description = models.TextField(default="description")
 
     class Meta:
         verbose_name_plural = "categories"
     def __str__(self):
-        return self.title
+        return f"{self.title} crée par {self.user.first_name} {self.user.last_name}"
     
 
     def save(self, *args, **kwargs):
@@ -65,7 +66,6 @@ class Comment(models.Model):
     def __str__(self):
         return self.content[:100]
     
-    
 
 class Post(models.Model):
     title = models.CharField(max_length=400)
@@ -76,7 +76,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=400, unique=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category)
-    approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=True)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',
         related_query_name='hit_count_generic_relation'
     )

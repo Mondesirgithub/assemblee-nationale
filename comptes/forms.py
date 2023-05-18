@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django import forms
+from .resources import profiles
 import re
 
 
@@ -12,16 +13,18 @@ class InscriptionForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
-        fields = ['last_name', 'first_name', 'email', 'password1', 'password2', 'photo']
+        fields = ['last_name', 'first_name', 'email','categorie','password1', 'password2', 'photo']
         labels = {
             'last_name': 'Nom(s)',
             'first_name': 'Prénom(s)',
-            'email': 'Email'
+            'email': 'Email',
+            'categorie': 'Catégorie du membre'
         }
         widgets = {
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'})
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'categorie': forms.Select(attrs={'class': 'form-control'})
         }
 
 
@@ -41,11 +44,6 @@ class ConnexionForm(forms.Form):
 					'hx-target':f'#{name}_errors'
 					})
 	
-	def champObligatoire(self , name):      
-		if name == '':
-			raise forms.ValidationError("Ce champ est obligatoire")
-		return name
-
 	def clean_email(self):
 		return self.champObligatoire(self.cleaned_data['email'])
 
@@ -57,6 +55,16 @@ class ConnexionForm(forms.Form):
 			raise forms.ValidationError("L'email est obligatoire")
 		
 		return email
+ 
+
+	def clean_password(self):
+		password = self.cleaned_data['password']
+		if len(password) < 8:
+			raise forms.ValidationError("Le mot de passe doit avoir au moins 8 caractères")
+		if password == '':
+			raise forms.ValidationError("Le mot de passe est obligatoire")
+		
+		return password
  
 class ValidationForm(forms.Form):
 	identifiant = forms.CharField(widget=forms.TextInput({'class':'form-control'}), label="Identifiant")
@@ -71,10 +79,3 @@ class ValidationForm(forms.Form):
      				'hx-trigger': "keyup",
 					'hx-target':f'#{name}_errors'
 					})
-
-	def clean_identifiant(self):
-		if self.cleaned_data['identifiant'] == '':
-			raise forms.ValidationError("Ce champ est obligatoire")
-		if len(self.cleaned_data['identifiant']) != 8:
-			raise forms.ValidationError("L'identifiant est un code de 8 caractères")
-		return self.cleaned_data['identifiant']

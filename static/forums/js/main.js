@@ -16,13 +16,23 @@ function showIconBar(){
 //Comment
 function showComment(){
     var commentArea = document.getElementById("comment-area");
-    commentArea.classList.remove("hide");
+    commentArea.classList.toggle("hide");
+    let comment = document.getElementById('btnComment')
+    if (commentArea.classList.contains('hide')){
+        comment.textContent = 'Commenter'
+    }else{
+        comment.textContent = 'Ne pas commenter'
+    }
 }
 
 //Reply
 function showReplies(id){
     let replyArea = document.getElementById(id);
-    replyArea.classList.remove('hide');
-    // commentArea.classList.remove("hide");
-    //replyArea.classList.remove("hide");
+    replyArea.classList.toggle('hide');
+    let reply = document.getElementById('btnReply')
+    if (replyArea.classList.contains('hide')){
+        reply.textContent = 'Repondre'
+    }else{
+        reply.textContent = 'Ne pas repondre'
+    }
 }
