@@ -10,7 +10,7 @@ class Depute(AbstractUser):
     slug = slug = models.SlugField(max_length=400, unique=True, blank=True)
     photo = ResizedImageField(size=[50, 80], quality=100, upload_to="Deputes/photos/", default=None, null=True, blank=True) 
     num_post = models.IntegerField(blank=True, default=0)
-    categorie = models.Choices(profiles.PROFILES, null=True, blank=True)
+    categorie = models.CharField(choices=profiles.PROFILES, max_length=100, null=True, blank=True)
     
     def __str__(self) -> str:
         return f"{self.email}"
