@@ -70,12 +70,12 @@
 
     
     <aside class="featuresAsideBlock position-relative text-white" style="background-color: #BB0505;padding: 30px">
-        <div class="row">
-            <div class="mt-n8 mt-md-n18">
-                    <ul class="container-fluid list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
+        <div class="container-fluid">
+            <div class="mt-n8 mt-xl-n18">
+                    <ul class="container list-unstyled fabFeaturesList mb-0 d-flex overflow-hidden flex-wrap" style="background-color: transparent;">
                         {% for categorie in categories %}
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 w-100">
-                                <li style="margin: 2px;background-color: white;" style="display: block;height: 250px;">
+                                <li style="margin: 2px;background-color: white;">
                                     <a href="{% url 'web:articles' categorie.pk %}" class="fflColumn d-block w-100 text-center px-2 pt-4 pb-10">
                                         <span class="icnWrap d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle">
                                                  <!-- <i class="icomoon-ico1"><span class="sr-only">icon</span></i> -->

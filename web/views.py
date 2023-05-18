@@ -145,6 +145,8 @@ def Symbole(request):
 def Vac(request):
     return render(request,'web/VacancesP.html')
 
+def membredetail(request):
+    return render(request,'web/membreDetail.html')
 
 
 def searcheEvenement(request):
@@ -163,6 +165,8 @@ def searcheEvenement(request):
             print("Evenements => ", evenements)
             context['evenements'] = evenements   
     return render(request, "web/Evenement_a_lhemicycle.html", context)
+
+
 
 
    
