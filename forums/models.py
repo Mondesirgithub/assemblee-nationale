@@ -9,13 +9,14 @@ from django.utils.text import slugify
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
+    user = models.ForeignKey(Depute, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
     description = models.TextField(default="description")
 
     class Meta:
         verbose_name_plural = "categories"
     def __str__(self):
-        return self.title
+        return f"{self.title} crée par {self.user.first_name} {self.user.last_name}"
     
 
     def save(self, *args, **kwargs):

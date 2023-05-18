@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Category, Post, Comment, Reply
 from .utils import update_views
-from .forms import PostForm
+from .forms import PostForm, ForumForm
 from django.contrib.auth.decorators import login_required
 from comptes.models import Depute
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -14,22 +14,38 @@ def home(request):
     if request.user.identifiant == "":
         messages.info(request, "Veuillez vous inscrire puis integrer le forum grâce au code que vous aurez")
         return redirect("loginDepute")
+    
+    form = ForumForm()
+    if request.method == "POST":
+        form = ForumForm(request.POST)
+        if form.is_valid():
+            author = request.user
+            new_forum = form.save(commit=False)
+            new_forum.user = author
+            new_forum.save()
+            form.save_m2m()
+            return redirect("forums:home")
+        
     forums = Category.objects.all()
     num_posts = Post.objects.all().count()
     num_users = Depute.objects.all().count()
     num_categories = forums.count()
+    num_comments = Post.objects.all().count()
     try:
         last_post = Post.objects.latest("date")
     except:
         last_post = []
-
+        
+        
     context = {
         "forums":forums,
         "num_posts":num_posts,
+        "num_comments":num_comments,
         "num_users":num_users,
         "num_categories":num_categories,
         "last_post":last_post,
-        "title": "Forum de l'assemblee nationale"
+        "title": "Forum de l'assemblee nationale",
+        "form": form
     }
     return render(request, "forums/forums_list.html", context)
 
@@ -94,7 +110,7 @@ def posts(request, slug):
             new_post.user = author
             new_post.save()
             form.save_m2m()
-            return redirect("forums:home")
+            return redirect(request.path)
         
     context = {
         "posts":posts,
@@ -103,26 +119,7 @@ def posts(request, slug):
         "title": "L'Assemblee Nationale: Posts"
     }
 
-    return render(request, "forums/posts_forum.html", context)
-
-
-# def create_post(request):
-#     context = {}
-#     form = PostForm(request.POST or None)
-#     if request.method == "POST":
-#         if form.is_valid():
-#             author = request.user
-#             new_post = form.save(commit=False)
-#             new_post.user = author
-#             new_post.save()
-#             form.save_m2m()
-#             return redirect("forums:home")
-        
-#     context.update({
-#         "form": form,
-#         "title": "L'Assemblee Nationale: Create New Post"
-#     })
-#     return render(request, "forums/create_post.html", context)
+    return render(request, "forums/posts.html", context)
 
 
 
@@ -134,6 +131,7 @@ def latest_posts(request):
     }
 
     return render(request, "forums/latest-posts.html", context)
+
 
 def search_result(request):
     return render(request, "forums/search.html")

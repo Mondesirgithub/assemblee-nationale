@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from .models import Categorie, Article, ActualiteImage, ActualiteVideo
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
     categories = Categorie.objects.all()
-    actualiteVideo = ActualiteVideo.objects.order_by("-created_at").first()
-    actualiteImage1 = ActualiteImage.objects.order_by("-created_at").first()
-    actualiteImage2 = ActualiteImage.objects.order_by("-created_at").all()[1]
-    
-    image1 , image2 = actualiteImage1.imageassociee_set.all()[0], actualiteImage2.imageassociee_set.all()[0]
-    
+    try:
+        actualiteVideo = ActualiteVideo.objects.order_by("-created_at").first()
+        actualiteImage1 = ActualiteImage.objects.order_by("-created_at").first()
+        actualiteImage2 = ActualiteImage.objects.order_by("-created_at").all()[1]
+        image1 , image2 = actualiteImage1.imageassociee_set.all()[0], actualiteImage2.imageassociee_set.all()[0]
+    except:
+        actualiteVideo,actualiteImage1,actualiteImage2,image1,image2 = None
     context = {
         'categories': categories,
         'actualiteVideo': actualiteVideo,
@@ -124,6 +126,9 @@ def Ancien_President(request):
 def Liste_des_depute_P(request):
     return render(request,'web/Liste_des_depute_desP.html')
 
+
+
+@login_required(login_url="loginForAnnonce")
 def Annonce(request):
     return render(request,'web/annonce.html')
 

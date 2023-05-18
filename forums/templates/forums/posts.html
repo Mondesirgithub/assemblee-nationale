@@ -1,75 +1,139 @@
-{% extends 'forums/base.html' %}
+{% extends 'web/base.html' %}
 {% load hitcount_tags %}
+{% block title %}Posts du forum{% endblock title %}
+
 {% block content %}
-    <div class="container">
-        <!--Navigation-->
-        <div class="navigate">
-            <span><a href="{% url 'forums:home' %}">MyForum - Forums</a> >> <a href="{{forum.get_url}}">{{forum.title}}</a></span>
+<h4 style="text-align: center;margin: 30px;">Voici les différents sujets portant sur le thème de : <span style="color : #BB0505">{{forum.title}}</span> </h4>
+<div class="inner-sidebar-header justify-content-center d-lg-none d-md-none">
+    <button data-toggle="modal" data-target="#threadModal" class="btn btnTheme fwMedium text-capitalize position-relative border-0 p-0 mt-5 mb-5" data-hover="Nouveau sujet" id="button">
+        <span class="d-block btnText">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Nouveau sujet</span>
+    </button>
+</div>
+
+<br />
+
+
+<div class="mt-4 container">
+    <div class="main-body">
+    <div class="inner-wrapper row">
+    
+    <div class="inner-sidebar col-lg-4 col-md-4 col-xs-12 col-sm-12 col-12" style="display: flex;flex-direction: column;justify-content: center;align-content: center;">
+    
+        <div class="inner-sidebar-header justify-content-center">
+            <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#threadModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Nouveau sujet
+            </button> -->
+
+            <button data-toggle="modal" data-target="#threadModal" class="btn btnTheme fwMedium text-capitalize position-relative border-0 p-0 mt-5 mb-5" data-hover="Nouveau sujet" id="button">
+                <span class="d-block btnText">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Nouveau sujet</span>
+            </button>
         </div>
-        {% if posts %}
-            <!--Display posts table-->
-            <div class="posts-table">
-                <div class="table-head">
-                    <div class="status">Status</div>
-                    <div class="subjects">Sujets</div>
-                    <div class="replies">Commentaires/Vues</div>
-                    <div class="last-reply">Derniere Reponse</div>
-                </div>
+    </div>
+    
+    <div class="inner-main col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
 
-                {% if posts %}
-                <div class="table-row">
-                    {% if post.closed == True %}
-                        <div class="status"><i class="fa fa-lock"></i></div>
-                        {% elif post.num_comments == 0 %}
-                        <div class="status"><i class="fa fa-frown-o"></i></div>
-                        {% elif post.num_comments > 0 and post.num_comments < 2 %}
-                        <div class="status"><i class="fa fa-book"></i></div>
-                        {% elif post.num_comments >= 2 and post.num_comments < 4 %}
-                        <div class="status"><i class="fa fa-rocket"></i></div>
-                        {% elif post.num_comments >= 4 %}
-                        <div class="status"><i class="fa fa-fire"></i></div>
-                    
-                    {% endif %}
-
-
-                    <div class="subjects">
-                        <a href="{{post.get_url}}">{{post.title}}</a>
+        <div class="inner-main-body p-2 p-sm-3 collapse forum-content show mt-n5" style="height: 300px;overflow: scroll;">
+            {% if posts %}
+            {% for post in posts %}
+            <div class="card mb-2">
+                <div class="card-body p-2 p-sm-3">
+                    <div class="media forum-item">
+                    <a href="#" data-toggle="collapse" data-target=".forum-content">
+                        <img src="{{post.user.photo.url}}" class="mr-3 rounded-circle" alt="User" />
+                    </a>
+                    <div class="media-body">
+                        <h6>
+                        <a href="{% url 'forums:detail' post.slug %}" class="text-body">{{post.title}}</a>
+                        </h6>
+                        <p class="text-muted">                        
+                        <a href="javascript:void(0)">Lancé par {{post.user.first_name|title}}</a>, il y'a <span class="text-secondary font-weight-bold">{{post.date}}</span>
+                        </p>
                         <br>
-                        <span>Lancé par <b><a href="">{{post.user.first_name|title}}</a></b> .</span>
+                        <p>
+                            Dernier post, 
+                            {% if post.last_reply %}
+                                Le {{post.last_reply.date}}
+                                <br>Par <b><a href="#">{{post.last_reply.user.first_name|title}}</a></b>
+                            {% else %}
+                                Le {{post.date}}
+                                <br>Par <b><a href="#">{{post.user.first_name|title}}</a></b>
+                            {% endif %}
+                        </p>
                     </div>
-                    <div class="replies">
-                        {{post.num_comments}} commentaires <br>
-                         {% get_hit_count for post %} vues 
+                    <div class="text-muted small text-center align-self-center">
+                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i>{% get_hit_count for post %} vue(s)</span>
+                        <span><i class="far fa-comment ml-2"></i>{{post.num_comments}} commentaire(s)</span>
                     </div>
-
-                    {% if post.last_reply %}
-                    <div class="last-reply">
-                        {{post.last_reply.date|date}}
-                        <br>Par <b><a href="">{{post.last_reply.user.first_name|title}}</a></b>
                     </div>
-                    {% else %}
-                    <div class="last-reply">
-                        {{post.date|date}}
-                        <br>Par <b><a href="">{{post.user.first_name|title}}</a></b>
-                    </div>
-                    {% endif %}
                 </div>
-                {% endfor %}
-            {% else %}
-            <div class="subforum-title">
-                <h1><i class="fa fa-frown-o"></i>&nbsp;Vous n'avez pas toujours de posts.</h1>
             </div>
+            {% endfor %}
+
+            {% else %}
+                <h1><i class="fa fa-frown-o"></i>&nbsp;Vous n'avez pas encore de sujets de discussion{{post}}.</h1>
             {% endif %}
-            
-            
+
         </div>
-        <!--Pagination starts-->
-            {% if posts.is_paginated %}
-                <div class="pagination">
-                    pages: {% for num_page in posts.paginator.page_range %} <a href="?page={{num_page}}">{{num_page}}</a> {% endfor %}
-                </div>
-            {% endif %}
-        <!--pagination ends-->
+        <div style="margin: 60px;">
+        {% if posts.is_paginated %}
+        <ul class="pagination pagination-sm pagination-circle justify-content-center mb-5 mt-5">
+            {% for num_page in posts.paginator.page_range %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{num_page}}">{{num_page}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </div>
     </div>
 
-    {% endblock content %}
+    <div class="modal fade container" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <form method="POST" action=".">
+                <div class="modal-header d-flex align-items-center bg-primary text-white">
+                    <h6 class="modal-title mb-0 text-center text-light" id="threadModalLabel">Nouveau sujet de discussion</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% csrf_token %} 
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{field.label}}">{{field.label}}</label>
+                        {{field}}
+                        {%for error in field.errors %}
+                            <span style="color: red;">{{error}}</span><br />
+                        {%endfor%}
+                    </div>
+                    {% endfor %} 
+                </div> 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btnTheme fwMedium text-capitalize position-relative border-0 p-0 mt-5" data-hover="Poster" id="button">
+                        <span class="d-block btnText">Poster</span>
+                    </button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+{% endblock content %}

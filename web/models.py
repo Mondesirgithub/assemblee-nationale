@@ -77,7 +77,7 @@ class SymbolesAssemblee(models.Model):
     
 class LoiAdoptee(models.Model):
     nom = models.CharField(max_length=255)
-    content = HTMLField()
+    fichier = models.FileField(upload_to="LoisAdoptees/pdf/", null=True)
     
     def __str__(self) -> str:
         return f"{self.nom}"
@@ -87,6 +87,8 @@ class EvenementHemicycle(models.Model):
     nom = models.CharField(max_length=255)
     content = HTMLField()
     image = models.ImageField(upload_to="EvenemenetsHemicycle/images/")
+    dateDebut = models.DateField()
+    dateFin = models.DateField()
     
     def __str__(self) -> str:
         return f"{self.nom}"

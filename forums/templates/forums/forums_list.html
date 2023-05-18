@@ -3,9 +3,10 @@
 {% block title %}Forums{% endblock title %}
 
 {% block content %}
+<h3 style="text-align: center;margin: 30px;">Bienvenue au Forum privé des membres de l'Assemblée Nationale </h3>
+<h4 style="text-align: center;margin: 30px;">Voici les forums qui ont été crée </h4>
 <div class="container">
     <div class="row mt-5">
-        {% if forums %}
         {% for forum in forums %}
             <div class="col-12 mb-3">
             <div class="card row-hover pos-relative py-3 px-3 mb-3 border-primary border-top-0 border-right-0 border-bottom-0 rounded-0">
@@ -18,8 +19,6 @@
                             {{forum.description}}
                         </p>
                         <div class="text-sm op-5">
-                        <a class="text-black mr-2" href="#">#Development</a>
-                        <a class="text-black mr-2" href="#">#iOS</a>
                         </div>
                     </div>
                     
@@ -45,14 +44,31 @@
                 </div>
             </div>
 
-            {% endfor %}
-            {% else %}
+            {% empty %}
                 <div class="subforum-title">
                     <h1><i class="fa fa-frown-o"></i>&nbsp;Vous n'avez pas encore de thème de forum.</h1>
                 </div>
-            {% endif %}
+            {% endfor %}
 
-                
+            <div class="container mt-5 col-12" style="display: block;width: 30%;">
+                <center>
+                    <form action="{% url 'forums:home' %}" method="POST">
+                        {% csrf_token %} 
+                        <div class="form-group">
+                            {% for field in form %}
+                            <label for="{{field.label}}">{{field.label}}</label>
+                            {{field}}
+                            {%for error in field.errors %}
+                            <span style="color: red;">{{error}}</span><br />
+                            {%endfor%}
+                            {% endfor %}
+                            <button type="submit" class="btn btnTheme fwMedium text-capitalize position-relative border-0 p-0 mt-5" data-hover="Créer" id="button">
+                                <span class="d-block btnText">Créer</span>
+                            </button>
+                        </div>
+                    </form>
+                </center>
+            </div>
 
             <div class="col-lg-3 mb-4 mb-lg-0 px-lg-0 mt-lg-0">
                 <div style="visibility: hidden; display: none; width: 285px; height: 801px; margin: 0px; float: none; position: static; inset: 85px auto auto;"></div>

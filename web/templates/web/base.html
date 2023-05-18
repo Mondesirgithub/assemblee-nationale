@@ -118,7 +118,14 @@
 												</ul>
 											</div>
 										</li>
+										{% if user.is_authenticated %}
+										<li class="nav-item dropdown ddohOpener"><a class="nav-link dropdown-toggle" href="{% url 'validation' %}">Forum</a></li>
+										<li class="nav-item dropdown ddohOpener"><a class="nav-link dropdown-toggle" href="{% url 'logout' %}">Deconnexion</a></li>
+										
+										{% else %}
 										<li class="nav-item dropdown ddohOpener"><a class="nav-link dropdown-toggle" href="{% url 'loginDepute' %}">Se Connecter</a></li>
+										
+										{% endif %}
 										
 										<li class="nav-item dropdown ddohOpener">
 											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nous Contacter</a>

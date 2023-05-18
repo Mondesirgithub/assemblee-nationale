@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import login,authenticate
 from .forms import InscriptionForm, ConnexionForm, ValidationForm
 from django.contrib import messages
-import hashlib
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -12,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as lt
 from django.http import HttpResponse
 from .models import Depute
+import random
+import string
 # Create your views here.
 
 def registerDepute(request):
@@ -42,8 +43,8 @@ def loginDepute(request):
             if user:
                 subject = "Permission d'integrer le forum"
                 template = 'comptes/email_validation.html'
-                token = user.email+user.first_name+user.last_name
-                token = hashlib.sha512((token).encode('utf-8')).hexdigest()[:10]
+                characters = string.ascii_letters + string.digits + string.punctuation
+                token = ''.join(random.choice(characters) for _ in range(8))
                 user.identifiant = token
                 user.save()
                 login(request, user)
@@ -51,13 +52,11 @@ def loginDepute(request):
                 html_message = render_to_string(template, context)
                 plain_message = strip_tags(html_message)  # Version texte brut du message
                 recipient_list = [user.email]
-                send_mail(subject, plain_message, settings.EMAIL_HOST_USER, recipient_list, html_message=html_message)
-
-                messages.info(request, "Veuillez entrer le code que vous avez reçu via mail !!")
+                send_mail(subject, plain_message, settings.EMAIL_HOST_USER, recipient_list, html_message=html_message)                
                 
                 return redirect('validation')
             else:
-                messages.error(request, "Username ou email incorrect !")
+                messages.error(request, "Email ou mot de passe incorrect !")
 
     context = {
         'form':form
@@ -66,8 +65,42 @@ def loginDepute(request):
     return render(request, 'comptes/loginDepute.html', context)
 
 
+
+def loginForAnnonce(request):
+    form = ConnexionForm()
+    if request.method == "POST":
+        form = ConnexionForm(request.POST)
+        if form.is_valid():
+            user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password'])
+            if user:
+                subject = "Permission d'integrer le forum"
+                template = 'comptes/email_validation.html'
+                characters = string.ascii_letters + string.digits + string.punctuation
+                token = ''.join(random.choice(characters) for _ in range(8))
+                user.identifiant = token
+                user.save()
+                login(request, user)
+                context = {'user': user}
+                html_message = render_to_string(template, context)
+                plain_message = strip_tags(html_message)  # Version texte brut du message
+                recipient_list = [user.email]
+                send_mail(subject, plain_message, settings.EMAIL_HOST_USER, recipient_list, html_message=html_message)                
+                
+                messages.success(request, "Connexion reussie")
+                
+                return redirect('web:Annonce')
+            else:
+                messages.error(request, "Username ou email incorrect !")
+
+    context = {
+        'form':form
+    }
+
+    return render(request, 'comptes/loginForAnnonce.html', context)
+
 @login_required
 def validation(request):
+    messages.info(request, "Veuillez entrer le code que vous avez reçu via mail aprè votre connexion!!")
     form = ValidationForm()
     if request.method == "POST":
         form = ValidationForm(request.POST)

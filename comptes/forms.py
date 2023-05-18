@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django import forms
+from .resources import profiles
 import re
 
 
@@ -12,16 +13,18 @@ class InscriptionForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
-        fields = ['last_name', 'first_name', 'email', 'password1', 'password2', 'photo']
+        fields = ['last_name', 'first_name', 'email','categorie','password1', 'password2', 'photo']
         labels = {
             'last_name': 'Nom(s)',
             'first_name': 'Prénom(s)',
-            'email': 'Email'
+            'email': 'Email',
+            'categorie': 'Catégorie du membre'
         }
         widgets = {
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'})
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'categorie': forms.Select(attrs={'class': 'form-control'})
         }
 
 
