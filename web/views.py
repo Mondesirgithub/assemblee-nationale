@@ -3,7 +3,10 @@ from .models import Categorie, Article, ActualiteImage, ActualiteVideo
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import EvenementHemicycle
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from datetime import datetime
+from comptes.models import Depute
+from .models import Annonce
 # Create your views here.
 
 def index(request):
@@ -73,8 +76,6 @@ def actualite_video_details(request, id):
     return render(request, 'web/actualite_video_details.html', context)
 
 
-
-
 def actualite_image_details(request, id):
     try:
         actualiteImage = ActualiteImage.objects.get(pk=id)
@@ -90,16 +91,32 @@ def actualite_image_details(request, id):
     return render(request, 'web/actualite_image_details.html', context)
 
 def actualite(request):
-    return render(request,'web/act.html')
+    actualitesVideos = ActualiteVideo.objects.all()
+    actualitesImages = ActualiteImage.objects.all()
+    context = {
+        'actualitesVideos':actualitesVideos,
+        'actualitesImages':actualitesImages
+        }
+    return render(request,'web/act.html', context)
 
 def galerie(request):
-    return render(request,'web/GaleriePhoto.html')
+    membres = Depute.objects.all()
+    context = {'membres':membres}
+    return render(request,'web/GaleriePhoto.html', context)
 
 def President(request):
-    return render(request,'web/President.html')
+    try:
+        president = Depute.objects.get(categorie="PRESIDENT")
+    except:
+        president = None
+        
+    context = {'president':president}        
+    return render(request,'web/President.html', context)
 
 def Membre(request):
-    return render(request,'web/Membre_du_bureau.html')
+    membres = Depute.objects.all()
+    context = {'membres':membres}
+    return render(request,'web/Membre_du_bureau.html', context)
 
 def contact1(request):
     return render(request,'web/contact1.html')
@@ -111,19 +128,39 @@ def calendrierS(request):
     return render(request,'web/Calendrier_des_session.html')
 
 def Liste_des_Lois(request):
-    return render(request,'web/Liste_des_lois_adopter.html')
+    lois = EvenementHemicycle.objects.all()
+    context = {'lois':lois}
+    return render(request,'web/Liste_des_lois_adopter.html', context)
 
 def Evenement_H(request):
-    return render(request,'web/Evenement_a_lhemicycle.html')
+    events = EvenementHemicycle.objects.all()
+    paginator = Paginator(events, per_page=6)
+    page = request.GET.get("page")
+    evenements = None
+    try:
+        evenements = paginator.get_page(page)
+    except PageNotAnInteger:
+        evenements = paginator.get_page(1)
+    except EmptyPage:
+        evenements = paginator.get_page(paginator.num_pages) 
+        
+    context = {'evenements':evenements, 'events':events}
+    
+    
+    return render(request,'web/Evenement_a_lhemicycle.html', context)
 
 def Travaux_en(request):
     return render(request,'web/Travaux_en_commission.html')
 
 def Liste_des_depute_Fon(request):
-    return render(request,'web/Liste_des_depute.html')
+    deputes = Depute.objects.filter(categorie="DEPUTE", enFonction=True)
+    context = {"depute":deputes}
+    return render(request,'web/Liste_des_depute.html', context)
 
 def Ancien_President(request):
-    return render(request,'web/Ancien_President.html')
+    deputes = Depute.objects.filter(categorie="ANCIEN PRESIDENT")
+    context = {'depute':deputes}
+    return render(request,'web/Ancien_President.html', context)
 
 def Liste_des_depute_P(request):
     return render(request,'web/Liste_des_depute_desP.html')
@@ -131,11 +168,17 @@ def Liste_des_depute_P(request):
 
 
 @login_required(login_url="loginForAnnonce")
-def Annonce(request):
-    return render(request,'web/annonce.html')
+def annonce(request):
+    annonces = Annonce.objects.all()
+    context = {
+        'annonces':annonces
+    }
+    return render(request,'web/annonce.html', context)
+
 
 def Actualite(request):
     return render(request,'web/articles.html')
+
 
 def Galerie_p(request):
     return render(request,'web/GaleriePhoto.html')
@@ -149,21 +192,26 @@ def membredetail(request):
     return render(request,'web/membreDetail.html')
 
 
-def searcheEvenement(request):
+def searchEvenements(request):
     context = {}
     evenements = EvenementHemicycle.objects.all()
     if request.method == "POST":
         if request.POST['dateDebut'] != "" and request.POST['dateFin'] != "":
-            debut = datetime.strptime(request.POST['dateDebut'], '%Y-%m-%d')
-            fin = datetime.strptime(request.POST['dateFin'], '%Y-%m-%d')
-            evenements = EvenementHemicycle.objects.filter(date__gte=debut, date__lte=fin)
-            if len(evenements) == 0:
-                messages.info(request, f"Pas d'évènements qui se sont passé entre {debut} et {fin}")
+            if request.POST['dateDebut'] < request.POST['dateFin']:
+                debut = datetime.strptime(request.POST['dateDebut'], '%Y-%m-%d')
+                fin = datetime.strptime(request.POST['dateFin'], '%Y-%m-%d')
+                evenements = EvenementHemicycle.objects.filter(date__gte=debut, date__lte=fin)
+                debut = debut.strftime("%d-%m-%Y")
+                fin = fin.strftime("%d-%m-%Y")
+                if len(evenements) == 0:
+                    messages.info(request, f"Pas d'évènements qui se sont passé entre le {debut} et le {fin}")
+                else:
+                    messages.info(request, f"{len(evenements)} évènement(s) correspondant(s) à votre recherche")
             else:
-                messages.info(request, f"{len(evenements)} évènement(s) correspondant(s) à votre recherche")
-            
-            print("Evenements => ", evenements)
-            context['evenements'] = evenements   
+                messages.error(request, "La date de fin doit être supérieure à la date de début")
+        else:
+            messages.error(request, "Les champs de recherche ne doivent pas être vides")
+    context['events'] = evenements   
     return render(request, "web/Evenement_a_lhemicycle.html", context)
 
 

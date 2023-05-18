@@ -5,7 +5,6 @@
 {% block content %}
 
 <main>
-
     <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(/static/web/images/BannerDepute.jpg);">
         <div class="alignHolder d-flex w-100 align-items-center">
             <div class="align w-100 position-relative">
@@ -25,85 +24,96 @@
     <section class="ItemfullBlock pt-7 pb-7 pt-md-10 pb-md-9 pt-lg-14 pb-lg-13 pt-xl-22 pb-xl-19">
         <div class="container">
             <header class="ifbFilterHead bg-light px-4 pt-4 pb-3 px-lg-8 pt-lg-7 pb-lg-6">
-                <div class="form-row mx-n3 align-items-end">
-                    <div class="formCol px-3">
-                        <div class="form-group">
-                            <label class="d-block fwMedium fontAlter text-lDark mb-2">Start Date</label>
-                            <input type="date" class="form-control inputHeightMedium inputBdrTransparent d-block w- shadow">
+                <form action="{% url 'web:searchEvenements' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row mx-n3 d-flex justify-content-center">
+                        <div class="formCol px-3">
+                            <div class="form-group">
+                                <label class="d-block fwMedium fontAlter text-lDark mb-2">Start Date</label>
+                                <input type="date" name="dateDebut" class="form-control inputHeightMedium inputBdrTransparent d-block w- shadow">
+                            </div>
                         </div>
-                    </div>
-                    <div class="formCol px-3">
-                        <div class="form-group">
-                            <label class="d-block fwMedium fontAlter text-lDark mb-2">End Date</label>
-                            <input type="date" class="form-control inputHeightMedium inputBdrTransparent d-block w- shadow">
+                        <div class="formCol px-3">
+                            <div class="form-group">
+                                <label class="d-block fwMedium fontAlter text-lDark mb-2">End Date</label>
+                                <input type="date" name="dateFin" class="form-control inputHeightMedium inputBdrTransparent d-block w- shadow">
+                            </div>
                         </div>
+                        <button type="submit" class="btn btnTheme ml-lg-3 w-50 mt-4 mt-lg-0 position-relative border-0 p-0" data-hover="Rechercher">
+                            <span class="d-block btnText">Rechercher</span>
+                        </button>
                     </div>
-                    <div class="formCol px-3">
-                        <div class="form-group">
-                            <label class="d-block fwMedium fontAlter text-lDark mb-2">Event Type</label>
-                            <select class="custom-select inputHeightMedium inputBdrTransparent shadow">
-                                <option selected>Event Type</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btnTheme ml-lg-3 mt-4 mt-lg-0 ml-auto mr-auto mr-lg-0 font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0" data-hover="Find Events">
-                        <span class="d-block btnText">Find Events</span>
-                    </button>
-                </div>
+                </form>
             </header>
+
             <div class="row justify-content-center pt-8 pt-lg-11 pt-xl-14">
+                {% for evenement in events %}
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
                     <article class="ueEveColumn position-relative shadow bg-white mb-6 mb-xl-12 w-100">
                         <div class="imgHolder position-relative">
                             <a href="javascript:void(0);">
-                                <img src="http://placehold.it/385x285" class="img-fluid d-block w-100" alt="image description">
+                                <img src="{{evenement.image.url}}" class="img-fluid d-block w-100" alt="image {{evenement.nom}}">
                             </a>
                             <time class="ueTimeTag position-absolute text-center d-flex bg-white fontAlter fwSemiBold text-lDark text-uppercase" datetime="2011-01-12">
-                                <span class="d-block text-white textDay flex-shrink-0 font-weight-bold">01</span>
-                                <span class="d-block py-2 px-3">OCT 2022</span>
+                                <span class="d-block text-white textDay flex-shrink-0 font-weight-bold">{{evenement.date|date:"j"}}</span>
+                                <span class="d-block py-2 px-3">{{evenement.date|date:"F Y"}}</span>
                             </time>
                         </div>
                         <div class="ueDescriptionWrap pt-5 pb-8 px-5">
-                            <strong class="d-block ueCatTitle fwSemiBold text-secondary mb-2">Entertainement</strong>
+                            <strong class="d-block ueCatTitle fwSemiBold text-secondary mb-2">{{evenement.nom}}</strong>
                             <h3 class="h3Small fwMedium mb-3">
-                                <a href="eventSingle.html">Organizing City Photography Contest-2022</a>
+                                <a href="eventSingle.html">{{evenement.content|truncatechars:30}}</a>
                             </h3>
                             <address>
                                 <ul class="list-unstyled ueScheduleList">
                                     <li>
                                         <i class="icomoon-clock icn position-absolute"><span class="sr-only">icon</span></i>
-                                        9:30am - 1:00pm
+                                        {{evenement.heureDebut}} - {{evenement.heureFin}}
                                     </li>
                                     <li>
                                         <i class="icomoon-location icn position-absolute"><span class="sr-only">icon</span></i>
-                                        Mayor Office, Texas city
+                                        {{evenement.lieu}}
                                     </li>
                                 </ul>
                             </address>
-                            <a href="eventSingle.html" class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 mt-3 align-top" data-hover="More Details">
-                                <span class="d-block btnText">More Details</span>
+                            <a href="#" class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 mt-3 align-top" data-hover="More Details">
+                                <span class="d-block btnText">Plus de details</span>
                             </a>
                         </div>
                     </article>
                 </div>
+                {% empty %}
+
+                <h3 style="text-align: center;margin-top: 30px;">Pas d'évènements trouvés</h3>
+
+                {% endfor %}
+
             </div>
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center pt-2">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="javascript:void(0);">Previous</a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="javascript:void(0);">1 <span class="sr-only">(current)</span></a>
-                    </li>
+                    {% if evenements.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="javascript:void(0);">2</a>
+                        <a class="page-link" href="?page={{ evenements.previous_page_number }}">Précédent</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link" href="javascript:void(0);">Next <i class="fas fa-chevron-right icn"><span class="sr-only">icon</span></i></a>
-                    </li>
+                    {% endif %}
+                
+                    {% for page in evenements.paginator.page_range %}
+                        {% if page == evenements.number %}
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="?page={{ page }}">{{ page }}<span class="sr-only">(current)</span></a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                
+                    {% if evenements.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ evenements.next_page_number }}">Suivant <i class="fas fa-chevron-right icn"><span class="sr-only">icon</span></i></a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

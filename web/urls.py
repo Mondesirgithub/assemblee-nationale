@@ -18,6 +18,7 @@ urlpatterns = [
     path('calendrier/', views.calendrierS, name='calendrierS'),
     path('Liste/', views.Liste_des_Lois, name='Liste_de_loi'),
     path('Evenement_H/', views.Evenement_H, name='Evenement_H'),
+    path('searchEvenements/', views.searchEvenements, name='searchEvenements'),
     path('Travaux/', views.Travaux_en, name='Travaux'),
     path('Liste_depute/', views.Liste_des_depute_Fon, name='Liste_depute'),
     path('Ancien/', views.Ancien_President, name='Ancien'),
