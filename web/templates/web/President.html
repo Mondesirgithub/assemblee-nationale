@@ -12,7 +12,7 @@
                     <h1 class="text-white mb-2">Président</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
-                            <li class="breadcrumb-item"><a href="home.html">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
                             <li class="breadcrumb-item"><a href="{% url 'loginDepute' %}">Se Connecter</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'web:Liste_de_loi' %}">Liste Des Lois Adoptées</a></li>
                         </ol>
