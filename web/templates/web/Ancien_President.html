@@ -23,23 +23,26 @@
     </header>
     <section class="bgLight pt-8 pt-md-12 pt-xl-16 pb-4 pb-md-8 pb-xl-16">
         <div class="container">
-            <h2 class="text-center h2vii fwSemiBold mb-5 mb-md-8">Related Projects</h2>
             <div class="row">
+                {% for ancienPresident in anciensPresidents %}
                 <div class="col-12 col-md-6 col-lg-4">
-                        <div class="echColumn echColumnii d-block w-100 bgCover position-relative mb-6" style="background-image: url(http://placehold.it/405x300);">
-                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true" tabindex="-1">
+                        <div class="echColumn echColumnii d-block w-100 bgCover position-relative mb-6" style="background-image: url({{ancienPresident.image.url}});">
+                            <a href="{{ancienPresident.image.url}}" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true" tabindex="-1">
                                 <i class="far fa-image icn" aria-hidden="true"><span class="sr-only">icon</span></i>
                                 6
                             </a>
                             <div class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
                                 <h3 class="mb-0 text-white">
-                                    <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Public Places</strong>
-                                    <span class="d-block">Cinema Teatre</span>
+                                    <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">{{ancienPresident.first_name}}</strong>
+                                    <span class="d-block">{{ancienPresident.last_name}}</span>
                                 </h3>
-                                <a href="{% url 'web:MembreDetail' %}"><i class="rounded-circle icomoon-arrowRight d-flex align-items-center justify-content-center spanLinkGo"><span class="sr-only">icon</span></i></a>
+                                <a href="{% url 'web:MembreDetail' ancienPresident.pk %}"><i class="rounded-circle icomoon-arrowRight d-flex align-items-center justify-content-center spanLinkGo"><span class="sr-only">icon</span></i></a>
                             </div>
                         </div>
                 </div>
+                {% empty %}
+                <h3 style="text-align: center;">Pas de données pour l'instant</h3>
+                {% endfor %}
             </div>
         </div>
     </section>

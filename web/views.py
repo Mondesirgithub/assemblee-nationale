@@ -6,8 +6,16 @@ from .models import EvenementHemicycle
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from datetime import datetime
 from comptes.models import Depute
-from .models import Annonce
+from .models import Annonce, LoiAdoptee
+import random
+from .models import Picture
+from web.models import ImageAssociee
+from comptes.models import ArticlePresident
 # Create your views here.
+
+def historique(request):
+    return render(request, "web/historique.html")
+
 
 def index(request):
     categories = Categorie.objects.all()
@@ -77,27 +85,34 @@ def actualite_video_details(request, id):
 
 
 def actualite_image_details(request, id):
+    actualiteImage = ""
+    imageAssociees = ""
     try:
         actualiteImage = ActualiteImage.objects.get(pk=id)
         imageAssociees = actualiteImage.imageassociee_set.all()
     except:
-        messages.error(request, "La video n'existe pas")
+        messages.error(request, "L'image n'existe pas")
     
     context = {
         'actualiteImage':actualiteImage,
         'imageAssociees':imageAssociees
     }
-    
     return render(request, 'web/actualite_image_details.html', context)
 
 def actualite(request):
     actualitesVideos = ActualiteVideo.objects.all()
-    actualitesImages = ActualiteImage.objects.all()
+    actualiteVideo = ActualiteVideo.objects.order_by("-created_at").first()
+    actualitesImages = ImageAssociee.objects.all()
+
+    # Mélanger les listes d'actualités vidéos et d'actualités images de manière aléatoire
+    actualitesMelangees = list(actualitesVideos) + list(actualitesImages)
+    random.shuffle(actualitesMelangees)
+    
     context = {
-        'actualitesVideos':actualitesVideos,
-        'actualitesImages':actualitesImages
+        'actualiteVideo':actualiteVideo,
+        'actualitesMelangees':actualitesMelangees
         }
-    return render(request,'web/act.html', context)
+    return render(request,'web/actualites.html', context)
 
 def galerie(request):
     membres = Depute.objects.all()
@@ -109,8 +124,8 @@ def President(request):
         president = Depute.objects.get(categorie="PRESIDENT")
     except:
         president = None
-        
-    context = {'president':president}        
+    articles = ArticlePresident.objects.all()
+    context = {'president':president, 'articles':articles}        
     return render(request,'web/President.html', context)
 
 def Membre(request):
@@ -128,7 +143,7 @@ def calendrierS(request):
     return render(request,'web/Calendrier_des_session.html')
 
 def Liste_des_Lois(request):
-    lois = EvenementHemicycle.objects.all()
+    lois = LoiAdoptee.objects.all()
     context = {'lois':lois}
     return render(request,'web/Liste_des_lois_adopter.html', context)
 
@@ -154,16 +169,18 @@ def Travaux_en(request):
 
 def Liste_des_depute_Fon(request):
     deputes = Depute.objects.filter(categorie="DEPUTE", enFonction=True)
-    context = {"depute":deputes}
+    context = {"deputes":deputes}
     return render(request,'web/Liste_des_depute.html', context)
 
 def Ancien_President(request):
-    deputes = Depute.objects.filter(categorie="ANCIEN PRESIDENT")
-    context = {'depute':deputes}
+    anciensPresidents = Depute.objects.filter(categorie="ANCIEN_PRESIDENT")
+    context = {'anciensPresidents':anciensPresidents}
     return render(request,'web/Ancien_President.html', context)
 
 def Liste_des_depute_P(request):
-    return render(request,'web/Liste_des_depute_desP.html')
+    deputes = Depute.objects.filter(categorie="DEPUTE_PRECEDENTE_LEGISLATURE")
+    context = {'deputes':deputes}
+    return render(request,'web/Liste_des_depute_desP.html', context)
 
 
 
@@ -176,20 +193,28 @@ def annonce(request):
     return render(request,'web/annonce.html', context)
 
 
-def Actualite(request):
-    return render(request,'web/articles.html')
-
 
 def Galerie_p(request):
-    return render(request,'web/GaleriePhoto.html')
+    pictures = Picture.objects.all()
+    context = {'pictures':pictures}
+    return render(request,'web/GaleriePhoto.html', context)
 
 def Symbole(request):
     return render(request,'web/Symbole.html')
+
+
 def Vac(request):
     return render(request,'web/VacancesP.html')
 
-def membredetail(request):
-    return render(request,'web/membreDetail.html')
+def membredetail(request, pk):
+    try:
+        membre = Depute.objects.get(pk=pk)
+    except:
+        membre = None
+    context = {
+        'membre':membre
+    }
+    return render(request,'web/membreDetail.html', context)
 
 
 def searchEvenements(request):

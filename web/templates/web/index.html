@@ -118,7 +118,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
-                        <iframe width="405" height="250" src="https://www.youtube.com/embed/{{actualiteVideo.lien}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <video src="{{actualiteVideo.lien.url}}" style="width: 405px;height: 250px;" controls></video>
 
                         <div class="escCaption shadow position-absolute pt-4 px-2 pb-5" style="background-color: #000;">
                             <h3 class="fwMedium mb-0" style="color: white;">{{actualiteVideo.titre}}</h3>
@@ -151,7 +151,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 pt-4" style="margin-top: -70px;">
-                    <h2 class="lh44 mb-6" style="color: black;">Innovation du Président de l'Assemblée Nationale.<br/>
+                    <h2 class="lh44 mb-6" style="color: black;">Innovation du Président <br />de l'Assemblée Nationale.<br/>
                     Plan stratégique de développement et de modernisation.
                     <div style="width: 75%;height: 5px;margin-top: -10px;">
                         <img src="{% static 'web/images/TraitTitre.png' %}" alt="Trait" style="width: 100%;height: 100%;">

@@ -162,3 +162,4 @@ def Affichage(request,id_Depute):
                   {"article":personne,
                   "aer":Depute_on_rel})
     
+

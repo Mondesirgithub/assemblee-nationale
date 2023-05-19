@@ -12,7 +12,6 @@ from django.contrib import messages
 @login_required
 def home(request):
     if request.user.identifiant == "":
-        messages.info(request, "Veuillez vous inscrire puis integrer le forum grâce au code que vous aurez")
         return redirect("loginDepute")
     
     form = ForumForm()

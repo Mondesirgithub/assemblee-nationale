@@ -24,11 +24,14 @@
     <section class="exploreDepartmentsBlock py-8 py-md-10 py-lg-14 py-xl-22">
         <div class="container">
             <div class="row justify-content-center isoContentHolder mb-8">
+                
+                {% for depute in deputes %}
+                
                 <div class="col-12 col-md-6 col-lg-4 isoCol culture">
                     <div class="echColumnClassic bg-white position-relative mb-6">
                         <div class="imgWrap">
-                            <img src="http://placehold.it/405x300" class="img-fluid" alt="image description">
-                            <a href="http://placehold.it/405x300" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
+                            <img src="{{depute.image.url}}" class="img-fluid" alt="image description">
+                            <a href="{{depute.image.url}}" class="echCountTag position-absolute fwSemiBold text-white px-3 py-1 lightbox" data-fancybox="true">
                                 <i class="far fa-image icn"><span class="sr-only">icon</span></i>
                                 6
                             </a>
@@ -36,11 +39,14 @@
                         <div class="echcCaptionWrap px-3 py-2 px-sm-5 py-sm-4">
                             <h3 class="mb-0">
                                 <strong class="d-block font-weight-normal fontBase echCatTitle mb-1">Culture</strong>
-                                <a href="{% url 'web:MembreDetail' %}">Lire</a>
+                                <a href="{% url 'web:MembreDetail' depute.pk %}">Plus de details</a>
                             </h3>
                         </div>
                     </div>
-                </div>    
+                </div>  
+                {% empty %}
+                <h3 style="text-align: center;">Pas de données pour l'instant</h3>
+                {% endfor %}
             </div>
         </div>
     </section>

@@ -9,12 +9,13 @@ from tinymce.models import HTMLField
 class Depute(AbstractUser):
     identifiant = models.CharField(max_length=255)
     slug = slug = models.SlugField(max_length=400, unique=True, blank=True)
-    photo = ResizedImageField(size=[60, 80], quality=100, upload_to="Deputes/photos/", default=None, null=True, blank=True) 
+    photo = ResizedImageField(size=[60, 80], quality=100, upload_to="Membres/picture_forum/", default=None, null=True, blank=True) 
     num_post = models.IntegerField(blank=True, default=0)
     enFonction = models.BooleanField(default=True, blank=True, null=True)
     precedentLegislature = models.BooleanField(default=False, blank=True, null=True)
     categorie = models.CharField(choices=profiles.PROFILES, max_length=100, null=True, blank=True)
     bio = HTMLField(default="",null=True,blank=True)
+    image = models.ImageField(upload_to="Membres/photos/", blank=True, null=True, default=None)
     
     def __str__(self) -> str:
         return f"{self.email}"
@@ -37,10 +38,9 @@ class ImageAssociee(models.Model):
     
 
 class ArticlePresident(models.Model):
-    user = models.ForeignKey(Depute, blank=True, null=True, on_delete=models.CASCADE)
     titre = models.CharField(max_length=255, blank=True, null=True)
     description = HTMLField()
     image = models.ImageField(upload_to="President/articles/images/", null=True, blank=True)
     
     def __str__(self) -> str:
-        return f"{self.titre} du president {self.user.first_name} {self.user.last_name}"
+        return f"{self.titre} du president"
