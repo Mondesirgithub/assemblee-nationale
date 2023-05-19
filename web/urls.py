@@ -28,14 +28,10 @@ urlpatterns = [
     path('Galerie_p/', views.Galerie_p, name='Galerie_p'),
     path('Symbole/', views.Symbole, name='Symbole'),
     path('Vac/', views.Vac, name='Vac'),
-<<<<<<< HEAD
     path('Membre_Detail/', views.membredetail, name='MembreDetail'),
     path('Evenement_detail/', views.evenement_detail, name='Evenement_detail'),
     path('Histoire/', views.histoire, name='histoire'),
-=======
-    path('historique/', views.historique, name='historique'),
     path('Membre_Detail/<str:pk>', views.membredetail, name='MembreDetail'),
->>>>>>> 6bb8d4dedfcd713720c15a508bea4394f717f00b
 ]
 
    

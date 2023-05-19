@@ -129,7 +129,7 @@ def President(request):
     return render(request,'web/President.html', context)
 
 def Membre(request):
-    membres = Depute.objects.all()
+    membres = Depute.objects.filter(categorie="MEMBRE_BUREAU")
     context = {'membres':membres}
     return render(request,'web/Membre_du_bureau.html', context)
 
