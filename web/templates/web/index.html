@@ -15,7 +15,7 @@
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
                                     <h1 class="text-white mb-4 h1Large">ASSEMBLEE <br /> NATIONALE</h1>
                                     <p>La chambre basse du Parlement Congolais</p>
-                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" data-hover="Découvrir plus">
+                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505 ;" data-hover="Découvrir plus">
                                         <span class="d-block btnText" style="background-color:#BB0505 ;">Découvrir plus</span>
                                     </a>
                                 </div>
@@ -35,7 +35,7 @@
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
                                     <h1 class="text-white mb-4 h1Large">15ème LEGISLATURE<br/>2022-2027</h1>
                                     <p>La salle des représentants du peuple Congolais.</p>
-                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" data-hover="Découvrir plus">
+                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505; "data-hover="Découvrir plus">
                                         <span class="d-block btnText">Découvrir plus</span>
                                     </a>
                                 </div>
@@ -55,7 +55,7 @@
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
                                     <h1 class="text-white mb-4 h1Large">L'EXPRESSION<br/>DE LA DEMOCRATIE<br />CONGOLAISE</h1>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, explicabo?</p>
-                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" data-hover="Découvrir">
+                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505 ;" data-hover="Découvrir">
                                         <span class="d-block btnText">Découvrir plus</span>
                                     </a>
                                 </div>
@@ -95,7 +95,7 @@
             <div class="container">
                 <div class="d-lg-flex justify-content-center align-items-center">
                     <p class="mb-lg-0">The official guide to living, working, visiting and investing in the Texas</p>
-                    <a href="{% url 'web:Actualite' %}" class="btn btn-dark btnSwitchDark fwMedium position-relative border-0 p-0 btnCustomSmall mt-md-1 mt-lg-0 ml-lg-4" data-hover="Lire Plus"><span class="d-block btnText fwMedium">Lire Plus</span></a>
+                    <a href="{% url 'web:Actualite' %}" class="btn btn-dark btnSwitchDark fwMedium position-relative border-0 p-0 btnCustomSmall mt-md-1 mt-lg-0 ml-lg-4"  data-hover="Lire Plus"><span class="d-block btnText fwMedium">Lire Plus</span></a>
                 </div>
             </div>
         </div>
@@ -109,8 +109,8 @@
                         <h2 class="mb-0">Restez connecté aux actualités parlementaires</h2>
                     </div>
                     <div class="col-12 col-sm-5 col-xl-7 d-sm-flex justify-content-sm-end">
-                        <a href="services.html" class="btn btn-dark text-capitalize position-relative border-0 p-0 mt-4 mt-sm-0 mb-sm-1 minWidthMedium" data-hover="Explore Services">
-                            <span class="d-block btnText">En savoir plus</span>
+                        <a href="{% url 'web:Evenement_H' %}" class="btn btn-dark text-capitalize position-relative border-0 p-0 mt-4 mt-sm-0 mb-sm-1 minWidthMedium" style="background-color: #BB0505;" data-hover="Cliquez">
+                            <span class="d-block btnText" style="background-color: #BB0505;">En savoir plus</span>
                         </a>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
                         C’est ainsi qu’il œuvre à la mise en place, avec l’aide des partenaires bi et multi latéraux, d’un plan stratégique de développement et de modernisation de l’Assemblée nationale.
                     </p>
 
-                    <a href="javascript:void(0);" class="btn btn-dark btnSwitchDark fwMedium position-relative border-0 p-0 btnCustomSmall mt-md-1 mt-lg-0 ml-lg-4" data-hover="Lire Plus"><span class="d-block btnText fwMedium">Lire Plus</span></a>
+                    <a href="{% url 'web:President' %}" class="btn btn-dark btnSwitchDark fwMedium position-relative border-0 p-0 btnCustomSmall mt-md-1 mt-lg-0 ml-lg-4" data-hover="Lire Plus"><span class="d-block btnText fwMedium" style="background-color: #BB0505;">Lire Plus</span></a>
                     <blockquote class="meetQuote fontAlter text-lDark mt-6 py-1 pl-4 pl-lg-8 pr-md-12 pr-lg-20 pr-xl-28">
                         <q class="d-block mb-4">Stand at the top of a cliff and jump off and build your wings on the way down.</q>
                         <cite class="d-block">Isidore MVOUBA,<br /> Président de l'Assemblée Nationale </cite>
@@ -186,7 +186,7 @@
     <section class="newsPulicationsBlock position-relative bg-light overflow-hidden pt-7 pb-4 pt-md-10 pb-md-4 pt-lg-16 pb-lg-10 pt-xl-22 pb-xl-16">
         <div class="container position-relative npbHolder">
             <div class="row">
-                <div class="col-12 col-lg-3">
+                <div class="col-12 col-lg-3" >
                     <header class="headingHead pt-2 mb-7 mb-lg-0">
                         <h2 class="fwSemiBold mb-2">Nos Médias et Publications</h2>
                         <p>The news about recent activities for needed peoples.</p>
@@ -266,7 +266,7 @@
     <section class="exploreResourceBlock position-relative pt-7 pt-md-10 pt-lg-16 pt-xl-22 pb-7 pb-md-10">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-xl-4 pt-xl-2">
+                <div class="col-12 col-xl-4 pt-xl-2" >
                     <header class="erHeadingHead mb-7 mb-lg-11 mb-xl-0">
                         <h2 class="text-white">Explore Online <br>Services &amp; Resource</h2>
                         <p>City goverment providing a wide range of online services to people who need help.</p>

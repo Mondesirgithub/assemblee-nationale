@@ -5,16 +5,16 @@
 {% block content %}
 
 <main>
-    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(/static/web/images/BannerDepute.jpg);">
+    <header class="pageMainHead d-flex position-relative w-100 text-white" style="background-image: url(/static/web/images/BannerDeputes.jpg);" style="position: absolute;left: -50%;">
         <div class="alignHolder d-flex w-100 align-items-center">
             <div class="align w-100 position-relative">
                 <div class="container">
                     <h1 class="text-white mb-2">Evènements à L'hemicycle</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
-                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="eventsList.html">Event</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Events Grid</li>
+                            <li class="breadcrumb-item"><a href="home.html">Acceuil</a></li>
+                            <li class="breadcrumb-item"><a href="eventsList.html">Président</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Anciens Présidents</li>
                         </ol>
                     </nav>
                 </div>
@@ -76,7 +76,7 @@
                                     </li>
                                 </ul>
                             </address>
-                            <a href="#" class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 mt-3 align-top" data-hover="More Details">
+                            <a href="{% url 'web:Evenement_detail' %}" class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 mt-3 align-top" data-hover="More Details">
                                 <span class="d-block btnText">Plus de details</span>
                             </a>
                         </div>

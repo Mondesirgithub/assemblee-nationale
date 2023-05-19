@@ -214,6 +214,12 @@ def searchEvenements(request):
     context['events'] = evenements   
     return render(request, "web/Evenement_a_lhemicycle.html", context)
 
+def evenement_detail(request):
+    return render(request,'web/evenementDetail.html')
+
+def histoire(request):
+    return render(request,'web/histoire.html')
+
 
 
 

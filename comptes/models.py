@@ -14,6 +14,7 @@ class Depute(AbstractUser):
     enFonction = models.BooleanField(default=True, blank=True, null=True)
     precedentLegislature = models.BooleanField(default=False, blank=True, null=True)
     categorie = models.CharField(choices=profiles.PROFILES, max_length=100, null=True, blank=True)
+    bio = HTMLField(default="",null=True,blank=True)
     
     def __str__(self) -> str:
         return f"{self.email}"
