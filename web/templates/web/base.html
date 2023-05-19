@@ -48,7 +48,7 @@
             {% endfor %}
          	{% endif %}
 			<header id="pageHeader" class="bg-white">
-				<div class="hdTopBar py-2 py-xl-3 d-none d-md-block" style="background-color: green;">
+				<div class="hdTopBar py-2 py-xl-3 d-block" style="background-color: green;">
 					<div class="container">
 						<div class="row">
 							<div class="col-8">
@@ -85,7 +85,7 @@
 								<div class="collapse navbar-collapse pageMainNavCollapse mt-2 mt-md-0" id="pageMainNavCollapse">
 									<ul class="navbar-nav mainNavigation">
 										<li class="nav-item dropdown ddohOpener">
-											<a class="nav-link dropdown-toggle dropIcn" href="{% url 'web:index' %}" role="button">Accueil</a>
+											<a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accueil</a>
 											<div class="dropdown-menu hdMainDropdown desktopDropOnHover">
 												<ul class="list-unstyled mb-0 hdDropdownList">
 													<li><a class="dropdown-item" href="{% url 'web:Actualite' %}">Actualités</a></li>

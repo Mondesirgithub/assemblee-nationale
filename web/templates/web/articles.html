@@ -8,13 +8,7 @@
         <div class="alignHolder d-flex w-100 align-items-center">
             <div class="align w-100 position-relative">
                 <div class="container">
-                    <h1 class="text-white mb-2">Actualités</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
-                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'web:Symbole' %}">Symbole De L'Assemblée</a></li>
-                        </ol>
-                    </nav>
+                    <h1 class="text-white mb-2">Les articles</h1>
                 </div>
             </div>
         </div>
@@ -26,13 +20,9 @@
                 {% for article in articles %}
                 <article class="ueEveColumn__list position-relative px-4 py-3 px-lg-8 py-lg-6">
                     <div class="d-lg-flex align-items-md-center">
-                        <!-- <time datetime="2011-01-12" class="uecTime text-lDark fontAlter text-uppercase flex-shrink-0 mr-4 mr-lg-6 d-block mb-2 mb-lg-0">
-                            <span class="textLarge">01</span> October
-                            <span class="d-block textDay fwMedium pt-1">WEDNESDAY</span>
-                        </time> -->
                         <div class="d-md-flex align-items-md-center flex-grow-1">
                             <div class="imgHolder rounded-circle overflow-hidden flex-shrink-0 mr-4 mr-lg-10 mb-1 mb-md-0">
-                                <img src="http://placehold.it/160x160" class="img-fluid rounded-circle" alt="image description">
+                                <img src="{{article.image.url}}" class="img-fluid rounded-circle" alt="image description">
                             </div>
                             <div class="descrWrap flex-grow-1">
                                 <!-- <strong class="tagTitle d-block text-secondary fwSemiBold mb-2">Entertainement</strong> -->

@@ -14,8 +14,8 @@
                             <div class="row" style="display: flex; justify-content: flex-end;margin-right: -640px;">
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
                                     <h1 class="text-white mb-4 h1Large">ASSEMBLEE <br /> NATIONALE</h1>
-                                    <p>La chambre basse du Parlement Congolais</p>
-                                    <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505 ;" data-hover="Découvrir plus">
+                                    <p>La chambre basse du <span class="d-block">Parlement Congolais</span></p>
+                                    <a href="{% url 'web:histoire' %}" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505 ;" data-hover="Découvrir plus">
                                         <span class="d-block btnText" style="background-color:#BB0505 ;">Découvrir plus</span>
                                     </a>
                                 </div>
@@ -33,8 +33,8 @@
                         <div class="container position-relative">
                             <div class="row" style="display: flex; justify-content: flex-end;margin-right: -240px;">
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
-                                    <h1 class="text-white mb-4 h1Large">15ème LEGISLATURE<br/>2022-2027</h1>
-                                    <p>La salle des représentants du peuple Congolais.</p>
+                                    <h1 class="text-white mb-4 h1Large">15ème <span class="d-lg-inline-block d-md-inline-block d-block">LEGISLATURE</span>2022-2027</h1>
+                                    <p>La salle des représentants du <span class="d-block">peuple Congolais.</span></p>
                                     <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505; "data-hover="Découvrir plus">
                                         <span class="d-block btnText">Découvrir plus</span>
                                     </a>
@@ -53,7 +53,7 @@
                         <div class="container position-relative">
                             <div class="row" style="display: flex; justify-content: flex-end;margin-right: -200px;">
                                 <div class="col-12 col-md-9 col-xl-7 fzMedium">
-                                    <h1 class="text-white mb-4 h1Large">L'EXPRESSION<br/>DE LA DEMOCRATIE<br />CONGOLAISE</h1>
+                                    <h1 class="text-white mb-4 h1Large">L'EXPRESSION<br/>DE LA <span class="d-lg-inline-block d-md-inline-block d-block">DEMOCRATIE</span>CONGOLAISE</h1>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, explicabo?</p>
                                     <a href="eventsList.html" class="btn btnTheme font-weight-bold btnMinSm text-capitalize position-relative border-0 p-0 mt-6" style="color:#BB0505 ;" data-hover="Découvrir">
                                         <span class="d-block btnText">Découvrir plus</span>
@@ -105,7 +105,7 @@
         <div class="container">
             <header class="headingHead mb-7 md-md-9 mb-lg-13" style="margin-top: -50px;">
                 <div class="row align-items-end" >
-                    <div class="col-12 col-sm-7 col-xl-5">
+                    <div class="col-12 col-sm-7 col-xl-5 mt-5">
                         <h2 class="mb-0">Restez connecté aux actualités parlementaires</h2>
                     </div>
                     <div class="col-12 col-sm-5 col-xl-7 d-sm-flex justify-content-sm-end">
@@ -118,7 +118,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
-                        <video src="{{actualiteVideo.lien.url}}" style="width: 405px;height: 250px;" controls></video>
+                        <video src="{{actualiteVideo.lien.url}}" style="width: 305px;height: 305px;" class="w-100 h-100" controls></video>
 
                         <div class="escCaption shadow position-absolute pt-4 px-2 pb-5" style="background-color: #000;">
                             <h3 class="fwMedium mb-0" style="color: white;">{{actualiteVideo.titre}}</h3>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="esColumn position-relative text-center mb-13">
-                        <span class="imgHolder d-block w-100 bgCover" style="background-image: url('{{image1.source.url}}');"></span>
+                        <span class="imgHolder d-block bgCover" style="background-image: url('{{image1.source.url}}');" class="w-100"></span>
                         <div class="escCaption shadow position-absolute pt-4 px-2 pb-5" style="background-color: #000;">
                             <h3 class="fwMedium mb-0" style="color: white;">{{actualiteImage1.titre}}</h3>
                             <a href="{% url 'web:actualite-image-details' actualiteImage1.pk %}" class="btnLink fontAlter">Lire Plus <i class="fas fa-chevron-right blIcn"><span class="sr-only">icon</span></i></a>

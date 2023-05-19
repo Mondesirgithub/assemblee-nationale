@@ -266,6 +266,12 @@
 216. ctMapWrap / .ctMapWrap
 ------------------------------------------------------------------*/
 
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+
 .hdScheduleList a,
 .hdAlterLinksList a,
 .mainNavigation .nav-link,
