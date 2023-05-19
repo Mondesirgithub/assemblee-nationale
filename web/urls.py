@@ -29,7 +29,7 @@ urlpatterns = [
     path('Symbole/', views.Symbole, name='Symbole'),
     path('Vac/', views.Vac, name='Vac'),
     path('Membre_Detail/', views.membredetail, name='MembreDetail'),
-    path('Evenement_detail/', views.evenement_detail, name='Evenement_detail'),
+    path('Evenement_detail/<str:pk>', views.evenement_detail, name='Evenement_detail'),
     path('Histoire/', views.histoire, name='histoire'),
     path('Membre_Detail/<str:pk>', views.membredetail, name='MembreDetail'),
 ]

@@ -95,6 +95,7 @@ class TravauxCommission(models.Model):
     titre = models.CharField(max_length=255)
     commission = models.ForeignKey(Categorie,on_delete=models.CASCADE, null=True)
     decription = HTMLField(blank=True, null=True)
+    image = models.ImageField(upload_to="TravauxEnCommission/images/", null=True, blank=True, default=None)
     
     def __str__(self) -> str:
         return f"{self.titre} pour la {self.commission.nom}"

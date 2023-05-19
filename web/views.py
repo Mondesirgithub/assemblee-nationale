@@ -8,7 +8,7 @@ from datetime import datetime
 from comptes.models import Depute
 from .models import Annonce, LoiAdoptee
 import random
-from .models import Picture
+from .models import Picture, TravauxCommission
 from web.models import ImageAssociee
 from comptes.models import ArticlePresident
 # Create your views here.
@@ -165,7 +165,9 @@ def Evenement_H(request):
     return render(request,'web/Evenement_a_lhemicycle.html', context)
 
 def Travaux_en(request):
-    return render(request,'web/Travaux_en_commission.html')
+    travaux = TravauxCommission.objects.all()
+    context = {'travaux':travaux}
+    return render(request,'web/Travaux_en_commission.html', context)
 
 def Liste_des_depute_Fon(request):
     deputes = Depute.objects.filter(categorie="DEPUTE", enFonction=True)
@@ -239,8 +241,10 @@ def searchEvenements(request):
     context['events'] = evenements   
     return render(request, "web/Evenement_a_lhemicycle.html", context)
 
-def evenement_detail(request):
-    return render(request,'web/evenementDetail.html')
+def evenement_detail(request, pk):
+    event = EvenementHemicycle.objects.get(pk=pk)
+    context = {'event':event}
+    return render(request,'web/evenementDetail.html', context)
 
 def histoire(request):
     return render(request,'web/histoire.html')

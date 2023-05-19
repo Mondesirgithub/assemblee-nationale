@@ -5,25 +5,48 @@
 {% block content %}
 
 <main>
-    <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
-        <div class="alignHolder d-flex w-100 align-items-center">
-            <div class="align w-100 position-relative">
-                <div class="container">
-                    <h1 class="text-white mb-2">Travaux en commission</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
-                            <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Accueil</a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'web:Liste_d' %}">Liste Des Députés En fonction</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'web:President' %}">Président</a></li>
-                        </ol>
-                    </nav>
+    <main>
+        <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
+            <div class="alignHolder d-flex w-100 align-items-center">
+                <div class="align w-100 position-relative">
+                    <div class="container">
+                        <h1 class="text-white mb-2">Travaux en commission</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
+                                <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <section class="exploreDepartmentsBlock py-8 py-md-10 py-lg-14 py-xl-22">
-        
-    </section>
+        </header>
+        <section class="exploreDepartmentsBlock pt-8 pb-4 pt-md-10 pb-md-7 pb-lg-10 pt-lg-14 pt-xl-20">
+            <div class="container">
+                <header class="headingHead text-center mb-8 mb-lg-13">
+                    <h2 class="mb-2">Les travaux en commission</h2>
+                </header>
+                <div class="row justify-content-center">
+                    
+                    {% for travail in travaux %}
+                    <div class="col-12 col-sm-6 col-lg-4 d-sm-flex">
+                        <article class="egdColumn shadow bg-white position-relative w-100 mb-6 mb-lg-12 text-center mx-auto">
+                            <div class="imgHolder position-relative mb-5">
+                                <img src="{{travail.image.url}}" class="img-fluid w-100" alt="image description">
+                                <i class="icomoon-ico11 position-absolute icnWrap rounded-circle d-flex align-items-center justify-content-center shadow"><span class="sr-only">icon</span></i>
+                            </div>
+                            <div class="egdcCaption py-4 px-3 py-md-8 px-md-6">
+                                <h3 class="fwMedium">{{travail.titre}}</h3>
+                                <p>{{travail.decription|safe}}</p>
+                            </div>
+                        </article>
+                    </div>
+                    {% empty %}
+                    <h3>Pas de donnees pour l'instant</h3>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
 </main>
 
 

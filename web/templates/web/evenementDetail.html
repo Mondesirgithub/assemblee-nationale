@@ -4,326 +4,63 @@
 
 {% block content %}
 
-
 <main>
     <header class="pageMainHead d-flex position-relative bgCover w-100 text-white" style="background-image: url(http://placehold.it/1920x300);">
         <div class="alignHolder d-flex w-100 align-items-center">
             <div class="align w-100 position-relative">
                 <div class="container">
-                    <h1 class="text-white mb-2">Evènements Details</h1>
+                    <h1 class="text-white mb-2">Details de l'evenement</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrWhite rounded-0 border-0 p-0 fontAlter mb-0">
                             <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="departments.html">Departments</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Art and Culture</li>
+                            <li class="breadcrumb-item"><a href="eventsList.html">Evenement</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{event.nom}}</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <article class="dsSingleContent pt-7 pb-2 pt-md-10 pb-md-1 pt-lg-16 pb-lg-10 pt-xl-21 pb-xl-16">
+    <article class="ItemfullBlock pt-7 pb-7 pt-md-10 pb-md-9 pt-lg-14 pb-lg-13 pt-xl-22 pb-xl-19">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 order-lg-2 mb-6">
-                    <div class="pl-xl-14">
-                        <header class="fzMedium mb-9">
-                            <h2 class="fwSemiBold h2vii">Art and Culture</h2>
-                            <p>We help our clients to build their best possible economic We understand you’re saving for all different life events: retirement, a house, simply to build wealth, or all of the above. Your investment account should adjust to your life — not the other way around.</p>
+                <div class="col-12 col-lg-10 col-md-10 offset-lg-1 offset-md-1 mb-6">
+                    <div class="pr-lg-5 pr-xl-15 bodyFontAlter">
+                        <header class="dtlItemHeader mt-n1 mb-10">
+                            <h2 class="mb-9">{{event.nom}}</h2>
+                            <div class="imgHolder">
+                                <img src="{{event.image.url}}" class="img-fluid w-100" alt="image description">
+                            </div>
+                            <address class="mb-0 dtlhDress fontAlter">
+                                <div class="row no-gutters">
+                                    <div class="col-12 col-sm-4 px-4 px-md-7 pt-6 pb-12">
+                                        <strong class="d-block title fwSemiBold mb-2">Date</strong>
+                                        <span class="d-block">
+                                            <time datetime="2011-01-12">{{event.date|date}}</time>
+                                        </span>
+                                        <i class="icomoon-calendar icnWatermark"><span class="sr-only">icon</span></i>
+                                    </div>
+                                    <div class="col-12 col-sm-4 px-4 px-md-7 pt-6 pb-12">
+                                        <strong class="d-block title fwSemiBold mb-2">Time</strong>
+                                        <span class="d-block">
+                                            <time datetime="2011-01-12">{{event.heureDebut}} - {{event.heureFin}}</time>
+                                        </span>
+                                        <i class="icomoon-clocko icnWatermark"><span class="sr-only">icon</span></i>
+                                    </div>
+                                    <div class="col-12 col-sm-4 px-4 px-md-7 pt-6 pb-12">
+                                        <strong class="d-block title fwSemiBold mb-2">Location</strong>
+                                        <span class="d-block">{{event.lieu}}</span>
+                                        <i class="icomoon-locationpin icnWatermark"><span class="sr-only">icon</span></i>
+                                    </div>
+                                </div>
+                            </address>
                         </header>
-                        <div class="overflow-hidden mb-3 mb-lg-7">
-                            <div class="dscInnerSliderWrap float-sm-right mb-7 mb-sm-0 mt-sm-2 ml-auto mr-auto mr-sm-0 ml-sm-6">
-                                <div class="dcsInnSlider">
-                                    <div>
-                                        <div class="dcsisImageHolder">
-                                            <img src="http://placehold.it/435x355" class="img-fluid w-100" alt="image description">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="dcsisImageHolder">
-                                            <img src="http://placehold.it/435x355" class="img-fluid w-100" alt="image description">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>He was installed globally, an annual market growth of 22 percent. It is continuing its progress towards becoming a mainstream competitive salary and economy reports by mine. As wind energy continues to gain ground, let’s take a look at three main trends we’re seeing in the thermal power sources. the world to compete effectively with fossil fuels. Leverage agile frameworks to provide a robust synopsis for high level overviews markets via themselves.</p>
-                            <p>And natural gasindustry moving forward: and mature markets. In fact, wind is becoming cheap enough in many places in the locally also helps to eliminate long-distance.and around.</p>
-                        </div>
-                        <div class="dcsPatchWrap mb-5">
-                            <h3 class="mb-4">Europeon Style Cultural Statue:</h3>
-                            <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.</p>
-                            <div class="row mt-6 mt-lg-10">
-                                <div class="col-12 col-md-6">
-                                    <article class="dcsColumn d-flex position-relative bg-white overflow-hidden mb-6">
-                                        <div class="alignHolder w-100 d-flex align-items-center">
-                                            <div class="align w-100 py-2 px-3 px-xl-6">
-                                                <i class="icomoon-ico1 d-flex align-items-center icnWrap mb-4"><span class="sr-only">icon</span></i>
-                                                <h3 class="fwMedium">Your Goverment</h3>
-                                                <div class="dcscCaptionWrap">
-                                                    <p>City employment issue opportunities are position descriptions are listed.</p>
-                                                    <a href="javascript:void(0);" class="readMoreLink fontAlter">Read More <i class="fas fa-arrow-right btnRmlIcn"><span class="sr-only">icon</span></i></a>
-                                                    <i class="icomoon-ico1 icnWatermark position-absolute ml-1"><span class="sr-only">icon</span></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <article class="dcsColumn d-flex position-relative bg-white overflow-hidden mb-6">
-                                        <div class="alignHolder w-100 d-flex align-items-center">
-                                            <div class="align w-100 py-2 px-3 px-xl-6">
-                                                <i class="icomoon-ico2 d-flex align-items-center icnWrap mb-4"><span class="sr-only">icon</span></i>
-                                                <h3 class="fwMedium">Jobs and Unemployment</h3>
-                                                <div class="dcscCaptionWrap">
-                                                    <p>City employment issue opportunities are position descriptions are listed.</p>
-                                                    <a href="javascript:void(0);" class="readMoreLink fontAlter">Read More <i class="fas fa-arrow-right btnRmlIcn"><span class="sr-only">icon</span></i></a>
-                                                    <i class="icomoon-ico2 icnWatermark position-absolute ml-1"><span class="sr-only">icon</span></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <article class="dcsColumn d-flex position-relative bg-white overflow-hidden mb-6">
-                                        <div class="alignHolder w-100 d-flex align-items-center">
-                                            <div class="align w-100 py-2 px-3 px-xl-6">
-                                                <i class="icomoon-ico3 d-flex align-items-center icnWrap mb-4"><span class="sr-only">icon</span></i>
-                                                <h3 class="fwMedium">Business and industry</h3>
-                                                <div class="dcscCaptionWrap">
-                                                    <p>City employment issue opportunities are position descriptions are listed.</p>
-                                                    <a href="javascript:void(0);" class="readMoreLink fontAlter">Read More <i class="fas fa-arrow-right btnRmlIcn"><span class="sr-only">icon</span></i></a>
-                                                    <i class="icomoon-ico3 icnWatermark position-absolute ml-1"><span class="sr-only">icon</span></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <article class="dcsColumn d-flex position-relative bg-white overflow-hidden mb-6">
-                                        <div class="alignHolder w-100 d-flex align-items-center">
-                                            <div class="align w-100 py-2 px-3 px-xl-6">
-                                                <i class="icomoon-ico4 d-flex align-items-center icnWrap mb-4"><span class="sr-only">icon</span></i>
-                                                <h3 class="fwMedium">Roads &amp; Transportation</h3>
-                                                <div class="dcscCaptionWrap">
-                                                    <p>City employment issue opportunities are position descriptions are listed.</p>
-                                                    <a href="javascript:void(0);" class="readMoreLink fontAlter">Read More <i class="fas fa-arrow-right btnRmlIcn"><span class="sr-only">icon</span></i></a>
-                                                    <i class="icomoon-ico4 icnWatermark position-absolute ml-1"><span class="sr-only">icon</span></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dcsPatchWrap mb-6 mb-lg-11">
-                            <h3 class="mb-4">Electrical Services With Safety In Mind</h3>
-                            <p>To help customers block out even more of the sun, consider offering window-tinting services. Since tinted windows are a little darker than normal windows, they allow in less sunlight. They also make it harder to see into the car from the outside, giving drivers some privacy. Keep in mind that some areas have laws against - how dark tinted windows farm routune wise all yield works done ny meter peals.</p>
-                            <ul class="list-unstyled coDefaultList text-lDark">
-                                <li>Use a past defeat as a motivator. Remind yourself you have nowhere to go except</li>
-                                <li>Give yourself the power of responsibility. </li>
-                                <li>Remind yourself the only thing stopping you is yourself.</li>
-                                <li>goal and remind yourself that intentions don’t count, only actions.</li>
-                            </ul>
-                        </div>
-                        <div class="dcsPatchWrap mb-12">
-                            <h3 class="mb-5 fwSemiBold">Download Resources</h3>
-                            <ul class="list-unstyled drItemsList">
-                                <li>
-                                    <div class="drItemRow position-relative d-flex pl-3 pl-md-6 pr-3 pr-sm-27 pr-md-30 py-3">
-                                        <span class="icnWrap flex-shrink-0 pt-1 mr-3">
-                                            <img src="images/icopdf.png" class="img-fluid" alt="icon">
-                                        </span>
-                                        <div class="descrWrap">
-                                            <h4 class="fontBase font-weight-normal mb-1">Company_Briefing_Update_for_the_Year.pdf</h4>
-                                            <strong class="d-block fileSize font-weight-normal">PDF (400kb)</strong>
-                                            <a href="javascript:void(0);" class="btnDownload fwSemiBold">[ Download ]</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row mb-5">
-                            <div class="col-12 col-sm-6">
-                                <article class="tcwColumn mb-6">
-                                    <div class="imgHolder mb-7">
-                                        <a href="javascript:void(0);">
-                                            <img src="http://placehold.it/420x320" class="img-fluid w-100" alt="image description">
-                                        </a>
-                                    </div>
-                                    <h3 class="fwSemiBold mb-4">
-                                        <a href="javascript:void(0);">Art Gallary</a>
-                                    </h3>
-                                    <p>To help customers block out even more of the sun, consider offering window-tinting services. Since tinted windows are a little darker than normal.</p>
-                                </article>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <article class="tcwColumn mb-6">
-                                    <div class="imgHolder mb-7">
-                                        <a href="javascript:void(0);">
-                                            <img src="http://placehold.it/420x320" class="img-fluid w-100" alt="image description">
-                                        </a>
-                                    </div>
-                                    <h3 class="fwSemiBold mb-4">
-                                        <a href="javascript:void(0);">French Museum</a>
-                                    </h3>
-                                    <p>This is perhaps the single biggest obstacle that all of us must overcome in order to be successful. Next time you really want to achieve something.</p>
-                                </article>
-                            </div>
-                        </div>
-                        <div class="accordion ctAccordion" id="ctdepartsAccordion">
-                            <div class="ctaccRow mb-4">
-                                <div class="ctaccOpener">
-                                    <a class="fontAlter fwMedium" href="#ctr1" data-toggle="collapse" aria-expanded="false" aria-controls="ctr1">Eco-Friendly equipments and materials</a>
-                                </div>
-                                <div class="collapse ctaccSlide" id="ctr1" data-parent="#ctdepartsAccordion">
-                                    <div class="overflow-hidden px-5 pb-1">
-                                        <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.In fact, wind is becoming cheap enough in many places in the U.S. and around the world to compete effectively with fossil fuels.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ctaccRow mb-4">
-                                <div class="ctaccOpener">
-                                    <a class="fontAlter fwMedium" href="#ctr2" data-toggle="collapse" aria-expanded="true" aria-controls="ctr2">Eco-Friendly equipments and materials</a>
-                                </div>
-                                <div class="collapse show ctaccSlide" id="ctr2" data-parent="#ctdepartsAccordion">
-                                    <div class="overflow-hidden px-5 pb-1">
-                                        <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.In fact, wind is becoming cheap enough in many places in the U.S. and around the world to compete effectively with fossil fuels.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ctaccRow mb-4">
-                                <div class="ctaccOpener">
-                                    <a class="fontAlter fwMedium" href="#ctr3" data-toggle="collapse" aria-expanded="false" aria-controls="ctr3">Award winning design management</a>
-                                </div>
-                                <div class="collapse ctaccSlide" id="ctr3" data-parent="#ctdepartsAccordion">
-                                    <div class="overflow-hidden px-5 pb-1">
-                                        <p>One of the most common additions people make to their cars in order to keep the heat out is a windshield visor. Cars become warm in the summer because direct sunlight enters in through the windows. This is why we park in the shade whenever we can. Since the largest windshield.In fact, wind is becoming cheap enough in many places in the U.S. and around the world to compete effectively with fossil fuels.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mt-12 mb-7">
-                        <aside class="saShareAside d-flex justify-content-between text-center align-items-center">
-                            <strong class="d-block text-lDark fwSemiBold fontAlter title mb-2">Share Article</strong>
-                            <ul class="list-unstyled socialNetworks saSocialNetworks d-flex flex-wrap justify-content-center ml-0 mb-0">
-                                <li>
-                                    <a href="javascript:void(0);" class="facebook">
-                                        <i class="fab fa-facebook-square" aria-hidden="true"><span class="sr-only">facebook</span></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="twitter">
-                                        <i class="fab fa-twitter" aria-hidden="true"><span class="sr-only">twitter</span></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="pinterest">
-                                        <i class="fab fa-pinterest" aria-hidden="true"><span class="sr-only">pinterest</span></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="linkedin">
-                                        <i class="fab fa-linkedin-in" aria-hidden="true"><span class="sr-only">linkedin-in</span></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </aside>
-                        <hr class="mt-6 mb-10">
-                        <div class="commentFormWrap">
-                            <h2 class="fwSemiBold h2vii mb-5">Leave your Comments</h2>
-                            <form action="#" class="commentForm">
-                                <div class="row mx-n2">
-                                    <div class="col-12 px-2">
-                                        <div class="form-group">
-                                            <label class="d-block fontAlter font-weight-normal mb-2">Your Comment</label>
-                                            <textarea class="form-control w-100 d-block"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 px-2">
-                                        <div class="form-group">
-                                            <label class="d-block fontAlter font-weight-normal mb-2">Name <em class="req">*</em></label>
-                                            <input type="text" class="form-control d-block w-100">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 px-2">
-                                        <div class="form-group">
-                                            <label class="d-block fontAlter font-weight-normal mb-2">Email <em class="req">*</em></label>
-                                            <input type="email" class="form-control d-block w-100">
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btnTheme d-flex font-weight-bold text-capitalize position-relative border-0 p-0 mt-4 btnWidthSmall" data-hover="Post Now">
-                                    <span class="d-block btnText">Post Comment</span>
-                                </button>
-                            </form>
-                        </div>
+                        <p class="mb-6">{{event.content|safe}}</p>
+                        
                     </div>
-                </div>
-                <div class="col-12 col-lg-4 col-xl-3 order-lg-1 mb-6">
-                    <aside class="dscSidebar pt-1 mr-xl-n5">
-                        <nav class="widget mb-6 mb-lg-10 widgetDepartsNav widgetBgLight py-5 px-6">
-                            <h3 class="fwSemiBold mb-4">
-                                <a href="javascript:void(0);" class="btnDcsBack align-middle mr-1"><i class="fas fa-chevron-left"><span class="sr-only">icon</span></i></a>
-                                All Departments
-                            </h3>
-                            <ul class="list-unstyled pl-0 mx-n2 mb-0 mb-3">
-                                <li>
-                                    <a href="javascript:void(0);">Business &amp; Administration</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Finance and Economy</a>
-                                </li>
-                                <li class="active">
-                                    <a href="javascript:void(0);">Art and Culture</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Constution and Law</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Roads and Transport</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Housing and Land</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Park &amp; Recreation</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">Agriculture and Food</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <section class="widget mb-6 mb-lg-10 widgetDocs">
-                            <ul class="list-unstyled drItemsList pl-0">
-                                <li>
-                                    <div class="drItemRow position-relative d-flex px-3 px-md-6 py-3">
-                                        <span class="icnWrap flex-shrink-0 pt-1 mr-3">
-                                            <img src="images/icopdf.png" class="img-fluid" alt="icon">
-                                        </span>
-                                        <div class="descrWrap">
-                                            <h4 class="fontBase font-weight-normal mb-1">
-                                                <a href="javascript:void(0);">Transport Briefing Update for the Year</a>
-                                            </h4>
-                                            <strong class="d-block fileSize font-weight-normal">PDF (400kb)</strong>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </section>
-                        <div class="widget mb-6 mb-lg-10 widgetHelp bg-lDark pt-5 px-6 pb-8 position-relative">
-                            <i class="icnWrap icomoon-chatq text-white d-block mb-3"><span class="sr-only">icon</span></i>
-                            <h3 class="h3Medium text-white mb-2">Need any help?</h3>
-                            <p>Here you can get your perfect answer for your problem.</p>
-                            <a href="contact-1.html" class="btn btnTheme btn-sm font-weight-bold text-capitalize position-relative border-0 p-0" data-hover="Contact now">
-                                <span class="d-block btnText">Contact now</span>
-                            </a>
-                            <i class="whWatermarkIcn icomoon-helpc position-absolute"><span class="sr-only">icon</span></i>
-                        </div>
-                    </aside>
                 </div>
             </div>
         </div>
     </article>
 </main>
-
 {% endblock content %}
