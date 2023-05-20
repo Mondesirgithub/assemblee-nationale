@@ -65,32 +65,34 @@
                     <div class="widget bg-white shadow contactFormWidget ml-xl-n5 mb-7 mb-md-5">
                         <div class="pt-8 pb-10 px-4 px-md-6 px-xl-8">
                             <h2 class="fwSemiBold h3Medium mb-4">Laissez votre message</h2>
-                            <form action="#" class="commentForm">
+                            <form action="{% url 'web:contact1' %}" method="POST" class="commentForm">
+                                {% csrf_token %}
                                 <div class="row mx-n2">
                                     <div class="col-12 col-sm-6 col-md-12 col-lg-6 px-2">
                                         <div class="form-group">
-                                            <input type="text" class="form-control d-block w-100" placeholder="Nom">
+                                            <input type="text" name="nom" required class="form-control d-block w-100" placeholder="Nom">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-12 col-lg-6 px-2">
                                         <div class="form-group">
-                                            <input type="email" class="form-control d-block w-100" placeholder="Email">
+                                            <input type="email" name="email" required class="form-control d-block w-100" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-12 px-2">
                                         <div class="form-group">
-                                            <input type="text" class="form-control d-block w-100" placeholder="Sujet">
+                                            <input type="text"name="sujet" required class="form-control d-block w-100" placeholder="Sujet">
                                         </div>
                                     </div>
                                     <div class="col-12 px-2">
                                         <div class="form-group">
-                                            <textarea class="form-control w-100 d-block" placeholder="Ecrivez votre message&hellip;"></textarea>
+                                            <textarea required name="message" class="form-control w-100 d-block" placeholder="Ecrivez votre message&hellip;"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btnTheme d-flex font-weight-bold text-capitalize position-relative border-0 p-0 mt-2 btnWidthSmall" data-hover="Envoyez">
+                                <!-- <button type="button" class="btn btnTheme d-flex font-weight-bold text-capitalize position-relative border-0 p-0 mt-2 btnWidthSmall" data-hover="Envoyez">
                                     <span class="d-block btnText" style="background-color: #BB0505;">Envoyer le Message</span>
-                                </button>
+                                </button> -->
+                                <input type="submit" name="contact" class="btn btnTheme d-flex font-weight-bold text-capitalize position-relative border-0 p-0 mt-2 btnWidthSmall p-2" style="background-color: green;color: antiquewhite;"  value="Envoyer le Message" />
                             </form>
                         </div>
                     </div>

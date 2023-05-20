@@ -7,10 +7,15 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from datetime import datetime
 from comptes.models import Depute
 from .models import Annonce, LoiAdoptee
+from django.conf import settings
 import random
+from django.template.loader import render_to_string
 from .models import Picture, TravauxCommission
 from web.models import ImageAssociee
 from comptes.models import ArticlePresident
+from django.utils.html import strip_tags
+from django.contrib import messages
+from django.core.mail import send_mail
 # Create your views here.
 
 def historique(request):
@@ -134,10 +139,26 @@ def Membre(request):
     return render(request,'web/Membre_du_bureau.html', context)
 
 def contact1(request):
+    if "contact" in request.POST:
+        nom = request.POST['nom']
+        sujet = request.POST['sujet']
+        email = request.POST['email']
+        message = request.POST['message']
+        subject = "Contact"
+        template = 'web/contactEmail.html'
+        context = {'nom': nom, 'sujet':sujet, 'email':email, 'message':message}
+        html_message = render_to_string(template, context)
+        plain_message = strip_tags(html_message)  # Version texte brut du message
+        recipient_list = [settings.EMAIL_HOST_USER]
+        try:
+            send_mail(subject, plain_message, email, recipient_list, html_message=html_message)                
+            messages.success(request, "Message envoyé avec succès !")
+        
+        except:
+            messages.error(request, "Un problème est survenu, vérifiez votre connexion peut être")
+        
     return render(request,'web/contact1.html')
 
-def contact2(request):
-    return render(request,'web/contact2.html')
 
 def calendrierS(request):
     return render(request,'web/Calendrier_des_session.html')
