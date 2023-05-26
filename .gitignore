@@ -3,3 +3,7 @@ db.sqlite3
 comptes/migrations/
 forums/migrations/
 web/migrations/
+assemblee_nationale/__pycache__
+comptes/__pycache__
+foums/__pycache__
+web/__pycache__
